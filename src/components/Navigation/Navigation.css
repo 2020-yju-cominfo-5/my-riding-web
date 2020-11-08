@@ -1,0 +1,18 @@
+.header {
+  background-color: #3773d4;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title a {
+  font-family: Nikkyou-Sans;
+  font-size: 45px;
+  color: #ffffff;
+}
+
+.title a,
+.menu a {
+  text-decoration: none;
+  line-height: 90px;
+}

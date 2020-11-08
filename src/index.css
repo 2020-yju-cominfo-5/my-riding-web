@@ -3,6 +3,12 @@
   src: url(./fonts/Nikkyou-Sans.ttf) format("truetype");
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap");
+
 body {
   margin: 0;
+  background-color: #f7f7fa;
 }
+
+/* font-family: 'Noto Sans', sans-serif;
+font-family: 'Roboto', sans-serif; */
