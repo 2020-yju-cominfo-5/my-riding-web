@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import TitleBar from "./components/navbar/TitleBar";
+import Navigation from "./components/Navigation";
 
 function App() {
+  localStorage.setItem("isLogin", true);
+  // localStorage.removeItem("isLogin");
+
   return (
     <div className="App">
       <BrowserRouter>
-        <TitleBar />
+        <Navigation />
       </BrowserRouter>
     </div>
   );
