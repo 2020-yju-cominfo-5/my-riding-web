@@ -17,6 +17,84 @@
   border-radius: 30px 30px 0 0;
 }
 
+.profileImg-section .profileImg-title {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.profileImg-section .img-wrapper {
+  /* width: ; */
+  margin: 0 auto;
+}
+.profileImg-section .img-wrapper .upload-btn {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  right: 0;
+  bottom: 0;
+  background: url("../../img/Home/btnUpload.png") center/70px no-repeat;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.profileImg-section .img-wrapper .upload-btn:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
 .profileInfo-section {
   height: 350px;
+}
+
+.profileInfo-wrapper {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+  padding: 60px 0;
+  padding-left: 20px;
+}
+
+.profileInfo-wrapper li {
+  margin-bottom: 30px;
+}
+
+.profileInfo-wrapper li span {
+  font-size: 22px;
+}
+
+.profileInfo-wrapper li .profile-txt {
+  display: inline-block;
+  width: 50%;
+  color: #5e5e5e;
+  font-weight: 300;
+}
+
+.profileInfo-wrapper li .profileInfo {
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+.profileChange-btn {
+  width: 70px;
+  height: 35px;
+  /* margin: 26px 201px 30px 119px; */
+  /* padding: 8px 20px 7px 21px; */
+  border-radius: 10px;
+  border: none;
+  background-color: #3773d4;
+  outline: none;
+  cursor: pointer;
+  font-family: "Noto Sans";
+  font-size: 17px;
+  line-height: 1.18;
+  color: #ffffff;
+}
+
+.profileChange-btn:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }

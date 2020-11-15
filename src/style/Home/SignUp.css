@@ -128,14 +128,14 @@
   padding-top: 160px;
 }
 
-.img-section .img-wrapper {
+.img-wrapper {
   position: relative;
   width: 250px;
   height: 250px;
   margin: 0 50px;
 }
 
-.img-section .img-wrapper .img {
+.img-wrapper .img {
   box-sizing: border-box;
   position: absolute;
   background: url("../../img/profileTest.jpg") center/250px no-repeat;
