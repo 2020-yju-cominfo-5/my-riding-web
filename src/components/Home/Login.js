@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import "../../style/Home/Login.css";
 
 function Login() {
   return (
@@ -16,21 +16,21 @@ function Login() {
         <div className="login-social">
           <div className="icons">
             <div className="icon">
-              <i className="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f" />
             </div>
             <div className="icon">
-              <i className="fab fa-google"></i>
+              <i className="fab fa-google" />
             </div>
           </div>
         </div>
         <div className="login-form">
           <div className="id">
             <input type="text" placeholder="아이디" />
-            <i className="fas fa-user"></i>
+            <i className="fas fa-user" />
           </div>
           <div className="password">
             <input type="password" placeholder="비밀번호" />
-            <i className="fas fa-lock"></i>
+            <i className="fas fa-lock" />
           </div>
         </div>
         <div className="login-bottom">
@@ -40,10 +40,10 @@ function Login() {
           <button className="login-btn">로그인</button>
         </div>
       </div>
-      <div className="signup-section">
-        <p className="signup-title">라이더님, 안녕하세요!</p>
-        <p className="signup-body">아직 회원이 아니신가요?</p>
-        <Link to="/signup" className="signup-btn">
+      <div className="loginSub-section">
+        <p className="loginSub-title">라이더님, 안녕하세요!</p>
+        <p className="loginSub-body">아직 회원이 아니신가요?</p>
+        <Link to="/signup" className="loginSub-btn">
           회원가입
         </Link>
       </div>

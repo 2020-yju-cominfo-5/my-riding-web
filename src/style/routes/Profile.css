@@ -1,0 +1,22 @@
+.profile {
+  width: 600px;
+  height: 800px;
+  margin: 50px auto;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+}
+
+.profile div {
+  box-sizing: border-box;
+}
+
+.profileImg-section {
+  height: 450px;
+  border: 1px solid blue;
+  background-color: #3773d4;
+  border-radius: 30px 30px 0 0;
+}
+
+.profileInfo-section {
+  height: 350px;
+}

@@ -1,9 +1,10 @@
 .login {
-  margin: 11% auto;
+  margin: 150px auto;
   width: 1000px;
   height: 600px;
   border-radius: 30px;
   background-color: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
 }
 
 .login div {
@@ -118,7 +119,6 @@
   padding-left: 70px;
   border-radius: 500px;
   border: solid 1px #d5d5d5;
-  color: #d5d5d5;
   font-size: 15px;
   outline: none;
 }
@@ -159,24 +159,56 @@
   cursor: pointer;
 }
 
-.login-bottom .login-btn:hover {
-  transition: 0.5s;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-}
-
-.img-section {
+.loginSub-section {
   width: 350px;
   height: 600px;
   background-color: #3773d4;
-  border-radius: 30px 0 0 30px;
+  border-radius: 0 30px 30px 0;
   box-sizing: border-box;
   padding-top: 160px;
 }
 
-.img-section .img {
-  border: 10px solid #ffffff;
-  width: 250px;
-  height: 250px;
-  border-radius: 100%;
+.loginSub-title,
+.loginSub-body,
+.loginSub-btn {
   margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-family: "Noto Sans";
+}
+
+.loginSub-title,
+.loginSub-body {
+  color: #f7f7fa;
+  margin-bottom: 50px;
+}
+
+.loginSub-title {
+  width: 190px;
+  height: 98px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.loginSub-body {
+  font-size: 15px;
+}
+
+.loginSub-btn {
+  box-sizing: border-box;
+  width: 200px;
+  height: 60px;
+  border-radius: 500px;
+  text-decoration: none;
+  font-size: 25px;
+  line-height: 58px;
+  background-color: #ffffff;
+  color: #3773d4;
+}
+
+.loginSub-btn:hover,
+.login-bottom .login-btn:hover {
+  transition: 0.5s;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }

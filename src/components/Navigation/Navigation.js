@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "./Title";
 import Menu from "./Menu";
-import "./Navigation.css";
+import "../../style/Navigation/Navigation.css";
 
 function Navigation() {
   // TODO check Login

@@ -20,7 +20,7 @@
   color: #8ebbff;
   font-family: "Noto Sans", sans-serif;
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .menu-selected a {
@@ -32,40 +32,39 @@
   color: #f7f7fa;
 }
 
-.profile {
+.menu-profile {
   float: right;
   width: 100px;
   height: 90px;
   position: relative;
 }
 
-.profile a,
-.profile div {
+.menu-profile a,
+.menu-profile div {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.profile .profile-img {
+.menu-profile .profile-img {
   display: block;
-  background-color: black;
+  /* background-color: black; */
+  background: url("../../img//profileTest.jpg") center/45px no-repeat;
   width: 45px;
   height: 45px;
   border-radius: 100%;
   border: 3px solid #f7f7fa;
 }
 
-.profile .profile-btn {
-  background-image: url("../../img/Navigation/downArrow.png");
-  background-position: center;
-  background-repeat: no-repeat;
+.menu-profile .profile-btn {
+  background: url("../../img/Navigation/downArrow.png") center/20px no-repeat;
   width: 20px;
   height: 20px;
   right: 0%;
   cursor: pointer;
 }
 
-.profile .profile-menu {
+.menu-profile .profile-menu {
   background-color: #f7f7fa;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
   width: 100px;
@@ -75,13 +74,13 @@
   visibility: hidden;
 }
 
-.profile .profile-menu p {
+.menu-profile .profile-menu p {
   line-height: 30px;
   color: #777777;
   cursor: pointer;
 }
 
-.profile .profile-menu p:hover {
+.menu-profile .profile-menu p:hover {
   color: #000;
   transition: 0.5s;
 }

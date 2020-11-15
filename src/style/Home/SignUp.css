@@ -1,0 +1,163 @@
+.signup {
+  margin: 150px auto;
+  width: 1000px;
+  height: 600px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+}
+
+.signup div {
+  float: left;
+}
+
+.signup-section {
+  width: 650px;
+  height: 600px;
+  padding: 60px 0;
+}
+
+.signup-section > div {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 0 150px;
+}
+
+.signup-header {
+  margin-bottom: 20px;
+}
+
+.signup-header .title {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #3773d4;
+  margin-bottom: 15px;
+}
+
+.signup-form div {
+  position: relative;
+}
+
+.signup-form .fas {
+  position: absolute;
+  left: 2px;
+  width: 70px;
+  line-height: 55px;
+  font-size: 25px;
+  color: #d5d5d5;
+}
+
+.signup-form .id,
+.signup-form .password,
+.signup-form .password-check,
+.signup-form .nickname {
+  margin-bottom: 10px;
+}
+
+.signup-form input {
+  width: 345px;
+  height: 55px;
+  box-sizing: border-box;
+  padding-left: 70px;
+  border-radius: 500px;
+  border: solid 1px #d5d5d5;
+  font-size: 15px;
+  outline: none;
+}
+
+.signup-form input:focus {
+  color: black;
+  /* border: 1px solid #3773d4; */
+  box-shadow: 0 0 8px 0 #3773d4;
+  transition: 0.5s;
+}
+
+.signup-form input:focus + .fas {
+  color: #3773d4;
+}
+
+.signup-bottom a {
+  text-decoration-color: #3773d4;
+}
+
+.signup-bottom .signup-msg {
+  height: 25px;
+  line-height: 25px;
+  font-family: "Noto Sanss";
+  font-size: 15px;
+  margin: 20px 0;
+  color: #ff1010;
+}
+
+.signup-bottom .signup-btn,
+.signup-bottom .signupCancel-btn {
+  width: 160px;
+  height: 55px;
+  box-sizing: border-box;
+  border-radius: 500px;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.signup-bottom .signup-btn {
+  background-color: #3773d4;
+}
+
+.signup-bottom .signupCancel-btn {
+  background-color: #5e5e5e;
+}
+
+.signup-bottom .signup-btn:hover,
+.signup-bottom .signupCancel-btn:hover {
+  transition: 0.5s;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.img-section {
+  width: 350px;
+  height: 600px;
+  background-color: #3773d4;
+  border-radius: 30px 0 0 30px;
+  box-sizing: border-box;
+  padding-top: 160px;
+}
+
+.img-section .img-wrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 50px;
+}
+
+.img-section .img-wrapper .img {
+  box-sizing: border-box;
+  position: absolute;
+  background: url("../../img/profileTest.jpg") center/250px no-repeat;
+  border: 10px solid #ffffff;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.img-section .img-wrapper .upload-btn {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  right: 0;
+  bottom: 0;
+  background: url("../../img/Home/btnUpload.png") center/70px no-repeat;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.img-section .img-wrapper .upload-btn:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}

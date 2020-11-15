@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useClick from "../../hooks/useClick";
-import "./Menu.css";
+import "../../style/Navigation/Menu.css";
 
 function Menu() {
   const showProfileMenu = () => {
@@ -25,7 +25,7 @@ function Menu() {
       <div className="menu menu-content">
         <Link to="/route">라이딩 경로</Link>
       </div>
-      <div className="profile">
+      <div className="menu-profile">
         <Link to="/profile" className="profile-img"></Link>
         <div className="profile-btn" ref={profileBtn}></div>
         <div className="profile-menu">

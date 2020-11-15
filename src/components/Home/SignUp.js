@@ -1,48 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./SignUp.css";
+import { Redirect } from "react-router-dom";
+import "../../style/Home/SignUp.css";
 
 function SignUp() {
+  // TODO check login
+  const isLogin = localStorage.getItem("isLogin");
+  if (isLogin) {
+    return <Redirect path="*" to="/" />;
+  }
+
   return (
-    <div className="login">
+    <div className="signup">
       <div className="img-section">
-        <div className="img"></div>
-        <div className="upload-btn"></div>
+        <div className="img-wrapper">
+          <div className="img"></div>
+          <div className="upload-btn"></div>
+        </div>
       </div>
 
-      <div className="login-section">
-        <div className="login-header">
-          <p className="title">LOGIN</p>
-          <p className="subTitle">
-            <span>회원가입 안전한 라이딩을 위한 </span>
-            <span>My Riding</span>
-          </p>
+      <div className="signup-section">
+        <div className="signup-header">
+          <p className="title">SIGN UP</p>
         </div>
-        <div className="login-social">
-          <div className="icons">
-            <div className="icon">
-              <i className="fab fa-facebook-f"></i>
-            </div>
-            <div className="icon">
-              <i className="fab fa-google"></i>
-            </div>
-          </div>
-        </div>
-        <div className="login-form">
+        <div className="signup-form">
           <div className="id">
             <input type="text" placeholder="아이디" />
-            <i className="fas fa-user"></i>
+            <i className="fas fa-user" />
           </div>
           <div className="password">
             <input type="password" placeholder="비밀번호" />
-            <i className="fas fa-lock"></i>
+            <i className="fas fa-lock" />
+          </div>
+          <div className="password-check">
+            <input type="password" placeholder="비밀번호 확인" />
+            <i className="fas fa-check" />
+          </div>
+          <div className="nickname">
+            <input type="text" placeholder="닉네임" />
+            <i className="fas fa-signature" />
           </div>
         </div>
-        <div className="login-bottom">
-          <Link to="/">
-            <p className="login-reset">비밀번호를 잊으셨나요?</p>
-          </Link>
-          <button className="login-btn">로그인</button>
+        <div className="signup-bottom">
+          <p className="signup-msg">
+            아이디는 영어 + 숫자 조합 8 ~ 15자만 입력 가능합니다.
+          </p>
+          <button className="signup-btn">회원가입</button>
+          <button className="signupCancel-btn">다시입력</button>
         </div>
       </div>
     </div>
