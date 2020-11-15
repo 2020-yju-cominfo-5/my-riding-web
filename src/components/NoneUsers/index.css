@@ -1,0 +1,48 @@
+.non-users {
+  width: 1000px;
+  height: 600px;
+  margin: 150px auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 30px;
+}
+
+.non-users > div {
+  width: 100%;
+  height: 100%;
+}
+
+.non-users > div > div {
+  float: left;
+}
+
+.non-users .main {
+  box-sizing: border-box;
+  width: 650px;
+  height: 600px;
+}
+
+.non-users .sub {
+  box-sizing: border-box;
+  width: 350px;
+  height: 600px;
+  background-color: #3773d4;
+}
+
+.non-users .main > div,
+.non-users .main > form {
+  width: 70%;
+  border: 1px solid red;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.non-users .main .header {
+  margin-top: 60px;
+}
+
+.non-users .main .header .title {
+  font-family: Roboto;
+  font-size: 60px;
+  font-weight: 900;
+  color: #3773d4;
+}
