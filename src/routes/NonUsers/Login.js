@@ -21,7 +21,7 @@ function Login() {
             </div>
           </div>
         </div>
-        <form className="login">
+        <div className="form">
           <div className="id">
             <input type="text" placeholder="아이디" />
             <i className="fas fa-user" />
@@ -30,18 +30,18 @@ function Login() {
             <input type="password" placeholder="비밀번호" />
             <i className="fas fa-lock" />
           </div>
-        </form>
+        </div>
         <div className="bottom">
           <Link to="/" className="password-reset">
             비밀번호를 잊으셨나요?
           </Link>
-          <button className="login-btn">로그인</button>
+          <button className="login-btn btn">로그인</button>
         </div>
       </div>
       <div className="sub">
         <div className="title">라이더님, 안녕하세요!</div>
         <div className="body">아직 회원이 아니신가요?</div>
-        <Link to="/signup" className="btn">
+        <Link to="/signup" className="toSignup-btn btn">
           회원가입
         </Link>
       </div>
