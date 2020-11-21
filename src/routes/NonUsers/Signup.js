@@ -6,13 +6,6 @@ import axios from "axios";
 
 const BASE_URL = "http://127.0.0.1:8000/api";
 
-let validateResult = {
-  id: false,
-  password: false,
-  passwordConfirm: false,
-  nickName: false,
-};
-
 const Signup = ({ history }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +24,9 @@ const Signup = ({ history }) => {
     id: /^[a-z]+[a-z0-9]{5,15}$/g,
     password: /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
     nickName: /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,20}$/,
-  };
+  }; // -->>
+
+  // <<-- Hooks : useInput 등록
   const validateInputValue = {
     id: (value) => {
       const isCheckedId = pattern.id.test(value);
@@ -57,35 +52,20 @@ const Signup = ({ history }) => {
     },
   }; // -->>
 
-  // <<-- onChange 이벤트
-  const onChange = {
-    id: ({ target }) => {
-      validateResult.id = validateInputValue.id(target.value);
-      setId(target.value);
-    },
-    password: ({ target }) => {
-      validateResult.password = validateInputValue.password(target.value);
-      setPassword(target.value);
-    },
-    passwordConfirm: ({ target }) => {
-      validateResult.passwordConfirm = validateInputValue.passwordConfirm(
-        target.value,
-      );
-      setPasswordConfirm(target.value);
-    },
-    nickName: ({ target }) => {
-      validateResult.nickName = validateInputValue.nickName(target.value);
-      setNickName(target.value);
-    },
+  const checkValue = {
+    id: useInput("", validateInputValue.id),
+    password: useInput("", validateInputValue.password),
+    passwordConfirm: useInput("", validateInputValue.passwordConfirm),
+    nickName: useInput("", validateInputValue.nickName),
   }; // -->>
 
-  // <<-- onClick 이벤트
+  // <<-- Hooks : useClick 등록
   const onSubmitHandler = () => {
     if (
-      validateResult.id &&
-      validateResult.password &&
-      validateResult.passwordConfirm &&
-      validateResult.nickName
+      checkValue.id &&
+      checkValue.password &&
+      checkValue.passwordConfirm &&
+      checkValue.nickName
     ) {
       axios
         .post(`${BASE_URL}/signup`, {
@@ -118,17 +98,9 @@ const Signup = ({ history }) => {
     setPasswordConfirm("");
     setNickName("");
     setWarningMsg("");
-  }; // -->>
-
-  // <<-- hooks 등록
+  };
   const submitBtn = useClick(onSubmitHandler);
-  const resetBtn = useClick(onResetHandler);
-  const checkValue = {
-    id: useInput("", validateInputValue.id),
-    password: useInput("", validateInputValue.password),
-    passwordConfirm: useInput("", validateInputValue.passwordConfirm),
-    nickName: useInput("", validateInputValue.nickName),
-  }; // -->>
+  const resetBtn = useClick(onResetHandler); // -->>
 
   return (
     <div className="signup">
