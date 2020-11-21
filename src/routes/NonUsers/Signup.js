@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./Signup.css";
 
-function Signup() {
+const Signup = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [nickName, setNickName] = useState("");
   const [warningMsg, setWarningMsg] = useState("");
   const msgs = {
-    id: "아이디는 영문, 숫자 조합 5 ~ 15 글자로 입력해주세요.",
-    password: "비밀번호는 문자, 숫자, 특수문자 조합 8자이상 입력해주세요.",
+    id: "아이디는 영문, 숫자 조합 6 ~ 15 글자로 입력해주세요.",
+    password: "비밀번호는 문자, 숫자, 특수문자 조합 8자 이상 입력해주세요.",
     passwordConfirm: "비밀번호가 일치하지 않습니다.",
     nickName: "닉네임은 5 ~ 20 글자로 입력해주세요.",
   };
@@ -141,6 +141,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;

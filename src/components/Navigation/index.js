@@ -3,7 +3,7 @@ import "./index.css";
 import Title from "./Title";
 import Menu from "./Menu";
 
-function Navigation() {
+const Navigation = () => {
   // TODO 로그인 체크
   const isLogin = localStorage.getItem("isLogin");
 
@@ -12,6 +12,6 @@ function Navigation() {
       <div className="wrapper">{isLogin ? <Menu /> : <Title />}</div>
     </div>
   );
-}
+};
 
 export default Navigation;

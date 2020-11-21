@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Menu() {
+const Menu = () => {
   return (
     <>
       <Link to="/" className="nav-title">
@@ -29,6 +29,6 @@ function Menu() {
       </div>
     </>
   );
-}
+};
 
 export default Menu;

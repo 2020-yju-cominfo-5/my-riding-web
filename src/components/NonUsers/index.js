@@ -4,7 +4,7 @@ import Login from "../../routes/NonUsers/Login";
 import Signup from "../../routes/NonUsers/Signup";
 import "./index.css";
 
-function NoneUsers() {
+const NoneUsers = () => {
   return (
     <div className="non-users">
       <Route path="/" exact={true} component={Login} />
@@ -12,6 +12,6 @@ function NoneUsers() {
       <Redirect path="*" to="/" />
     </div>
   );
-}
+};
 
 export default NoneUsers;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Title() {
+const Title = () => {
   return (
     <>
       <Link
@@ -13,6 +13,6 @@ function Title() {
       </Link>
     </>
   );
-}
+};
 
 export default Title;

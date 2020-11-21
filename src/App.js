@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import NoneUsers from "./components/NoneUsers";
+import NoneUsers from "./components/NonUsers";
 import Users from "./components/Users";
 
-function App() {
+const App = () => {
   localStorage.setItem("isLogin", true);
   localStorage.removeItem("isLogin");
   const isLogin = localStorage.getItem("isLogin");
@@ -17,6 +17,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
