@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useClick } from "../../hooks";
+import useClick from "../../hooks/useClick";
+import useInput from "../../hooks/useInput";
 import "./Signup.css";
 import axios from "axios";
 
@@ -24,7 +25,7 @@ const Signup = ({ history }) => {
     id: "아이디는 영문, 숫자 조합 6 ~ 15 글자로 입력해주세요.",
     password: "비밀번호는 문자, 숫자, 특수문자 조합 8자 이상 입력해주세요.",
     passwordConfirm: "비밀번호가 일치하지 않습니다.",
-    nickName: "닉네임은 5 ~ 20 글자로 입력해주세요.",
+    nickName: "닉네임은 5 ~ 15 글자로 입력해주세요.",
   };
   const pattern = {
     id: /^[a-z]+[a-z0-9]{5,15}$/g,
@@ -78,6 +79,7 @@ const Signup = ({ history }) => {
     },
   }; // -->>
 
+  // <<-- onClick 이벤트
   const onSubmitHandler = () => {
     if (
       validateResult.id &&
@@ -116,10 +118,17 @@ const Signup = ({ history }) => {
     setPasswordConfirm("");
     setNickName("");
     setWarningMsg("");
-  };
+  }; // -->>
 
+  // <<-- hooks 등록
   const submitBtn = useClick(onSubmitHandler);
   const resetBtn = useClick(onResetHandler);
+  const checkValue = {
+    id: useInput("", validateInputValue.id),
+    password: useInput("", validateInputValue.password),
+    passwordConfirm: useInput("", validateInputValue.passwordConfirm),
+    nickName: useInput("", validateInputValue.nickName),
+  }; // -->>
 
   return (
     <div className="signup">
@@ -135,20 +144,14 @@ const Signup = ({ history }) => {
         </div>
         <div className="form">
           <div className="id">
-            <input
-              type="text"
-              placeholder="아이디"
-              value={id}
-              onChange={onChange.id}
-            />
+            <input type="text" placeholder="아이디" {...checkValue.id} />
             <i className="fas fa-user" />
           </div>
           <div className="password">
             <input
               type="password"
               placeholder="비밀번호"
-              value={password}
-              onChange={onChange.password}
+              {...checkValue.password}
             />
             <i className="fas fa-lock" />
           </div>
@@ -156,18 +159,12 @@ const Signup = ({ history }) => {
             <input
               type="password"
               placeholder="비밀번호 확인"
-              value={passwordConfirm}
-              onChange={onChange.passwordConfirm}
+              {...checkValue.passwordConfirm}
             />
             <i className="fas fa-check-circle" />
           </div>
           <div className="nickname">
-            <input
-              type="text"
-              placeholder="닉네임"
-              value={nickName}
-              onChange={onChange.nickName}
-            />
+            <input type="text" placeholder="닉네임" {...checkValue.nickName} />
             <i className="fas fa-address-card" />
           </div>
         </div>
