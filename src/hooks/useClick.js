@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const useClick = (onClick) => {
+export const useClick = (onClick) => {
   const element = useRef();
 
   useEffect(() => {
@@ -19,4 +19,3 @@ const useClick = (onClick) => {
   return element;
 };
 
-export default useClick;

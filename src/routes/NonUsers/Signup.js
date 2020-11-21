@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useClick from "../../hooks/useClick";
+import { useClick } from "../../hooks";
 import "./Signup.css";
 import axios from "axios";
 

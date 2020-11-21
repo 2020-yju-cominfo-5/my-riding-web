@@ -1,7 +1,7 @@
 import defaultAxios from "axios";
 import { useEffect, useState } from "react";
 
-const useAxios = (opts, menu, axiosInstance = defaultAxios) => {
+export const useAxios = (opts, menu, axiosInstance = defaultAxios) => {
   const [state, setstate] = useState({
     loading: true,
     error: null,
@@ -27,5 +27,3 @@ const useAxios = (opts, menu, axiosInstance = defaultAxios) => {
   }, [menu]);
   return { ...state, refetch };
 };
-
-export default useAxios;
