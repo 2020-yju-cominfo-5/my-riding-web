@@ -7,10 +7,6 @@ import axios from "axios";
 const BASE_URL = "http://127.0.0.1:8000/api";
 
 const Signup = ({ history }) => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [nickName, setNickName] = useState("");
   const [warningMsg, setWarningMsg] = useState("");
 
   // <<-- 유효성 검사
@@ -39,7 +35,7 @@ const Signup = ({ history }) => {
       return isCheckedPassword;
     },
     passwordConfirm: (value) => {
-      const isCheckedPasswordConfirm = password === value;
+      const isCheckedPasswordConfirm = checkValue.password.value === value;
       isCheckedPasswordConfirm
         ? setWarningMsg("")
         : setWarningMsg(msgs.passwordConfirm);
@@ -69,10 +65,10 @@ const Signup = ({ history }) => {
     ) {
       axios
         .post(`${BASE_URL}/signup`, {
-          id,
-          password,
-          passwordConfirm,
-          nickName,
+          id: checkValue.id.value,
+          password: checkValue.password.value,
+          passwordConfirm: checkValue.passwordConfirm.value,
+          nickName: checkValue.nickName.value,
         })
         .then((res) => {
           if (res.status === 201) {
@@ -83,7 +79,12 @@ const Signup = ({ history }) => {
           }
         })
         .catch((err) => {
-          alert(err.response.data.msg);
+          if (err.response) {
+            alert(err.response.data.msg);
+            return;
+          }
+          alert("서버 연결에 실패하였습니다.");
+          return;
         })
         .finally(() => {
           history.push("/");
@@ -93,10 +94,10 @@ const Signup = ({ history }) => {
     }
   };
   const onResetHandler = () => {
-    setId("");
-    setPassword("");
-    setPasswordConfirm("");
-    setNickName("");
+    checkValue.id.reset();
+    checkValue.password.reset();
+    checkValue.passwordConfirm.reset();
+    checkValue.nickName.reset();
     setWarningMsg("");
   };
   const submitBtn = useClick(onSubmitHandler);
