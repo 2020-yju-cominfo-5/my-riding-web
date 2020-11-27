@@ -7,7 +7,7 @@ import NotiBoard from "./Dashboard/NotiBoard";
 
 const Dashboard = () => {
   return (
-    <>
+    <div className="dashboard">
       <div className="dashboard-left">
         <ProfileMini />
         <GraphMini />
@@ -18,7 +18,7 @@ const Dashboard = () => {
         <p className="dashboard-title">라이딩 알림</p>
         <NotiBoard />
       </div>
-    </>
+    </div>
   );
 };
 
