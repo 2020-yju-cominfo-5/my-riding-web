@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProfileMini = () => {
-  return <div className="profile-mini">프로파일 미니입니다.</div>;
+  return <div className="profile-mini"></div>;
 };
 
 export default ProfileMini;
