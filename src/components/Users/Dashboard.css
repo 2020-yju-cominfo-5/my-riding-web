@@ -1,0 +1,14 @@
+.users .dashboard-left,
+.users .dashboard-right {
+  border: 1px solid blue;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.users .dashboard-left {
+  width: 300px;
+}
+
+.users .dashboard-right {
+  width: 900px;
+}

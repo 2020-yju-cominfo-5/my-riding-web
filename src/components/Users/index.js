@@ -1,14 +1,23 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import RidingRecord from "./RidingRecord";
+import RidingRoute from "./RidingRoute";
+import Profile from "./Profile";
+
+import "./index.css";
 
 const Users = () => {
   return (
-    <>
-      {/* <Route path="/login" component={Login} />
-      <Route path="/project" component={Project} />
-      <Route path="/stack" component={Stack} />
-      <Route path="/about" component={About} /> */}
-    </>
+    <div className="users">
+      <Switch>
+        <Route path="/" exact={true} component={Dashboard} />
+        <Route path="/record" component={RidingRecord} />
+        <Route path="/route" component={RidingRoute} />
+        <Route path="/Profile" component={Profile} />
+        <Redirect path="*" to="/" />
+      </Switch>
+    </div>
   );
 };
 
