@@ -2,7 +2,6 @@ import React from "react";
 import "./ProfileMini.css";
 
 const ProfileMini = () => {
-  // };
   return (
     <div className="profile-mini">
       <div className="user-img"></div>

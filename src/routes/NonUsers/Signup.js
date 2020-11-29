@@ -19,7 +19,7 @@ const Signup = ({ history }) => {
   const pattern = {
     id: /^[a-z]+[a-z0-9]{5,15}$/g,
     password: /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-    nickName: /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,20}$/,
+    nickName: /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,15}$/,
   }; // -->>
 
   // <<-- Hooks : useInput 등록
