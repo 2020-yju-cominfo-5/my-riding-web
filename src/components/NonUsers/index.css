@@ -4,6 +4,7 @@
   margin: 150px auto;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
   border-radius: 30px;
+  background-color: #ffffff;
 }
 
 .non-users > div {
@@ -41,7 +42,7 @@
 }
 
 .non-users .main .header .title {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 60px;
   font-weight: 900;
   color: #3773d4;
@@ -55,11 +56,11 @@
 }
 
 .non-users .main .header .sub-title span:first-child {
-  font-family: "Noto Sans";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .non-users .main .header .sub-title span:last-child {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 .non-users input {
@@ -117,7 +118,7 @@
 .non-users .sub div {
   margin: 0 auto;
   text-align: center;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans", sans-serif;
   color: #ffffff;
 }
 

@@ -1,0 +1,89 @@
+/* 메인 영역 설정 */
+.users .dashboard-left,
+.users .dashboard-right {
+  float: left;
+}
+
+.users .dashboard-left > div,
+.users .dashboard-right > div {
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.users .dashboard-left {
+  width: 300px;
+}
+
+.users .dashboard-right {
+  width: 900px;
+}
+
+/* 컴포넌트 영역 설정 */
+.users .dashboard-left .profile-mini {
+  width: 280px;
+  height: 280px;
+  margin-top: 65px;
+  margin-bottom: 30px;
+}
+
+.users .dashboard-left .profile-mini,
+.users .dashboard-left .graph-mini,
+.users .dashboard-right .graph {
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
+}
+
+.users .dashboard-left .graph-mini {
+  width: 280px;
+  height: 400px;
+  background-color: #ffffff;
+}
+
+.users .dashboard-right .graph {
+  width: 790px;
+  height: 350px;
+  /* height: 350px; */
+  background-color: #ffffff;
+}
+
+.users .dashboard-right .dashboard-title {
+  line-height: 65px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+.users .dashboard-right .noti-board {
+  width: 800px;
+  height: 300px;
+  background: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-left: 20px;
+  /* margin-left: 60px; */
+}
+
+.users .dashboard-right .noti-board::-webkit-scrollbar {
+  width: 10px;
+}
+
+.users .dashboard-right .noti-board::-webkit-scrollbar-thumb {
+  background-color: #373a44;
+  border-radius: 10px;
+}
+
+.users .dashboard-right .noti-board::-webkit-scrollbar-track {
+  background-color: #e1e1ea;
+  border-radius: 10px;
+}
+
+.users .dashboard-right .noti-item {
+  height: 90px;
+  margin: 8px auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 8px;
+}

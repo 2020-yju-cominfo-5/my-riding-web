@@ -9,7 +9,7 @@
   margin: 0 auto 20px auto;
   width: 500px;
   height: 20px;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans", sans-serif;
   font-size: 17px;
   line-height: 1.2;
   color: #ff1010;
@@ -19,7 +19,7 @@
   width: 250px;
   margin: 0 10px;
   color: white;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .non-users .signup .signup-btn {

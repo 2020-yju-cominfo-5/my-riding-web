@@ -4,6 +4,7 @@
   line-height: 80px;
   background-color: #3773d4;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .navigation .wrapper {
@@ -106,4 +107,3 @@
 .nav-profile .logout:hover {
   visibility: visible;
 }
-
