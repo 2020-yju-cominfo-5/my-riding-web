@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./Navigation.css";
 import Title from "./Title";
 import Menu from "./Menu";
 

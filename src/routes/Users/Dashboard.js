@@ -1,9 +1,9 @@
 import React from "react";
 import "./Dashboard.css";
-import ProfileMini from "./Dashboard/ProfileMini";
-import GraphMini from "./Dashboard/GraphMini";
-import Graph from "./Dashboard/Graph";
-import NotiBoard from "./Dashboard/NotiBoard";
+import ProfileMini from "../../components/Users/Dashboard/ProfileMini";
+import GraphMini from "../../components/Users/Dashboard/GraphMini";
+import Graph from "../../components/Users/Dashboard/Graph";
+import NotiBoard from "../../components/Users/Dashboard/NotiBoard";
 
 const Dashboard = () => {
   return (

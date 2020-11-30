@@ -1,11 +1,10 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import RidingRecord from "./RidingRecord";
-import RidingRoute from "./RidingRoute";
-import Profile from "./Profile";
-
-import "./index.css";
+import Dashboard from "../../routes/Users/Dashboard";
+import RidingRecord from "../../routes/Users/RidingRecord";
+import RidingRoute from "../../routes/Users/RidingRoute";
+import Profile from "../../routes/Users/Profile";
+import "./Users.css";
 
 const Users = () => {
   return (
