@@ -1,0 +1,175 @@
+.record-home {
+  height: 700px;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.header > div {
+  position: absolute;
+}
+
+.header .dropdown-section {
+  width: 140px;
+  height: 200px;
+  overflow: visible;
+}
+
+.header .dropdown-section .Dropdown-root {
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  color: #2f2f2f;
+}
+
+.header .dropdown-section .Dropdown-arrow {
+  margin-top: 5px;
+  height: 100px;
+}
+
+.header .dropdown-txt {
+  box-sizing: border-box;
+  width: 40px;
+  height: 42px;
+  line-height: 42px;
+  font-size: 20px;
+  left: 130px;
+}
+
+.header .legend-section {
+  width: 240px;
+  right: 40px;
+}
+
+.header .legend-section li {
+  /* border: 1px solid red; */
+  display: inline-block;
+  height: 50px;
+  width: 76px;
+  line-height: 80px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+}
+
+.header .legend-section li::before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 1px;
+}
+
+.header .legend-section li:nth-child(1) {
+  color: #ffbf00;
+}
+.header .legend-section li:nth-child(1)::before {
+  background-color: #ffbf00;
+}
+
+.header .legend-section li:nth-child(2) {
+  color: #f56c8c;
+}
+.header .legend-section li:nth-child(2)::before {
+  background-color: #f56c8c;
+}
+
+.header .legend-section li:nth-child(3) {
+  color: #44a2eb;
+}
+.header .legend-section li:nth-child(3)::before {
+  background-color: #44a2eb;
+}
+
+.chart-section {
+  margin-top: 20px;
+}
+
+.chart-section .chart-title {
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  width: 1150px;
+}
+
+.chart-section .chart-title li {
+  display: inline-block;
+  line-height: 50px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+}
+
+.chart-section .chart-title li {
+  padding-right: 110px;
+}
+
+.chart-section .chart-title li:first-child {
+  width: 240px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.chart-section .chart-contents {
+  width: 1200px;
+  height: 550px;
+  /* border: 1px solid green; */
+  overflow: auto;
+  margin-right: 20px;
+}
+
+.chart-section .chart-contents::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chart-section .chart-contents::-webkit-scrollbar-thumb {
+  background-color: #373a44;
+  border-radius: 10px;
+}
+
+.chart-section .chart-contents::-webkit-scrollbar-track {
+  background-color: #e1e1ea;
+  border-radius: 10px;
+}
+
+.chart-section .chart-content {
+  overflow: auto;
+  width: 1150px;
+  height: 190px;
+  border-bottom: 1px solid #e1e1ea;
+}
+
+.chart-section .chart-content .chart-left {
+  height: 170px;
+  width: 240px;
+}
+
+.chart-section .chart-content .chart-left > div {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.chart-section .chart-content .chart-left .date {
+  margin: 20px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #2f2f2f;
+}
+
+.chart-section .chart-content .chart-left span {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chart-section .chart-content .chart-left .title {
+  color: #5e5e5e;
+  margin-right: 25px;
+}
+
+.chart-section .chart-content .chart-left .value {
+  color: #2f2f2f;
+  font-weight: 900;
+}

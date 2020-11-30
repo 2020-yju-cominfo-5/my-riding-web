@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import Login from "../../routes/NonUsers/Login";
 import Signup from "../../routes/NonUsers/Signup";
-import "./index.css";
+import "./NonUsers.css";
 
 const NoneUsers = () => {
   return (
