@@ -7,7 +7,7 @@ import "./List.css";
 
 const List = ({ match }) => {
   const { week } = match.params;
-  const recordData = {
+  const recordList = {
     id: week,
     date: "Oct 26 - Nov 1",
     distance: "00.0km",
@@ -79,7 +79,7 @@ const List = ({ match }) => {
     <>
       <Title title="주간 라이딩 일지" />
       <div className="record-list">
-        <ChartStats data={recordData} />
+        <ChartStats data={recordList} />
         <div className="list">
           <ul className="record-title">
             <li>날짜</li>
@@ -90,13 +90,13 @@ const List = ({ match }) => {
             <li>&nbsp;</li>
           </ul>
           <ul className="records">
-            {recordData.list.map(
+            {recordList.list.map(
               ({ id, date, title, distance, time, score }) => {
                 return (
                   <li key={id}>
                     <span>{date}</span>
                     <span>
-                      <Link>{title}</Link>
+                      <Link to={`/record/show/${id}`}>{title}</Link>
                     </span>
                     <span>{distance}</span>
                     <span>{time}</span>
@@ -106,7 +106,7 @@ const List = ({ match }) => {
                     </span>
                     {/* onClick 으로 수정 필요? vs 컴포넌트 호출 */}
                     <span>
-                      <Link>삭제</Link>
+                      <Link to={`/record`}>삭제</Link>
                     </span>
                   </li>
                 );

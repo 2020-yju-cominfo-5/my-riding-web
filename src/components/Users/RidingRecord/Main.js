@@ -19,7 +19,7 @@ const Main = () => {
   };
 
   // TODO 데이터셋 정의 필요
-  const recordData = [
+  const recordStats = [
     {
       id: "21",
       date: "Oct 26 - Nov 1",
@@ -86,7 +86,7 @@ const Main = () => {
             <li>일</li>
           </ul>
           <ul className="chart-contents">
-            {recordData.map((record) => {
+            {recordStats.map((record) => {
               const { id } = record;
               return <ChartStats key={id} data={record} />;
             })}

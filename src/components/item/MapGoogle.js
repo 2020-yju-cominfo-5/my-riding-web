@@ -1,7 +1,7 @@
 import React from "react";
 
-const GoogleMap = () => {
+const MapGoogle = () => {
   return <>구글맵</>;
 };
 
-export default GoogleMap;
+export default MapGoogle;
