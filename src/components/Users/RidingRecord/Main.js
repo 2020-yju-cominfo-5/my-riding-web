@@ -5,7 +5,6 @@ import "./Main.css";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { Link } from "react-router-dom";
 
 const Main = () => {
   const currentYear = new Date().getFullYear();
@@ -70,11 +69,9 @@ const Main = () => {
           </div>
           <div className="dropdown-txt">년</div>
           <div className="legend-section">
-            <ul>
-              <li>거리</li>
-              <li>시간</li>
-              <li>평균속도</li>
-            </ul>
+            <div>거리</div>
+            <div>시간</div>
+            <div>평균속도</div>
           </div>
         </div>
         <div className="chart-section">

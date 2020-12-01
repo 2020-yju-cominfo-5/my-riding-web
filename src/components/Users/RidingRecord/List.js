@@ -1,5 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Title from "../../item/Title";
+import ChartStats from "../../item/ChartStats";
 import "./List.css";
 
 const List = ({ match }) => {
@@ -61,42 +64,30 @@ const List = ({ match }) => {
         time: "00시간 00분",
         score: "062점",
       },
+      {
+        id: 18,
+        date: "2020년 10월 26일",
+        title: "새벽 라이딩",
+        distance: "3.2km",
+        time: "00시간 00분",
+        score: "062점",
+      },
     ],
   };
-  console.log(week);
+
   return (
     <>
       <Title title="주간 라이딩 일지" />
       <div className="record-list">
-        <div className="chart-content">
-          <div className="chart-left">
-            <div className="date">{recordData.date}</div>
-            <div className="distance">
-              <span className="title">총 거리</span>
-              <span className="value">{recordData.distance}</span>
-            </div>
-            <div className="time">
-              <span className="title">총 시간</span>
-              <span className="value">{recordData.time}</span>
-            </div>
-            <div className="avg-speed">
-              <span className="title">평균 속도</span>
-              <span className="value">{recordData.avgSpeed}</span>
-            </div>
-            <div className="score">
-              <span className="title">라이딩 점수</span>
-              <span className="value">{recordData.score}</span>
-            </div>
-          </div>
-          <div className="chart-right"></div>
-        </div>
-        <div className="record-list">
+        <ChartStats data={recordData} />
+        <div className="list">
           <ul className="record-title">
             <li>날짜</li>
             <li>제목</li>
             <li>거리</li>
             <li>시간</li>
             <li>라이딩 점수</li>
+            <li>&nbsp;</li>
           </ul>
           <ul className="records">
             {recordData.list.map(
@@ -104,13 +95,19 @@ const List = ({ match }) => {
                 return (
                   <li key={id}>
                     <span>{date}</span>
-                    {/* TODO Link 추가 */}
-                    <span>{title}</span>
+                    <span>
+                      <Link>{title}</Link>
+                    </span>
                     <span>{distance}</span>
                     <span>{time}</span>
-                    <span>{score}</span>
-                    {/* TODO Link 추가 */}
-                    <span>삭제</span>
+                    <span>
+                      <i className="fas fa-bolt"></i>
+                      {score}
+                    </span>
+                    {/* onClick 으로 수정 필요? vs 컴포넌트 호출 */}
+                    <span>
+                      <Link>삭제</Link>
+                    </span>
                   </li>
                 );
               },

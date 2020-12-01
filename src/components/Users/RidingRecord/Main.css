@@ -31,6 +31,7 @@
 }
 
 .header .dropdown-txt {
+  font-family: "Noto Sans", sans-serif;
   box-sizing: border-box;
   width: 40px;
   height: 42px;
@@ -40,20 +41,21 @@
 }
 
 .header .legend-section {
-  width: 240px;
+  width: 260px;
   right: 40px;
 }
 
-.header .legend-section li {
-  display: inline-block;
-  height: 50px;
-  width: 76px;
+.header .legend-section > div {
+  float: left;
+  /* display: inline-block; */
+  height: 10px;
+  width: 80px;
   line-height: 80px;
   font-family: "Noto Sans", sans-serif;
   font-weight: 600;
 }
 
-.header .legend-section li::before {
+.header .legend-section > div::before {
   content: " ";
   width: 10px;
   height: 10px;
@@ -62,24 +64,24 @@
   margin-bottom: 1px;
 }
 
-.header .legend-section li:nth-child(1) {
+.header .legend-section > div:nth-child(1) {
   color: #ffbf00;
 }
-.header .legend-section li:nth-child(1)::before {
+.header .legend-section > div:nth-child(1)::before {
   background-color: #ffbf00;
 }
 
-.header .legend-section li:nth-child(2) {
+.header .legend-section > div:nth-child(2) {
   color: #f56c8c;
 }
-.header .legend-section li:nth-child(2)::before {
+.header .legend-section > div:nth-child(2)::before {
   background-color: #f56c8c;
 }
 
-.header .legend-section li:nth-child(3) {
+.header .legend-section > div:nth-child(3) {
   color: #44a2eb;
 }
-.header .legend-section li:nth-child(3)::before {
+.header .legend-section > div:nth-child(3)::before {
   background-color: #44a2eb;
 }
 
@@ -93,7 +95,8 @@
   width: 1150px;
 }
 
-.chart-section .chart-title li {
+.chart-section .chart-title li,
+.record-title li {
   display: inline-block;
   line-height: 50px;
   font-family: "Noto Sans", sans-serif;
