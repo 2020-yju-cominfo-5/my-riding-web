@@ -1,6 +1,6 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
-import RecordHome from "../../components/Users/RidingRecord/Home";
+import { Route } from "react-router-dom";
+import RecordHome from "../../components/Users/RidingRecord/Main";
 import RecordList from "../../components/Users/RidingRecord/List";
 import RecordShow from "../../components/Users/RidingRecord/Show";
 

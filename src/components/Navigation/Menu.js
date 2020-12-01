@@ -7,7 +7,6 @@ const Menu = () => {
       <Link to="/" className="nav-title">
         マイライディング
       </Link>
-      {/* <div className="nav-title"></div> */}
       <div className="nav-menus">
         <Link to="/home" className="nav-menu">
           대시보드
@@ -22,7 +21,6 @@ const Menu = () => {
       <div className="nav-profile">
         <Link to="/profile" className="img" />
         <div className="dropdown"></div>
-        {/* <div className="btn-logout"></div> */}
         <Link to="/logout" className="logout">
           로그아웃
         </Link>
