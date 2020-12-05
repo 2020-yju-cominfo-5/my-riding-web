@@ -1,23 +1,23 @@
-.record-home {
+.users .record-home {
   height: 700px;
 }
 
-.header {
+.users .header {
   width: 100%;
   height: 50px;
   position: relative;
 }
 
-.header > div {
+.users .header > div {
   position: absolute;
 }
 
-.header .dropdown-section {
+.users .header .dropdown-section {
   width: 140px;
   overflow: visible;
 }
 
-.header .dropdown-section .Dropdown-root {
+.users .header .dropdown-section .Dropdown-root {
   width: 120px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -25,12 +25,12 @@
   color: #2f2f2f;
 }
 
-.header .dropdown-section .Dropdown-arrow {
+.users .header .dropdown-section .Dropdown-arrow {
   margin-top: 5px;
   height: 100px;
 }
 
-.header .dropdown-txt {
+.users .header .dropdown-txt {
   font-family: "Noto Sans", sans-serif;
   box-sizing: border-box;
   width: 40px;
@@ -40,12 +40,12 @@
   left: 130px;
 }
 
-.header .legend-section {
+.users .header .legend-section {
   width: 260px;
   right: 40px;
 }
 
-.header .legend-section > div {
+.users .header .legend-section > div {
   float: left;
   /* display: inline-block; */
   height: 10px;
@@ -55,7 +55,7 @@
   font-weight: 600;
 }
 
-.header .legend-section > div::before {
+.users .header .legend-section > div::before {
   content: " ";
   width: 10px;
   height: 10px;
@@ -64,56 +64,58 @@
   margin-bottom: 1px;
 }
 
-.header .legend-section > div:nth-child(1) {
+.users .header .legend-section > div:nth-child(1) {
   color: #ffbf00;
 }
-.header .legend-section > div:nth-child(1)::before {
+
+.users .header .legend-section > div:nth-child(1)::before {
   background-color: #ffbf00;
 }
 
-.header .legend-section > div:nth-child(2) {
+.users .header .legend-section > div:nth-child(2) {
   color: #f56c8c;
 }
-.header .legend-section > div:nth-child(2)::before {
+
+.users .header .legend-section > div:nth-child(2)::before {
   background-color: #f56c8c;
 }
 
-.header .legend-section > div:nth-child(3) {
+.users .header .legend-section > div:nth-child(3) {
   color: #44a2eb;
 }
-.header .legend-section > div:nth-child(3)::before {
+.users .header .legend-section > div:nth-child(3)::before {
   background-color: #44a2eb;
 }
 
-.chart-section {
+.users .chart-section {
   margin-top: 20px;
 }
 
-.chart-section .chart-title {
+.users .chart-section .chart-title {
   border-top: 1px solid #d5d5d5;
   border-bottom: 1px solid #d5d5d5;
   width: 1150px;
 }
 
-.chart-section .chart-title li,
-.record-title li {
+.users .chart-section .chart-title li,
+.users .record-title li {
   display: inline-block;
   line-height: 50px;
   font-family: "Noto Sans", sans-serif;
   font-size: 20px;
 }
 
-.chart-section .chart-title li {
+.users .chart-section .chart-title li {
   padding-right: 110px;
 }
 
-.chart-section .chart-title li:first-child {
+.users .chart-section .chart-title li:first-child {
   width: 240px;
   padding-left: 20px;
   box-sizing: border-box;
 }
 
-.chart-section .chart-contents {
+.users .chart-section .chart-contents {
   width: 1200px;
   height: 550px;
   /* border: 1px solid green; */
@@ -121,16 +123,16 @@
   margin-right: 20px;
 }
 
-.chart-section .chart-contents::-webkit-scrollbar {
+.users .chart-section .chart-contents::-webkit-scrollbar {
   width: 10px;
 }
 
-.chart-section .chart-contents::-webkit-scrollbar-thumb {
+.users .chart-section .chart-contents::-webkit-scrollbar-thumb {
   background-color: #373a44;
   border-radius: 10px;
 }
 
-.chart-section .chart-contents::-webkit-scrollbar-track {
+.users .chart-section .chart-contents::-webkit-scrollbar-track {
   background-color: #e1e1ea;
   border-radius: 10px;
 }
