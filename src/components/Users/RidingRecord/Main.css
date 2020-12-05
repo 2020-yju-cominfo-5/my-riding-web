@@ -1,0 +1,138 @@
+.users .record-home {
+  height: 700px;
+}
+
+.users .header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.users .header > div {
+  position: absolute;
+}
+
+.users .header .dropdown-section {
+  width: 140px;
+  overflow: visible;
+}
+
+.users .header .dropdown-section .Dropdown-root {
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  color: #2f2f2f;
+}
+
+.users .header .dropdown-section .Dropdown-arrow {
+  margin-top: 5px;
+  height: 100px;
+}
+
+.users .header .dropdown-txt {
+  font-family: "Noto Sans", sans-serif;
+  box-sizing: border-box;
+  width: 40px;
+  height: 42px;
+  line-height: 42px;
+  font-size: 20px;
+  left: 130px;
+}
+
+.users .header .legend-section {
+  width: 260px;
+  right: 40px;
+}
+
+.users .header .legend-section > div {
+  float: left;
+  /* display: inline-block; */
+  height: 10px;
+  width: 80px;
+  line-height: 80px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+}
+
+.users .header .legend-section > div::before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 1px;
+}
+
+.users .header .legend-section > div:nth-child(1) {
+  color: #ffbf00;
+}
+
+.users .header .legend-section > div:nth-child(1)::before {
+  background-color: #ffbf00;
+}
+
+.users .header .legend-section > div:nth-child(2) {
+  color: #f56c8c;
+}
+
+.users .header .legend-section > div:nth-child(2)::before {
+  background-color: #f56c8c;
+}
+
+.users .header .legend-section > div:nth-child(3) {
+  color: #44a2eb;
+}
+.users .header .legend-section > div:nth-child(3)::before {
+  background-color: #44a2eb;
+}
+
+.users .chart-section {
+  margin-top: 20px;
+}
+
+.users .chart-section .chart-title {
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  width: 1150px;
+}
+
+.users .chart-section .chart-title li,
+.users .record-title li {
+  display: inline-block;
+  line-height: 50px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+}
+
+.users .chart-section .chart-title li {
+  padding-right: 110px;
+}
+
+.users .chart-section .chart-title li:first-child {
+  width: 240px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.users .chart-section .chart-contents {
+  width: 1200px;
+  height: 550px;
+  /* border: 1px solid green; */
+  overflow: auto;
+  margin-right: 20px;
+}
+
+.users .chart-section .chart-contents::-webkit-scrollbar {
+  width: 10px;
+}
+
+.users .chart-section .chart-contents::-webkit-scrollbar-thumb {
+  background-color: #373a44;
+  border-radius: 10px;
+}
+
+.users .chart-section .chart-contents::-webkit-scrollbar-track {
+  background-color: #e1e1ea;
+  border-radius: 10px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navigation.css";
-import Title from "./Title";
+import NavTitle from "./NavTitle";
 import Menu from "./Menu";
 
 const Navigation = () => {
@@ -9,7 +9,7 @@ const Navigation = () => {
 
   return (
     <div className="navigation">
-      <div className="wrapper">{isLogin ? <Menu /> : <Title />}</div>
+      <div className="wrapper">{isLogin ? <Menu /> : <NavTitle />}</div>
     </div>
   );
 };
