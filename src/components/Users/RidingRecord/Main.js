@@ -57,7 +57,7 @@ const Main = () => {
   return (
     <>
       <Title title="라이딩 일지" />
-      <div className="record-home">
+      <div className="record-main">
         <div className="header">
           <div className="dropdown-section">
             <Dropdown
