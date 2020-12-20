@@ -8,6 +8,7 @@
 }
 .route-list .value-wrapper::-webkit-scrollbar {
   width: 10px;
+  margin-left: -100px;
 }
 
 .route-list .value-wrapper::-webkit-scrollbar-thumb {
@@ -27,6 +28,7 @@
 .route-list li {
   overflow: hidden;
   border-bottom: 1px solid #d5d5d5;
+  width: 99%;
 }
 
 .route-list li > div {
@@ -74,6 +76,7 @@
 }
 
 .route-list .title {
+  width: 98%;
   border-top: 1px solid #d5d5d5;
   box-sizing: border-box;
   height: 50px;
