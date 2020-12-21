@@ -5,6 +5,8 @@ import Title from "../../item/Title";
 import Chart from "../../item/ChartElevation";
 import Map from "../../item/MapRecord";
 
+import "./Show.css";
+
 const Show = ({ match }) => {
   const { id } = match.params;
   const recordData = {
@@ -13,8 +15,8 @@ const Show = ({ match }) => {
     date: "2020년 10월 23일",
     startAddress: "대구 동구 검사동 아양교",
     endAddress: "대구 동구 효동로2길 72 동촌유원지",
-    distance: "3.2km",
-    time: "13분",
+    distance: "3.2 km",
+    time: "13 분",
     avgSpeed: "11.0 km/h",
     maxSpeed: "20.0 km/h",
   };
@@ -31,14 +33,14 @@ const Show = ({ match }) => {
   return (
     <>
       <div className="record-show">
-        <div className="title">
+        <div className="header-title">
           <Title title={title} />
-          <span>
+          <div>
             <Link to="/record">수정</Link>
-          </span>
-          <span>
+          </div>
+          <div>
             <Link to="/route">경로 만들기</Link>
-          </span>
+          </div>
         </div>
         <div className="detail">
           <ul className="info">
