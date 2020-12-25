@@ -262,9 +262,7 @@ const RouteInfo = ({ id }) => {
           라이딩 경로 정보 상세보기 &gt;
         </Link>
       </div>
-      <div className="right">
-        {id} {path[0].lat}지도영역입니다.
-      </div>
+      <div className="right">[{id}] 지도 정보입니다.</div>
     </div>
   );
 };
