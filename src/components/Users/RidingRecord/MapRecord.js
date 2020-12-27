@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  Polyline,
+} from "@react-google-maps/api";
 
 const MapRecord = () => {
+  const containerStyle = {
+    width: "100%",
+    height: "100%",
+  };
   const path = [
     { lat: 35.896725779882495, lng: 128.61992229254435 },
     { lat: 35.89615433382256, lng: 128.62008322508524 },
@@ -19,10 +29,29 @@ const MapRecord = () => {
     { lat: 35.898843880165494, lng: 128.62286328546776 },
     { lat: 35.89912484675867, lng: 128.6224709873701 },
     { lat: 35.89849574981631, lng: 128.6194481378103 },
-    { lat: 35.89686907936648, lng: 128.61988967682927 },
   ];
-  
-  return <>기록 맵 영역입니다.</>;
+  const options = {
+    map: {
+      center: { lat: 35.89527, lng: 128.62256 },
+      disableDefaultUI: true,
+      zoom: 15,
+    },
+    polyline: {
+      strokeColor: "#32AF7B",
+      strokeWeight: 5,
+    },
+  };
+
+  return (
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}>
+      <GoogleMap mapContainerStyle={containerStyle} options={options.map}>
+        {/* {path.map((item, idx) => {
+          return <Marker key={idx} position={item}></Marker>;
+        })} */}
+        <Polyline path={path} options={options.polyline} />
+      </GoogleMap>
+    </LoadScript>
+  );
 };
 
 export default MapRecord;

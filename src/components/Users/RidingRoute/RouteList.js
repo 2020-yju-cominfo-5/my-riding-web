@@ -14,7 +14,7 @@ const RouteList = ({ routeList }) => {
           <div className="time">예상 시간</div>
           <div className="etc">&nbsp;</div>
           <div className="del-btn">&nbsp;</div>
-        </li>
+      </li>
         <div className="value-wrapper">
           {routeList.map((element) => {
             const { id, date, name, distance, time, like, count } = element;
