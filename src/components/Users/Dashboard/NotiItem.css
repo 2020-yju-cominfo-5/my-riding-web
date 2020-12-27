@@ -1,0 +1,71 @@
+.noti-item {
+  box-sizing: border-box;
+}
+
+.noti-item > div {
+  height: inherit;
+  float: left;
+}
+
+.noti-item .img {
+  width: 100px;
+  position: relative;
+  margin-right: 30px;
+}
+
+.noti-item .img .fas {
+  position: absolute;
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.noti-item .msg {
+  width: 500px;
+  position: relative;
+}
+
+.noti-item .msg .msg-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.noti-item .msg .msg-wrapper .txt {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  color: #5e5e5e;
+  text-align: center;
+}
+
+.noti-item .msg .msg-wrapper .txt a {
+  color: #5e5e5e;
+}
+
+.noti-item .date {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 13px;
+  height: 90px;
+  line-height: 90px;
+  color: #5e5e5e;
+  margin-left: 35px;
+}
+
+.noti-item .close-btn {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  margin: 10px 0 0 10px;
+  color: #dfdfdf;
+  cursor: pointer;
+}
+
+.noti-item .close-btn:hover {
+  color: #5e5e5e;
+  transition: 0.5s;
+}
