@@ -1,0 +1,112 @@
+.record-list {
+  padding: 20px;
+}
+
+.record-list li {
+  line-height: 50px;
+  height: 50px;
+}
+
+.record-list .chart-content {
+  height: 240px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding-left: 20px;
+  margin: -10px auto 50px auto;
+}
+
+.record-list .chart-content .chart-left .score {
+  text-align: center;
+  padding: 0;
+}
+
+.record-list .chart-content .chart-left .score span {
+  border-top: 1px solid #d5d5d5;
+  width: 45%;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.record-list .chart-content .chart-right {
+  margin: 35px 40px;
+}
+
+.record-list .record-title li,
+.record-list .records li > span {
+  text-align: center;
+  border-top: 1px solid #d5d5d5;
+}
+
+.record-list .record-title li:nth-child(1),
+.record-list .records li > span:nth-child(1) {
+  width: 230px;
+}
+
+.record-list .records li > span:nth-child(1) {
+  font-weight: 700;
+}
+
+.record-list .record-title li:nth-child(2),
+.record-list .records li > span:nth-child(2) {
+  width: 280px;
+}
+
+.record-list .record-title li:nth-child(3),
+.record-list .records li > span:nth-child(3) {
+  width: 140px;
+}
+
+.record-list .record-title li:nth-child(4),
+.record-list .records li > span:nth-child(4) {
+  width: 180px;
+}
+
+.record-list .record-title li:nth-child(5),
+.record-list .records li > span:nth-child(5) {
+  width: 160px;
+}
+
+.record-list .record-title li:nth-child(6),
+.record-list .records li > span:nth-child(6) {
+  width: 120px;
+}
+
+.record-list .records {
+  height: 290px;
+  overflow: auto;
+}
+
+.record-list .records::-webkit-scrollbar {
+  width: 10px;
+}
+
+.record-list .records::-webkit-scrollbar-thumb {
+  background-color: #373a44;
+  border-radius: 10px;
+}
+
+.record-list .records::-webkit-scrollbar-track {
+  background-color: #e1e1ea;
+  border-radius: 10px;
+}
+
+.record-list .records li {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+}
+.record-list .records .fas {
+  font-size: 20px;
+  color: #ffbf00;
+  margin-right: 15px;
+}
+
+.record-list .records li > span,
+.record-list .records li > span > a {
+  display: inline-block;
+}
+
+.record-list .records li > span > a {
+  text-decoration: none;
+  color: #1383c1;
+}

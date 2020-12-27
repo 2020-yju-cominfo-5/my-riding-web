@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Title = () => {
+const NavTitle = () => {
   return (
     <>
       <Link
@@ -15,4 +15,4 @@ const Title = () => {
   );
 };
 
-export default Title;
+export default NavTitle;
