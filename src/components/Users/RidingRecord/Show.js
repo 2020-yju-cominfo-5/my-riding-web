@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Title from "../../item/Title";
 import Chart from "../../item/ChartElevation";
-import Map from "../../item/MapRecord";
+import Map from "./MapRecord";
 
 import "./Show.css";
 
