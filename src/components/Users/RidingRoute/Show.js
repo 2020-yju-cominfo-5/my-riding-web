@@ -128,7 +128,7 @@ const Show = ({ match: { params } }) => {
               <div className="value">{distacne}km</div>
             </div>
             <div className="item">
-              <div className="title">예상시간</div>
+              <div className="title">예상 시간</div>
               <div className="value">{time}분</div>
             </div>
             <div className="item">

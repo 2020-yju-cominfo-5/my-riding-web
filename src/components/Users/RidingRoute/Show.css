@@ -1,5 +1,6 @@
 .route-show .fa-crown {
   color: #f5e040;
+  padding-left: 10px;
 }
 
 .route-show .header-title {
@@ -21,6 +22,10 @@
 
 .route-show .header-title .sub-title .fa-heart {
   color: red;
+}
+
+.route-show .header-title .sub-title .fa-biking {
+  color: #3774d3;
 }
 
 .route-show .header-title .sub-title .txt {
@@ -135,7 +140,8 @@
   font-family: "Noto Sans", sans-serif;
   font-weight: 700;
   color: #2f2f2f;
-  width: 130px;
+  width: 120px;
+  padding-left: 10px;
 }
 
 .route-show .section .info > .bottom .right .record-value .record .value {
