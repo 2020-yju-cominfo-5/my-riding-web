@@ -5,10 +5,8 @@ import {
   Marker,
   Polyline,
 } from "@react-google-maps/api";
-import { Bar } from "react-chartjs-2";
 
-const MapRecord = () => {
-  const [graph, setGraph] = useState();
+const MapRecord = ({ setGraphData }) => {
   const options = {
     map: {
       center: { lat: 35.89527, lng: 128.62256 },
@@ -80,6 +78,7 @@ const MapRecord = () => {
         distance: [],
         locations: [],
       };
+
       elevations.map((element) => {
         dataSet.elevations.push(element.elevation);
         dataSet.locations.push(element.location.toJSON());
@@ -97,15 +96,15 @@ const MapRecord = () => {
           {
             label: "고도",
             data: dataSet.elevations,
-            borderColor: "rgba(255, 99, 132, 1)",
-            backgroundColor: "rgba(255, 99, 132, 1)",
+            // borderColor: "#32AF7B",
+            // backgroundColor: "#32AF7B",
+            borderColor: "#3773d4",
+            backgroundColor: "#3773d4",
             borderWidth: 2,
-            // fill: false,
           },
         ],
       };
-
-      setGraph(<Bar data={data}></Bar>);
+      setGraphData(data);
     };
 
     elevator.getElevationAlongPath(
@@ -119,7 +118,7 @@ const MapRecord = () => {
 
   const containerStyle = {
     width: "100%",
-    height: "1%",
+    height: "100%",
   };
   return (
     <>
@@ -135,7 +134,6 @@ const MapRecord = () => {
           <Polyline path={path} options={options.polyline} />
         </GoogleMap>
       </LoadScript>
-      {graph}
     </>
   );
 };

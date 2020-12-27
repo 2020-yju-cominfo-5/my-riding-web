@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Title from "../../item/Title";
-import Chart from "../../item/ChartElevation";
-import Map from "./MapRecord";
+import Chart from "./RecordElevation";
+import Map from "./RecordMap";
 
 import "./Show.css";
 
 const Show = ({ match }) => {
+  const [graphData, setGraphData] = useState("");
   const { id } = match.params;
   const recordData = {
     id,
@@ -81,11 +82,11 @@ const Show = ({ match }) => {
             </li>
           </ul>
           <div className="map">
-            <Map />
+            <Map setGraphData={setGraphData} />
           </div>
         </div>
         <div className="chart">
-          <Chart />
+          <Chart graphData={graphData} />
         </div>
       </div>
     </>
