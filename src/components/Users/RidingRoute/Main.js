@@ -14,6 +14,8 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "대구 동구 검사동 아양교",
+      endAddress: "대구 동구 효동로2길 72 동촌유원지",
     },
     {
       id: 21,
@@ -23,6 +25,8 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "영진전문대학교 기숙사",
+      endAddress: "영진전문대학교 정문",
     },
     {
       id: 22,
@@ -32,6 +36,8 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "금호강 공항교",
+      endAddress: "아양교 다리 밑 공원",
     },
     {
       id: 23,
@@ -41,6 +47,8 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "대구 경원고등학고",
+      endAddress: "강정보",
     },
     {
       id: 24,
@@ -50,6 +58,8 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "경북대학교 북문",
+      endAddress: "산격동 아파트 입구",
     },
     {
       id: 25,
@@ -59,17 +69,23 @@ const Main = ({ match: { params } }) => {
       time: "00시간 00분",
       like: "00",
       count: "00",
+      startAddress: "내 라이딩 출발지 1",
+      endAddress: "라이딩 도착지",
     },
   ];
 
-  const id = params.id || routeList[0].id;
+  const id = parseInt(params.id || routeList[0].id);
 
   return (
     <>
       <Title title="라이딩 경로" />
       <div className="route-main-wrapper">
         <RouteList routeList={routeList} />
-        <RouteInfo id={id} />
+        <RouteInfo
+          data={routeList.find((ele) => {
+            return ele.id === id;
+          })}
+        />
       </div>
     </>
   );

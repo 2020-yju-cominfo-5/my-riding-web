@@ -87,3 +87,8 @@
   background-color: #ffffff;
   border-radius: 8px;
 }
+
+.users .dashboard-right .noti-item:hover {
+  box-shadow: 0 0 10px 0 #3773d4;
+  transition: 0.5s;
+}

@@ -68,6 +68,42 @@ const Show = ({ match: { params } }) => {
         date: "0000년 00월 00일",
         maxSpeed: 23,
       },
+      {
+        name: "정재순",
+        record: "01:20:30",
+        date: "0000년 00월 00일",
+        maxSpeed: 25,
+      },
+      {
+        name: "김창한",
+        record: "01:22:15",
+        date: "0000년 00월 00일",
+        maxSpeed: 21,
+      },
+      {
+        name: "박중규",
+        record: "01:25:20",
+        date: "0000년 00월 00일",
+        maxSpeed: 23,
+      },
+      {
+        name: "정재순",
+        record: "01:20:30",
+        date: "0000년 00월 00일",
+        maxSpeed: 25,
+      },
+      {
+        name: "김창한",
+        record: "01:22:15",
+        date: "0000년 00월 00일",
+        maxSpeed: 21,
+      },
+      {
+        name: "박중규",
+        record: "01:25:20",
+        date: "0000년 00월 00일",
+        maxSpeed: 23,
+      },
     ],
   };
 
@@ -92,7 +128,7 @@ const Show = ({ match: { params } }) => {
               <div className="value">{distacne}km</div>
             </div>
             <div className="item">
-              <div className="title">예상시간</div>
+              <div className="title">예상 시간</div>
               <div className="value">{time}분</div>
             </div>
             <div className="item">
@@ -165,25 +201,26 @@ const Show = ({ match: { params } }) => {
               <span>달성일</span>
               <span>최고 속도</span>
             </li>
-            {rank.map((ele, idx) => {
-              const { name, record, date, maxSpeed } = ele;
-
-              return (
-                <li className="user">
-                  <span>
-                    {idx === 0 ? (
-                      <i className="fas fa-crown"></i>
-                    ) : (
-                      `${idx + 1}위`
-                    )}
-                  </span>
-                  <span>{name}</span>
-                  <span>{record}</span>
-                  <span>{date}</span>
-                  <span>{maxSpeed}km</span>
-                </li>
-              );
-            })}
+            <div className="user-rank-wrapper">
+              {rank.map((ele, idx) => {
+                const { name, record, date, maxSpeed } = ele;
+                return (
+                  <li className="user">
+                    <span>
+                      {idx === 0 ? (
+                        <i className="fas fa-crown"></i>
+                      ) : (
+                        `${idx + 1}위`
+                      )}
+                    </span>
+                    <span>{name}</span>
+                    <span>{record}</span>
+                    <span>{date}</span>
+                    <span>{maxSpeed}km</span>
+                  </li>
+                );
+              })}
+            </div>
           </ul>
         </div>
       </div>

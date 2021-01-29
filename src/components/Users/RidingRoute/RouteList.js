@@ -27,8 +27,14 @@ const RouteList = ({ routeList }) => {
                 <div className="distance">{distance}</div>
                 <div className="time">{time}</div>
                 <div className="etc">
-                  <div className="like">{like} 개</div>
-                  <div className="count">{count} 회</div>
+                  <div className="like">
+                    <i className="fas fa-heart"></i>
+                    {like} 개
+                  </div>
+                  <div className="count">
+                    <i className="fas fa-biking"></i>
+                    {count} 회
+                  </div>
                 </div>
                 <div className="del-btn">
                   <Link to={`/route/delete/${id}`}>삭제</Link>

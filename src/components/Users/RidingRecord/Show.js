@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Title from "../../item/Title";
-import Chart from "../../item/ChartElevation";
-import Map from "../../item/MapRecord";
+import Chart from "./RecordElevation";
+import Map from "./RecordMap";
 
 import "./Show.css";
 
 const Show = ({ match }) => {
+  const [graphData, setGraphData] = useState("");
   const { id } = match.params;
   const recordData = {
     id,
@@ -39,7 +40,7 @@ const Show = ({ match }) => {
             <Link to="/record">수정</Link>
           </div>
           <div>
-            <Link to="/route">경로 만들기</Link>
+            <Link to="/route/create/20">경로 만들기</Link>
           </div>
         </div>
         <div className="detail">
@@ -81,11 +82,11 @@ const Show = ({ match }) => {
             </li>
           </ul>
           <div className="map">
-            <Map />
+            <Map setGraphData={setGraphData} />
           </div>
         </div>
         <div className="chart">
-          <Chart />
+          <Chart graphData={graphData} />
         </div>
       </div>
     </>
