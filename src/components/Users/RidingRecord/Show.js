@@ -40,7 +40,7 @@ const Show = ({ match }) => {
             <Link to="/record">수정</Link>
           </div>
           <div>
-            <Link to="/route">경로 만들기</Link>
+            <Link to="/route/create/20">경로 만들기</Link>
           </div>
         </div>
         <div className="detail">
