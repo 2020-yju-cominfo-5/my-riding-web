@@ -4,6 +4,7 @@ import RouteList from "./RouteList";
 import RouteInfo from "./RouteInfo";
 
 const Main = ({ match: { params } }) => {
+  // TODO pages, items 구분하기
   // TODO useAxios
   const routeList = [
     {

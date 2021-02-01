@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import RecordMain from "../../components/Users/RidingRecord/Main";
-import RecordList from "../../components/Users/RidingRecord/List";
-import RecordShow from "../../components/Users/RidingRecord/Show";
+import RecordMain from "../../components/Users/RidingRecord/pages/Main";
+import RecordList from "../../components/Users/RidingRecord/pages/List";
+import RecordShow from "../../components/Users/RidingRecord/pages/Show";
 
 const RidingRecord = () => {
   return (
