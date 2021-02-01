@@ -106,13 +106,17 @@
 }
 
 .users .chart-section .chart-title li {
-  padding-right: 110px;
+  margin-right: 110px;
 }
 
 .users .chart-section .chart-title li:first-child {
-  width: 240px;
+  width: 150px;
   padding-left: 20px;
   box-sizing: border-box;
+}
+
+.users .chart-section .chart-title li:last-child {
+  margin-right: 0;
 }
 
 .users .chart-section .chart-contents {

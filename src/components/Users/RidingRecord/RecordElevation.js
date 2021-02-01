@@ -7,6 +7,7 @@ const ChartElevation = ({ graphData }) => {
       display: false,
     },
   };
+  console.log(graphData);
   return <Bar data={graphData} height={75} options={options}></Bar>;
 };
 

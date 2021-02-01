@@ -2,12 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Title from "../../item/Title";
-import ChartStats from "../../item/ChartStats";
+import ChartStats from "./Stats";
 import "./List.css";
 
 const List = ({ match }) => {
   const { week } = match.params;
   const recordList = {
+    values: [
+      {
+        distance: 30,
+        time: 50,
+        avg_speed: 20,
+      },
+      {
+        distance: 10,
+        time: 60,
+        avg_speed: 30,
+      },
+    ],
     id: week,
     date: "Oct 26 - Nov 1",
     distance: "00.0km",
@@ -79,7 +91,7 @@ const List = ({ match }) => {
     <>
       <Title title="주간 라이딩 일지" />
       <div className="record-list">
-        <ChartStats data={recordList} />
+        <ChartStats stat={recordList} />
         <div className="list">
           <ul className="record-title">
             <li>날짜</li>
