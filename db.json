@@ -1,0 +1,357 @@
+{
+  "recordYear": {
+    "message": "2021년 라이딩 통계 조회를 성공하였습니다.",
+    "data": {
+      "stats": [
+        {
+          "week": "0",
+          "startDate": "2020-12-27",
+          "endDate": "2021-01-02",
+          "values": [
+            {
+              "day": 0,
+              "distance": 10002,
+              "time": 50,
+              "avg_speed": 20
+            },
+            {
+              "day": 3,
+              "distance": 10000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 5,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            }
+          ]
+        },
+        {
+          "week": "1",
+          "startDate": "2021-01-03",
+          "endDate": "2021-01-09",
+          "values": [
+            {
+              "day": 0,
+              "distance": 30000,
+              "time": 50,
+              "avg_speed": 20
+            },
+            {
+              "day": 1,
+              "distance": 10000,
+              "time": 60,
+              "avg_speed": 30
+            },
+            {
+              "day": 2,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 3,
+              "distance": 20000,
+              "time": 25,
+              "avg_speed": 10
+            },
+            {
+              "day": 4,
+              "distance": 40000,
+              "time": 15,
+              "avg_speed": 25
+            },
+            {
+              "day": 5,
+              "distance": 35000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 6,
+              "distance": 40000,
+              "time": 35,
+              "avg_speed": 15
+            }
+          ]
+        },
+        {
+          "week": "2",
+          "startDate": "2021-01-10",
+          "endDate": "2021-01-16",
+          "values": []
+        },
+        {
+          "week": "3",
+          "startDate": "2021-01-17",
+          "endDate": "2021-01-23",
+          "values": [
+            {
+              "day": 0,
+              "distance": 30000,
+              "time": 50,
+              "avg_speed": 20
+            },
+            {
+              "day": 1,
+              "distance": 10000,
+              "time": 60,
+              "avg_speed": 30
+            },
+            {
+              "day": 2,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 3,
+              "distance": 20000,
+              "time": 25,
+              "avg_speed": 10
+            },
+            {
+              "day": 4,
+              "distance": 40000,
+              "time": 15,
+              "avg_speed": 25
+            },
+            {
+              "day": 5,
+              "distance": 35000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 6,
+              "distance": 40000,
+              "time": 35,
+              "avg_speed": 10
+            }
+          ]
+        },
+        {
+          "week": "4",
+          "startDate": "2021-01-24",
+          "endDate": "2021-01-30",
+          "values": [
+            {
+              "day": 0,
+              "distance": 30000,
+              "time": 50,
+              "avg_speed": 20
+            },
+            {
+              "day": 1,
+              "distance": 10000,
+              "time": 60,
+              "avg_speed": 30
+            },
+            {
+              "day": 2,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 3,
+              "distance": 20000,
+              "time": 25,
+              "avg_speed": 10
+            },
+            {
+              "day": 4,
+              "distance": 40000,
+              "time": 15,
+              "avg_speed": 25
+            },
+            {
+              "day": 5,
+              "distance": 35000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 6,
+              "distance": 40000,
+              "time": 35,
+              "avg_speed": 10
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "recordWeek": [
+    {
+      "id": 0,
+      "message": "2021년 00주차 라이딩 통계 조회를 성공하였습니다.",
+      "data": {
+        "stat": {
+          "startDate": "2020-12-27",
+          "endDate": "2021-01-02",
+          "values": [
+            {
+              "day": 0,
+              "distance": 10000,
+              "time": 50,
+              "avg_speed": 20
+            },
+            {
+              "day": 3,
+              "distance": 10000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 5,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            }
+          ]
+        },
+        "records": [
+          {
+            "id": 26,
+            "date": "2020-10-26",
+            "title": "학교 가는 길",
+            "distance": 3210,
+            "time": 70,
+            "score": 62
+          },
+          {
+            "id": 25,
+            "date": "2020-10-26",
+            "title": "새벽 라이딩",
+            "distance": 1500,
+            "time": 150,
+            "score": 30
+          },
+          {
+            "id": 24,
+            "date": "2020-11-01",
+            "title": "아양교에서 첫번째 라이딩",
+            "distance": 1500,
+            "time": 60,
+            "score": 30
+          },
+          {
+            "id": 23,
+            "date": "2020-10-29",
+            "title": "비오는 날의 라이딩",
+            "distance": 1800,
+            "time": 25,
+            "score": 42
+          },
+          {
+            "id": 22,
+            "date": "2020-10-27",
+            "title": "201027_RIDING_001",
+            "distance": 900,
+            "time": 14,
+            "score": 70
+          },
+          {
+            "id": 21,
+            "date": "2020-10-27",
+            "title": "집 가는 길",
+            "distance": 1800,
+            "time": 25,
+            "score": 42
+          },
+          {
+            "id": 20,
+            "date": "2020-10-26",
+            "title": "공항에서 첫번째 라이딩",
+            "distance": 1500,
+            "time": 20,
+            "score": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "message": "2021년 01주차 라이딩 통계 조회를 성공하였습니다.",
+      "data": {
+        "stat": {
+          "startDate": "2021-01-03",
+          "endDate": "2021-01-09",
+          "values": [
+            {
+              "day": 0,
+              "distance": 30000,
+              "time": 70,
+              "avg_speed": 20
+            },
+            {
+              "day": 1,
+              "distance": 10000,
+              "time": 60,
+              "avg_speed": 30
+            },
+            {
+              "day": 2,
+              "distance": 5000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 3,
+              "distance": 20000,
+              "time": 25,
+              "avg_speed": 10
+            },
+            {
+              "day": 4,
+              "distance": 40000,
+              "time": 15,
+              "avg_speed": 25
+            },
+            {
+              "day": 5,
+              "distance": 35000,
+              "time": 20,
+              "avg_speed": 30
+            },
+            {
+              "day": 6,
+              "distance": 40000,
+              "time": 35,
+              "avg_speed": 15
+            }
+          ]
+        },
+        "records": [
+          {
+            "id": 19,
+            "date": "2020-10-27",
+            "title": "201027_RIDING_001",
+            "distance": 900,
+            "time": 14,
+            "score": 70
+          },
+          {
+            "id": 18,
+            "date": "2020-10-27",
+            "title": "집 가는 길",
+            "distance": 1800,
+            "time": 25,
+            "score": 42
+          },
+          {
+            "id": 17,
+            "date": "2020-10-26",
+            "title": "공항에서 첫번째 라이딩",
+            "distance": 1500,
+            "time": 20,
+            "score": 30
+          }
+        ]
+      }
+    }
+  ]
+}
