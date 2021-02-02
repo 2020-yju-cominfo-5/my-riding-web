@@ -5,7 +5,7 @@ import "./Main.css";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { getRidingRecordYear } from "../../../../api/RidingRecord";
+import { getRidingRecordByYear } from "../../../../api/RidingRecord";
 
 const Main = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Main = () => {
 
   useEffect(() => {
     // TODO 에러 시 예외 처리 추가
-    getRidingRecordYear(year)
+    getRidingRecordByYear(year)
       .then((res) => {
         // TODO NO DATA 알고리즘 추가 필요 -> 해당 년도에 등록된 라이딩 기록이 없습니다.
         const { data } = res;

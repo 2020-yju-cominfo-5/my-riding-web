@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getRidingRecordWeek } from "../../../../api/RidingRecord";
+import { getRidingRecordByWeek } from "../../../../api/RidingRecord";
 import { getDateContext, getTimeContext } from "../../../../util";
 import Title from "../../../item/Title";
 import WeekStat from "../items/WeekStat";
@@ -18,7 +18,7 @@ const List = ({ match }) => {
   });
   const [scoreSum, setScoreSum] = useState(0);
   useEffect(() => {
-    getRidingRecordWeek(week).then((res) => {
+    getRidingRecordByWeek(week).then((res) => {
       setData({ stat: res.data.stat, records: res.data.records });
       setScoreSum(
         res.data.records.reduce((prev, curr) => {

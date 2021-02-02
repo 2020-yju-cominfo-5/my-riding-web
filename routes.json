@@ -1,5 +1,7 @@
 {
   "/api/record/year": "/recordYear",
   "/api/record/week": "/recordWeek",
-  "/api/record/week/:id": "/recordWeek/:id"
+  "/api/record/week/:id": "/recordWeek/:id",
+  "/api/record": "/recordId",
+  "/api/record/:id": "/recordId/:id"
 }
