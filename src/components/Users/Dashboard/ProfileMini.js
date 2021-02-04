@@ -1,26 +1,28 @@
 import React from "react";
+import { getDateContext } from "../../../util";
 import "./ProfileMini.css";
 
-const ProfileMini = () => {
+const ProfileMini = ({ user }) => {
+  const { nickname, score, count, last_riding } = user;
   return (
     <div className="profile-mini">
       <div className="user-img"></div>
       <div className="user-info">
-        <div className="name">정재순</div>
+        <div className="name">{nickname}</div>
         <div className="section">
           <div className="score">
             <p className="title">라이딩 점수</p>
-            <p className="value">1389</p>
+            <p className="value">{score}</p>
           </div>
           <div className="count">
             <p className="title">라이딩 점수</p>
-            <p className="value">13</p>
+            <p className="value">{count}</p>
           </div>
         </div>
         <div className="footer">
           <div className="latest">
             <p className="title">최근 라이딩</p>
-            <p className="date">2020년 10월 26일</p>
+            <p className="date">{getDateContext({ date: last_riding })}</p>
           </div>
           <div className="record-detail">
             <p>내 라이딩 기록 상세 보기 &gt;</p>
