@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.0",
     "chart.js": "^2.9.4",
+    "moment": "^2.29.1",
     "react": "^16.14.0",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^16.14.0",
