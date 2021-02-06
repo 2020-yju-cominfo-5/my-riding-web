@@ -30,7 +30,7 @@ const MapRecord = ({ path, setGraphData }) => {
       }
 
       path.forEach((_, idx) => {
-        if (path.length - 1 == idx) {
+        if (path.length - 1 === idx) {
           return;
         }
 
