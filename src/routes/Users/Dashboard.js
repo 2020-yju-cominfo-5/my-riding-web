@@ -12,6 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     getDashboardContent().then((res) => {
       setData(res.data);
+      console.log(res.data);
       // console.log(res.data.stats);
       // console.log(res.data.notifications);
     });
@@ -23,6 +24,7 @@ const Dashboard = () => {
         <>
           <div className="dashboard-left">
             <ProfileMini user={data.user} />
+            {/* TODO GraphMini 구현필요 */}
             <GraphMini />
           </div>
           <div className="dashboard-right">
