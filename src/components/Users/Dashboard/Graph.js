@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as moment from "moment";
 import "./Graph.css";
+import { getDateContext } from "../../../util";
 
 const Graph = ({ stats }) => {
   const [data, setData] = useState(stats);
@@ -26,13 +27,18 @@ const Graph = ({ stats }) => {
           {/* TODO 주차 넘어가는 기능 필요 */}
           <i className="fas fa-caret-left" onClick={onWeekChangeHandler} />
           <span className="text">
-            {year}년 {week}주차
+            {year} 년 {week} 주차
           </span>
+          {/* FIXME 오른족 버튼 수정 필요 */}
           {isRightBtn || (
             <i className="fas fa-caret-right" onClick={onWeekChangeHandler} />
           )}
         </p>
-        <p className="sub">{startDate + " ~ " + endDate}</p>
+        <p className="sub">
+          {getDateContext({ date: startDate }) +
+            " ~ " +
+            getDateContext({ date: endDate })}
+        </p>
       </div>
       <div className="body">
         {stats.values.length === 0 ? (

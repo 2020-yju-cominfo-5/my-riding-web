@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { requestLogin } from "../../api/Auth";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ history }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,10 +27,16 @@ const Login = () => {
           message,
           data: { token },
         } = res;
-        console.log(token);
+        localStorage.setItem("token", token);
         alert(message);
+        history.push("/");
       })
       .catch((err) => {
+        if (!err.response) {
+          alert("서버와의 연결에 실패하였습니다.");
+          return;
+        }
+
         const { status, data } = err.response;
         switch (status) {
           case 422:
@@ -42,16 +48,11 @@ const Login = () => {
             // 422 -> 401
             // alert(data.message);
             break;
-          case 404:
-          case 500:
-            alert("서버와의 연결에 실패하였습니다.");
-            break;
           default:
-            alert("알 수 없는 오류가 발생하였습니다.");
+            alert("서버와의 연결에 실패하였습니다.");
             break;
         }
       });
-    console.log(event);
   };
   return (
     <div className="login">

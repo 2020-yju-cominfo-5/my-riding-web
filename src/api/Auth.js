@@ -1,14 +1,17 @@
-import axios from "axios";
-
-const url = `http://54.145.82.27/api`;
+import { axiosInstance, authAxiosInstance } from "./Axios";
 
 export const requestSignup = async (data) => {
-  const response = await axios.post(`${url}/signup`, data);
+  const response = await axiosInstance.post("/signup", data);
   return response.data;
 };
 
-// TODO  헤더에 토큰정보 추가 전송
 export const requestLogin = async (data) => {
-  const response = await axios.post(`${url}/login`, data);
+  const response = await axiosInstance.post("/login", data);
+  return response.data;
+};
+
+// FIXME 인증 API URL 수정 필요
+export const requestAuth = async () => {
+  const response = await authAxiosInstance.post("/");
   return response.data;
 };

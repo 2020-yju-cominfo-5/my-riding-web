@@ -80,6 +80,11 @@ const Signup = ({ history }) => {
         history.push("/");
       })
       .catch((err) => {
+        if (!err.response) {
+          alert("서버와의 연결에 실패하였습니다.");
+          return;
+        }
+
         const { status, data } = err.response;
         switch (status) {
           case 422:
@@ -107,12 +112,8 @@ const Signup = ({ history }) => {
             }
             alert("유효하지 않은 입력 값입니다.");
             break;
-          case 404:
-          case 500:
-            alert("서버와의 연결에 실패하였습니다.");
-            break;
           default:
-            alert("알 수 없는 오류가 발생하였습니다.");
+            alert("서버와의 연결에 실패하였습니다.");
             break;
         }
         history.push("/");
