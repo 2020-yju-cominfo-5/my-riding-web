@@ -1,8 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { requestLogin } from "../../api/Auth";
 import "./Login.css";
 
 const Login = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const inputHandler = {
+    required: "on",
+    autoComplete: "off",
+    onChange: ({ target }) => {
+      const { name, value } = target;
+      name === "id" && setId(value);
+      name === "password" && setPassword(value);
+    },
+  };
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    requestLogin({
+      user_account: id,
+      user_password: password,
+    })
+      .then((res) => {
+        const {
+          message,
+          data: { token },
+        } = res;
+        console.log(token);
+        alert(message);
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        switch (status) {
+          case 422:
+            // alert("유효하지 않은 입력 값입니다.");
+            alert(data.message);
+            break;
+          case 401:
+            // FIXME 아이디, 비밀번호 틀림 -> HTTP STATUS CODE 수정 필요
+            // 422 -> 401
+            // alert(data.message);
+            break;
+          case 404:
+          case 500:
+            alert("서버와의 연결에 실패하였습니다.");
+            break;
+          default:
+            alert("알 수 없는 오류가 발생하였습니다.");
+            break;
+        }
+      });
+    console.log(event);
+  };
   return (
     <div className="login">
       <div className="main">
@@ -21,22 +71,37 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className="form">
+        <form onSubmit={onSubmitHandler}>
           <div className="id">
-            <input type="text" placeholder="아이디" />
-            <i className="fas fa-user" />
+            <input
+              type="text"
+              placeholder="아이디"
+              name="id"
+              {...inputHandler}
+              value={id}
+              minLength={6}
+              maxLength={15}
+            />
+            <i className="fas fa-user"></i>
           </div>
           <div className="password">
-            <input type="password" placeholder="비밀번호" />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              name="password"
+              {...inputHandler}
+              value={password}
+              minLength={8}
+            />
             <i className="fas fa-lock" />
           </div>
-        </div>
-        <div className="bottom">
-          <Link to="/" className="password-reset">
-            비밀번호를 잊으셨나요?
-          </Link>
-          <button className="login-btn btn">로그인</button>
-        </div>
+          <div className="bottom">
+            <Link to="/" className="password-reset">
+              비밀번호를 잊으셨나요?
+            </Link>
+            <input type="submit" className="login-btn btn" value="로그인" />
+          </div>
+        </form>
       </div>
       <div className="sub">
         <div className="title">라이더님, 안녕하세요!</div>

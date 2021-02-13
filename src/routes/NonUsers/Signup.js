@@ -1,107 +1,123 @@
 import React, { useState } from "react";
-import useClick from "../../hooks/useClick";
-import useInput from "../../hooks/useInput";
 import "./Signup.css";
-import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api";
+import { requestSignup } from "../../api/Auth";
 
 const Signup = ({ history }) => {
-  const [warningMsg, setWarningMsg] = useState("");
-
-  // <<-- 유효성 검사
   const msgs = {
+    default: "프로필 사진 미등록시, 기본 이미지로 저장됩니다.",
     id: "아이디는 영문, 숫자 조합 6 ~ 15 글자로 입력해주세요.",
     password: "비밀번호는 문자, 숫자, 특수문자 조합 8자 이상 입력해주세요.",
     passwordConfirm: "비밀번호가 일치하지 않습니다.",
     nickName: "닉네임은 5 ~ 15 글자로 입력해주세요.",
   };
-  const pattern = {
+  const patterns = {
     id: /^[a-z]+[a-z0-9]{5,15}$/g,
-    password: /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+    // password: /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+    password: /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,}$/,
     nickName: /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,15}$/,
-  }; // -->>
+  };
 
-  // <<-- Hooks : useInput 등록
-  const validateInputValue = {
-    id: (value) => {
-      const isCheckedId = pattern.id.test(value);
-      isCheckedId ? setWarningMsg("") : setWarningMsg(msgs.id);
-      return isCheckedId;
-    },
-    password: (value) => {
-      const isCheckedPassword = pattern.password.test(value);
-      isCheckedPassword ? setWarningMsg("") : setWarningMsg(msgs.password);
-      return isCheckedPassword;
-    },
-    passwordConfirm: (value) => {
-      const isCheckedPasswordConfirm = checkValue.password.value === value;
-      isCheckedPasswordConfirm
-        ? setWarningMsg("")
-        : setWarningMsg(msgs.passwordConfirm);
-      return isCheckedPasswordConfirm;
-    },
-    nickName: (value) => {
-      const isCheckedNickName = pattern.nickName.test(value);
-      isCheckedNickName ? setWarningMsg("") : setWarningMsg(msgs.nickName);
-      return isCheckedNickName;
-    },
-  }; // -->>
+  const [msg, setMsg] = useState(msgs.default);
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [nickName, setNickName] = useState("");
+  // TODO picture 수정하기
 
-  const checkValue = {
-    id: useInput("", validateInputValue.id),
-    password: useInput("", validateInputValue.password),
-    passwordConfirm: useInput("", validateInputValue.passwordConfirm),
-    nickName: useInput("", validateInputValue.nickName),
-  }; // -->>
-
-  // <<-- Hooks : useClick 등록
-  const onSubmitHandler = () => {
-    if (
-      checkValue.id &&
-      checkValue.password &&
-      checkValue.passwordConfirm &&
-      checkValue.nickName
-    ) {
-      axios
-        .post(`${BASE_URL}/signup`, {
-          id: checkValue.id.value,
-          password: checkValue.password.value,
-          passwordConfirm: checkValue.passwordConfirm.value,
-          nickName: checkValue.nickName.value,
-        })
-        .then((res) => {
-          if (res.status === 201) {
-            alert(res.data.msg);
-          } else {
+  const inputHandler = {
+    required: "on",
+    autoComplete: "off",
+    onChange: ({ target }) => {
+      const { name, value } = target;
+      name === "id" && setId(value);
+      name === "password" && setPassword(value);
+      name === "passwordConfirm" && setPasswordConfirm(value);
+      name === "nickName" && setNickName(value);
+    },
+    onBlur: ({ target }) => {
+      const { name, value } = target;
+      switch (name) {
+        case "id":
+          patterns.id.test(value) ? setMsg(msgs.default) : setMsg(msgs.id);
+          break;
+        case "password":
+          patterns.password.test(value)
+            ? setMsg(msgs.default)
+            : setMsg(msgs.password);
+          passwordConfirm === value
+            ? setMsg(msgs.default)
+            : setMsg(msgs.passwordConfirm);
+          break;
+        case "passwordConfirm":
+          password === value
+            ? setMsg(msgs.default)
+            : setMsg(msgs.passwordConfirm);
+          break;
+        case "nickName":
+          patterns.nickName.test(value)
+            ? setMsg(msgs.default)
+            : setMsg(msgs.nickName);
+          break;
+        default:
+          break;
+      }
+    },
+  };
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    requestSignup({
+      user_account: id,
+      user_password: password,
+      user_password_confirmation: passwordConfirm,
+      user_nickname: nickName,
+      user_picture: "picture",
+    })
+      .then((res) => {
+        const { message } = res;
+        alert(message);
+        // FIXME 회원가입 후 토큰 저장여부 확인
+        history.push("/");
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        switch (status) {
+          case 422:
+            const { error } = data.data;
+            if (error) {
+              if (
+                error.user_account &&
+                error.user_account.includes(
+                  "The user account has already been taken.",
+                )
+              ) {
+                alert("이미 등록된 사용자입니다.");
+                setId("");
+                return;
+              } else if (
+                error.user_nickname &&
+                error.user_nickname.includes(
+                  "The user nickname has already been taken.",
+                )
+              ) {
+                alert("이미 등록된 닉네임입니다.");
+                setNickName("");
+                return;
+              }
+            }
+            alert("유효하지 않은 입력 값입니다.");
+            break;
+          case 404:
+          case 500:
+            alert("서버와의 연결에 실패하였습니다.");
+            break;
+          default:
             alert("알 수 없는 오류가 발생하였습니다.");
-            return;
-          }
-        })
-        .catch((err) => {
-          if (err.response) {
-            alert(err.response.data.msg);
-            return;
-          }
-          alert("서버 연결에 실패하였습니다.");
-          return;
-        })
-        .finally(() => {
-          history.push("/");
-        });
-    } else {
-      alert("입력하신 정보를 확인해주세요.");
-    }
+            break;
+        }
+        history.push("/");
+      });
   };
-  const onResetHandler = () => {
-    checkValue.id.reset();
-    checkValue.password.reset();
-    checkValue.passwordConfirm.reset();
-    checkValue.nickName.reset();
-    setWarningMsg("");
-  };
-  const submitBtn = useClick(onSubmitHandler);
-  const resetBtn = useClick(onResetHandler); // -->>
 
   return (
     <div className="signup">
@@ -115,16 +131,27 @@ const Signup = ({ history }) => {
         <div className="header">
           <div className="title">SIGN UP</div>
         </div>
-        <div className="form">
+        <form onSubmit={onSubmitHandler}>
           <div className="id">
-            <input type="text" placeholder="아이디" {...checkValue.id} />
+            <input
+              type="text"
+              placeholder="아이디"
+              name="id"
+              {...inputHandler}
+              value={id}
+              minLength={6}
+              maxLength={15}
+            />
             <i className="fas fa-user" />
           </div>
           <div className="password">
             <input
               type="password"
               placeholder="비밀번호"
-              {...checkValue.password}
+              name="password"
+              {...inputHandler}
+              value={password}
+              minLength={8}
             />
             <i className="fas fa-lock" />
           </div>
@@ -132,26 +159,35 @@ const Signup = ({ history }) => {
             <input
               type="password"
               placeholder="비밀번호 확인"
-              {...checkValue.passwordConfirm}
+              name="passwordConfirm"
+              {...inputHandler}
+              value={passwordConfirm}
+              minLength={8}
             />
             <i className="fas fa-check-circle" />
           </div>
           <div className="nickname">
-            <input type="text" placeholder="닉네임" {...checkValue.nickName} />
+            <input
+              type="text"
+              placeholder="닉네임"
+              name="nickName"
+              {...inputHandler}
+              value={nickName}
+              minLength={5}
+              maxLength={15}
+            />
             <i className="fas fa-address-card" />
           </div>
-        </div>
-        <div className="bottom">
-          <div className="warning-msg">
-            <p>{warningMsg}</p>
+          <div className="bottom">
+            <div className="warning-msg">{msg}</div>
           </div>
-          <button className="signup-btn btn" ref={submitBtn}>
-            회원가입
-          </button>
-          <button className="signupCancel-btn btn" ref={resetBtn}>
-            다시입력
-          </button>
-        </div>
+          <input className="signup-btn btn" type="submit" value="회원가입" />
+          <input
+            className="signupCancel-btn btn"
+            type="reset"
+            value="다시입력"
+          />
+        </form>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const Menu = () => {
         マイライディング
       </Link>
       <div className="nav-menus">
-        <Link to="/home" className="nav-menu">
+        <Link to="/" className="nav-menu">
           대시보드
         </Link>
         <Link to="/record" className="nav-menu">

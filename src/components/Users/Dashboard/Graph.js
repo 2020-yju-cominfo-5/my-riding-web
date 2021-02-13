@@ -8,12 +8,10 @@ const Graph = ({ stats }) => {
   if (!data) {
     return <div className="graph">앗 내 데이터 주세요</div>;
   }
-  const { year, week, start_date, end_date } = data;
+  const { year, week, startDate, endDate } = data;
 
-  console.log(moment().year());
   const isRightBtn =
     moment().week() - 1 === parseInt(week) && moment().year() === year;
-  console.log(isRightBtn);
   const onWeekChangeHandler = ({ target }) => {
     const btn = target.getAttribute("class").split(" ")[1];
     btn === "fa-caret-left" && console.log("앗 왼쪽");
@@ -34,7 +32,7 @@ const Graph = ({ stats }) => {
             <i className="fas fa-caret-right" onClick={onWeekChangeHandler} />
           )}
         </p>
-        <p className="sub">{start_date + " ~ " + end_date}</p>
+        <p className="sub">{startDate + " ~ " + endDate}</p>
       </div>
       <div className="body">
         {stats.values.length === 0 ? (

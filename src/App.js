@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import NoneUsers from "./components/NonUsers/NonUsers";
 import Users from "./components/Users/Users";
 
 const App = () => {
-  localStorage.setItem("isLogin", true);
-  // localStorage.removeItem("isLogin");
-  const isLogin = localStorage.getItem("isLogin");
+  const [isLogin, setIsLogin] = useState(false);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
+        <Navigation auth={{ isLogin, setIsLogin }} />
         {isLogin ? <Users /> : <NoneUsers />}
       </BrowserRouter>
     </div>
