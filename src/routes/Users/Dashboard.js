@@ -12,9 +12,6 @@ const Dashboard = () => {
   useEffect(() => {
     getDashboardContent().then((res) => {
       setData(res.data);
-      console.log(res.data);
-      // console.log(res.data.stats);
-      // console.log(res.data.notifications);
     });
   }, []);
 
