@@ -58,3 +58,29 @@
   right: 0;
   bottom: 0;
 }
+
+.non-users form {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.non-users form .fas {
+  left: 110px;
+}
+
+.non-users form .btn {
+  color: #ffffff;
+  padding: 0;
+  width: 30%;
+  height: 45px;
+  line-height: 45px;
+  box-shadow: none;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.non-users form .btn:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}

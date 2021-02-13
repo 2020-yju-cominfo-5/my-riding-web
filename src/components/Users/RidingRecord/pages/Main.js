@@ -22,6 +22,11 @@ const Main = () => {
         setStats(data.stats, ...stats);
       })
       .catch((err) => {
+        if (!err.response) {
+          alert("서버와의 연결에 실패하였습니다.");
+          return;
+        }
+
         alert("라이딩 일지를 가져오는데 실패하였습니다.");
       });
   }, [year]);

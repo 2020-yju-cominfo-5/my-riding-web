@@ -53,7 +53,7 @@ const NotiItem = ({ noti }) => {
         </div>
       </div>
       <div className="date">{getDateContext({ date: created_at })}</div>
-      {/* TODO 알림 확인 버튼 이벤트로 수정하여야 함 */}
+      {/* TODO 라이딩 알림 확인 API 추가 필요 -> 버튼 이벤트 추가*/}
       <div className="close-btn">&times;</div>
     </div>
   );

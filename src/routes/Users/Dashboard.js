@@ -4,17 +4,14 @@ import ProfileMini from "../../components/Users/Dashboard/ProfileMini";
 import GraphMini from "../../components/Users/Dashboard/GraphMini";
 import Graph from "../../components/Users/Dashboard/Graph";
 import NotiBoard from "../../components/Users/Dashboard/NotiBoard";
-import { getDashboardContent } from "../../api/Dashboard";
+import { getDashboard } from "../../api/Dashboard";
 
 const Dashboard = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    getDashboardContent().then((res) => {
+    getDashboard().then((res) => {
       setData(res.data);
-      console.log(res.data);
-      // console.log(res.data.stats);
-      // console.log(res.data.notifications);
     });
   }, []);
 
