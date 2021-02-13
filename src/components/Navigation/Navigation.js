@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
-import "./Navigation.css";
+import { requestAuth } from "../../api/Auth";
 import NavTitle from "./NavTitle";
 import Menu from "./Menu";
-import { requestAuth } from "../../api/Auth";
+import "./Navigation.css";
 
 const Navigation = ({ auth }) => {
   const { isLogin, setIsLogin } = auth;
