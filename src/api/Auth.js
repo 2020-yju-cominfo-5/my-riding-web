@@ -1,22 +1,22 @@
 import { axiosInstance, authAxiosInstance } from "./Axios";
 
 export const requestSignup = async (data) => {
-  const response = await axiosInstance.post("/signup", data);
+  const response = await axiosInstance.post("/auth/signup", data);
   return response.data;
 };
 
 export const requestLogin = async (data) => {
-  const response = await axiosInstance.post("/login", data);
+  const response = await axiosInstance.post("/auth/login", data);
   return response.data;
 };
 
 export const requestLogout = async () => {
-  const response = await authAxiosInstance.post("/logout");
+  const response = await authAxiosInstance.post("/auth/logout");
   return response.data;
 };
 
-// FIXME 인증 API URL 수정 필요
+// TODO 회원정보 반환받아서 로그인된 유저랑 일치한지 확인 로직 추가
 export const requestAuth = async () => {
-  const response = await authAxiosInstance.post("/auth");
+  const response = await authAxiosInstance.get("/auth");
   return response.data;
 };
