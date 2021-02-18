@@ -32,7 +32,7 @@ const Navigation = ({ auth }) => {
               setIsLogin(false);
               break;
             default:
-              alert("서버와의 연결에 실패하였습니다.1");
+              alert("서버와의 연결에 실패하였습니다.");
               break;
           }
         });
