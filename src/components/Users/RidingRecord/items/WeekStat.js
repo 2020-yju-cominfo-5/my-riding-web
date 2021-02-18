@@ -4,8 +4,9 @@ import { getDateShortContext } from "../../../../util";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
-const WeekStat = ({ stat, score }) => {
-  const { week, startDate, endDate, values } = stat;
+const WeekStat = ({ stat, year, score }) => {
+  const { startDate, endDate, values } = stat;
+  const week = stat.week || 0;
 
   // <<-- 해당 주에 운동 기록이 없을 경우 -->>
   if (values.length === 0) {
@@ -32,13 +33,11 @@ const WeekStat = ({ stat, score }) => {
         <div className="chart-left">
           <div className="date">
             {week ? (
-              <Link to={`/record/week/${week}`}>
+              <Link to={`/record/week/${year}/${week}`}>
                 {getDateShortContext({ startDate, endDate })}
               </Link>
             ) : (
-              <p to={`/record/week/${week}`}>
-                {getDateShortContext({ startDate, endDate })}
-              </p>
+              <p>{getDateShortContext({ startDate, endDate })}</p>
             )}
           </div>
           <div className="distance">

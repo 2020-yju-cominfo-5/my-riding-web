@@ -26,7 +26,7 @@ const Main = () => {
           alert("서버와의 연결에 실패하였습니다.");
           return;
         }
-
+        console.log(err.response);
         alert("라이딩 일지를 가져오는데 실패하였습니다.");
       });
   }, [year]);
@@ -67,8 +67,9 @@ const Main = () => {
             <li>토</li>
           </ul>
           <ul className="chart-contents">
-            {stats.map((stat, idx) => {
-              return <WeekStat key={idx} stat={stat} />;
+            {/* FIXME stats object -> array 로 변경 필요 변경 시 바로 map 적용 */}
+            {Object.values(stats).map((stat, idx) => {
+              return <WeekStat key={idx} stat={stat} year={year} />;
             })}
           </ul>
         </div>

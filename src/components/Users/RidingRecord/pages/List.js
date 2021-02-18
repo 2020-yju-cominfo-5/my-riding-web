@@ -7,7 +7,7 @@ import WeekStat from "../items/WeekStat";
 import "./List.css";
 
 const List = ({ match }) => {
-  const { week } = match.params;
+  const { year, week } = match.params;
   const [data, setData] = useState({
     stat: {
       startDate: "",
@@ -18,15 +18,22 @@ const List = ({ match }) => {
   });
   const [scoreSum, setScoreSum] = useState(0);
   useEffect(() => {
-    getRidingRecordByWeek(week).then((res) => {
-      setData({ stat: res.data.stat, records: res.data.records });
-      setScoreSum(
-        res.data.records.reduce((prev, curr) => {
-          const prevScore = prev.score ? prev.score : prev;
-          return prevScore + curr.score;
-        }),
-      );
-    });
+    getRidingRecordByWeek(year, week)
+      .then((res) => {
+        // FIXME stats -> stat
+        // FIXME stat 와 records 해체문법 적용하기
+        setData({ stat: res.data.stats, records: res.data.stats.records });
+        console.log(res.data);
+        setScoreSum(
+          res.data.records.reduce((prev, curr) => {
+            const prevScore = prev.score ? prev.score : prev;
+            return prevScore + curr.score;
+          }),
+        );
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
   }, []);
 
   return (
@@ -58,8 +65,8 @@ const List = ({ match }) => {
                     <i className="fas fa-bolt"></i>
                     {score}
                   </span>
-                  {/* onClick 으로 수정 필요? vs 컴포넌트 호출 */}
                   <span>
+                    {/* TODO btn 으로 변경, 삭제 API 적용 */}
                     <Link to={`/record`}>삭제</Link>
                   </span>
                 </li>
