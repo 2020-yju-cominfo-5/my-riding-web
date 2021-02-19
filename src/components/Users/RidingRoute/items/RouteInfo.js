@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getRidingRouteById } from "../../../../api/RidingRoute";
 import { getTimeContext } from "../../../../util";
 
 import "./RouteInfo.css";
@@ -14,8 +15,15 @@ const RouteInfo = ({ route }) => {
     route_time: time,
   } = route;
 
+  if (!id) {
+    return <></>;
+  }
+
   // TODO route path 요청
   console.log("route path 요청", id);
+  getRidingRouteById(id).then((res) => {
+    console.log(res);
+  });
 
   // const path = [
   //   { lat: 35.185689, lng: 129.071681 },

@@ -6,7 +6,7 @@ import RouteList from "../items/RouteList";
 import RouteInfo from "../items/RouteInfo";
 import { getRidingRouteList } from "../../../../api/RidingRoute";
 
-const Main = ({ match: { params } }) => {
+const Main = () => {
   const [routes, setRoutes] = useState([]);
   const [route, setRoute] = useState({
     id: 0,
