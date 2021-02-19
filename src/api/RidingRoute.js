@@ -1,4 +1,8 @@
 import API from "./API";
 
-// const url = `${process.env.REACT_APP_SERVER_URL}/record`;
-const url = `http://54.145.82.27/api/route`;
+const url = `${process.env.REACT_APP_SERVER_URL}/route`;
+
+export const getRidingRouteList = async () => {
+  const response = await API.get(`${url}`);
+  return response.data;
+};

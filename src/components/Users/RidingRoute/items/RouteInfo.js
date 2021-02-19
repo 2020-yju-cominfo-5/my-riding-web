@@ -1,11 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getTimeContext } from "../../../../util";
 
 import "./RouteInfo.css";
 
-const RouteInfo = ({ data }) => {
-  // TODO axios
-  const { id, name, startAddress, endAddress, distance, time } = data;
+const RouteInfo = ({ route }) => {
+  if (!route) {
+    return <></>;
+  }
+
+  // created_at: "2021-02-18T06:20:10.000000Z"
+  // id: 110
+  // route_distance: 20
+  // route_end_point_address: "대구광역시 북구 산격2"
+  // route_image: "test_image005"
+  // route_like: 0
+  // route_num_of_try_count: 0
+  // route_start_point_address: "대구광역시 북구 복현로4"
+  // route_time: 15
+  // route_title: "엑스코라이딩"
+  // route_user_id: 41
+  const {
+    id,
+    route_title: name,
+    route_start_point_address: startAddress,
+    route_end_point_address: endAddress,
+    route_distance: distance,
+    route_time: time,
+  } = route;
+
   // const path = [
   //   { lat: 35.185689, lng: 129.071681 },
   //   { lat: 35.185749, lng: 129.071722 },
@@ -246,9 +269,9 @@ const RouteInfo = ({ data }) => {
             </li>
             <li>
               <div className="title">거리</div>
-              <div className="value">{distance}</div>
+              <div className="value">{distance}km</div>
               <div className="title">시간</div>
-              <div className="value">{time}</div>
+              <div className="value">{getTimeContext({ time })}</div>
             </li>
           </ul>
         </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { getDateContext, getTimeContext } from "../../../../util";
 import "./RouteList.css";
 
-const RouteList = ({ routeList }) => {
+const RouteList = ({ routes }) => {
   return (
     <div className="route-list">
       <ul>
@@ -16,16 +16,24 @@ const RouteList = ({ routeList }) => {
           <div className="del-btn">&nbsp;</div>
         </li>
         <div className="value-wrapper">
-          {routeList.map((element) => {
-            const { id, date, name, distance, time, like, count } = element;
+          {routes.map((ele) => {
+            const {
+              id,
+              created_at: date,
+              route_title: name,
+              route_distance: distance,
+              route_time: time,
+              route_like: like,
+              route_num_of_try_count: count,
+            } = ele;
             return (
               <li key={id} className="value">
-                <div className="date">{date}</div>
+                <div className="date">{getDateContext({ date })}</div>
                 <div className="name">
                   <Link to={`/route/${id}`}>{name}</Link>
                 </div>
-                <div className="distance">{distance}</div>
-                <div className="time">{time}</div>
+                <div className="distance">{distance}km</div>
+                <div className="time">{getTimeContext({ time })}</div>
                 <div className="etc">
                   <div className="like">
                     <i className="fas fa-heart"></i>
