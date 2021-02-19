@@ -40,13 +40,13 @@ const Login = ({ history }) => {
         const { status, data } = err.response;
         switch (status) {
           case 422:
-            // alert("유효하지 않은 입력 값입니다.");
-            alert(data.message);
+            alert("유효하지 않은 입력 값입니다.");
+            // alert(data.message);
             break;
           case 401:
-            // FIXME 아이디, 비밀번호 틀림 -> HTTP STATUS CODE 수정 필요
+            // 아이디, 비밀번호 틀림 -> HTTP STATUS CODE 수정 필요
             // 422 -> 401
-            // alert(data.message);
+            alert(data.message);
             break;
           default:
             alert("서버와의 연결에 실패하였습니다.");
