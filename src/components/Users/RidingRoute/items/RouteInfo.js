@@ -21,9 +21,9 @@ const RouteInfo = ({ route }) => {
 
   // TODO route path 요청
   console.log("route path 요청", id);
-  getRidingRouteById(id).then((res) => {
-    console.log(res);
-  });
+  // getRidingRouteById(id).then((res) => {
+  //   console.log(res);
+  // });
 
   // const path = [
   //   { lat: 35.185689, lng: 129.071681 },

@@ -122,7 +122,7 @@
   height: 80px;
   background: url("../../../../img/profileImg-test.jpg") center/80px no-repeat;
   border-radius: 100%;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .route-show .section .info > .bottom .right .record-value .record {
@@ -134,14 +134,16 @@
   display: inline-block;
   font-size: 17px;
   margin: 5px 0;
+  /* border: 1px solid blue; */
 }
 
 .route-show .section .info > .bottom .right .record-value .record .title {
   font-family: "Noto Sans", sans-serif;
   font-weight: 700;
   color: #2f2f2f;
-  width: 120px;
+  width: 110px;
   padding-left: 10px;
+  margin-right: 5px;
 }
 
 .route-show .section .info > .bottom .right .record-value .record .value {
