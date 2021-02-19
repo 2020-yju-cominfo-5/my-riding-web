@@ -5,43 +5,35 @@ import NavTitle from "./NavTitle";
 import Menu from "./Menu";
 import "./Navigation.css";
 
-const Navigation = ({ auth }) => {
-  const { isLogin, setIsLogin } = auth;
+const Navigation = ({ token }) => {
   const location = useLocation();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      requestAuth()
-        .then(() => {
-          setIsLogin(true);
-        })
-        .catch((err) => {
-          if (!err.response) {
+      requestAuth().catch((err) => {
+        if (!err.response) {
+          alert("서버와의 연결에 실패하였습니다.");
+          return;
+        }
+        const { status } = err.response;
+        switch (status) {
+          case 401:
+            alert(
+              "본인인증 실패 : 잘못된 접근 또는 인증토큰이 만료되었습니다.",
+            );
+            localStorage.removeItem("token");
+            break;
+          default:
             alert("서버와의 연결에 실패하였습니다.");
-            return;
-          }
-          const { status } = err.response;
-          switch (status) {
-            case 401:
-              alert(
-                "본인인증 실패 : 잘못된 접근 또는 인증토큰이 만료되었습니다.",
-              );
-              localStorage.removeItem("token");
-              setIsLogin(false);
-              break;
-            default:
-              alert("서버와의 연결에 실패하였습니다.");
-              break;
-          }
-        });
-    } else {
-      setIsLogin(false);
+            break;
+        }
+      });
     }
-  }, [location]);
+  }, [location, token]);
 
   return (
     <div className="navigation">
-      <div className="wrapper">{isLogin ? <Menu /> : <NavTitle />}</div>
+      <div className="wrapper">{token ? <Menu /> : <NavTitle />}</div>
     </div>
   );
 };
