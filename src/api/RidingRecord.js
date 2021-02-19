@@ -1,4 +1,3 @@
-import axios from "axios";
 import { authAxiosInstance } from "./Axios";
 
 // const url = `${process.env.REACT_APP_SERVER_URL}/record`;
@@ -24,7 +23,8 @@ export const getRidingRecordByWeek = async (year, week) => {
   return response.data;
 };
 
+// TODO 백엔드 수정 현황 확인 필요
 export const getRidingRecordById = async (id) => {
-  const response = await authAxiosInstance.get(`${url}/${id}`);
+  const response = await authAxiosInstance.get(`${url}/home`);
   return response.data;
 };
