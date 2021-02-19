@@ -1,10 +1,9 @@
 import React from "react";
-import Title from "../../item/Title";
-import RouteList from "./RouteList";
-import RouteInfo from "./RouteInfo";
+import Title from "../../../item/Title";
+import RouteList from "../items/RouteList";
+import RouteInfo from "../items/RouteInfo";
 
 const Main = ({ match: { params } }) => {
-  // TODO pages, items 구분하기
   // TODO useAxios
   const routeList = [
     {

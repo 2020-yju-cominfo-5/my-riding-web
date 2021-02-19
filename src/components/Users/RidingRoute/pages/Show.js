@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../../item/Title";
+import Title from "../../../item/Title";
 
 import "./Show.css";
 

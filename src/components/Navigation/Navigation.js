@@ -5,7 +5,7 @@ import NavTitle from "./NavTitle";
 import Menu from "./Menu";
 import "./Navigation.css";
 
-const Navigation = ({ auth }) => {
+const Navigation = ({ auth, token }) => {
   const { isLogin, setIsLogin } = auth;
   const location = useLocation();
 
@@ -37,11 +37,11 @@ const Navigation = ({ auth }) => {
     } else {
       setIsLogin(false);
     }
-  }, [location]);
+  }, [location, token]);
 
   return (
     <div className="navigation">
-      <div className="wrapper">{isLogin ? <Menu /> : <NavTitle />}</div>
+      <div className="wrapper">{token ? <Menu /> : <NavTitle />}</div>
     </div>
   );
 };

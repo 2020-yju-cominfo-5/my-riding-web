@@ -6,12 +6,13 @@ import Users from "./components/Users/Users";
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const token = localStorage.getItem("token");
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation auth={{ isLogin, setIsLogin }} />
-        {localStorage.getItem("token") ? <Users /> : <NoneUsers />}
+        <Navigation auth={{ isLogin, setIsLogin }} token={token} />
+        {token ? <Users /> : <NoneUsers />}
       </BrowserRouter>
     </div>
   );
