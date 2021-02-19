@@ -1,14 +1,13 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { requestLogout } from "../../api/Auth";
 
 const Menu = () => {
-  const history = useHistory();
   const onClickHandler = () => {
     requestLogout().finally(() => {
       localStorage.removeItem("token");
-      alert("로그아웃되었습니다.");
-      history.push("/");
+      // alert("로그아웃되었습니다.");
+      window.location.replace("/");
     });
   };
 
