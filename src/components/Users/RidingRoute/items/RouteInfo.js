@@ -5,21 +5,6 @@ import { getTimeContext } from "../../../../util";
 import "./RouteInfo.css";
 
 const RouteInfo = ({ route }) => {
-  if (!route) {
-    return <></>;
-  }
-
-  // created_at: "2021-02-18T06:20:10.000000Z"
-  // id: 110
-  // route_distance: 20
-  // route_end_point_address: "대구광역시 북구 산격2"
-  // route_image: "test_image005"
-  // route_like: 0
-  // route_num_of_try_count: 0
-  // route_start_point_address: "대구광역시 북구 복현로4"
-  // route_time: 15
-  // route_title: "엑스코라이딩"
-  // route_user_id: 41
   const {
     id,
     route_title: name,
@@ -28,6 +13,9 @@ const RouteInfo = ({ route }) => {
     route_distance: distance,
     route_time: time,
   } = route;
+
+  // TODO route path 요청
+  console.log("route path 요청", id);
 
   // const path = [
   //   { lat: 35.185689, lng: 129.071681 },

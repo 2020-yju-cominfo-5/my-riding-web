@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { requestLogin } from "../../api/Auth";
 import "./Login.css";
 
-const Login = ({ history }) => {
+const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,8 +28,8 @@ const Login = ({ history }) => {
           data: { token },
         } = res;
         localStorage.setItem("token", token);
-        alert(message);
-        history.push("/");
+        // alert(message);
+        window.location.replace("/");
       })
       .catch((err) => {
         if (!err.response) {

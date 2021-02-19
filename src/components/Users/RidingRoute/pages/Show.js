@@ -3,7 +3,9 @@ import Title from "../../../item/Title";
 
 import "./Show.css";
 
-const Show = ({ match: { params } }) => {
+const Show = ({ match }) => {
+  const { id } = match.params;
+  console.log(id);
   const {
     name,
     like,
@@ -19,7 +21,7 @@ const Show = ({ match: { params } }) => {
     myAvgRecord,
     rank,
   } = {
-    name: `아양교~공항교 라이딩 ${params.id}`,
+    name: `아양교~공항교 라이딩 ${id}`,
     like: 10,
     usrCount: 35,
     tryCount: 100,
@@ -205,7 +207,7 @@ const Show = ({ match: { params } }) => {
               {rank.map((ele, idx) => {
                 const { name, record, date, maxSpeed } = ele;
                 return (
-                  <li className="user">
+                  <li className="user" key={idx}>
                     <span>
                       {idx === 0 ? (
                         <i className="fas fa-crown"></i>

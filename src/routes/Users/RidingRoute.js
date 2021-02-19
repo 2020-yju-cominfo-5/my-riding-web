@@ -8,11 +8,10 @@ import RouteEdit from "../../components/Users/RidingRoute/pages/Edit";
 const RidingRoute = () => {
   return (
     <>
-      <Route path="/route/show/:id" component={RouteShow} />
+      <Route path="/route" exact={true} component={RouteMain} />
+      <Route path="/route/:id" component={RouteShow} />
       <Route path="/route/create" component={RouteCreate} />
       <Route path="/route/edit/:id" component={RouteEdit} />
-      <Route path="/route" exact={true} component={RouteMain} />
-      <Route path="/route/:id" exact={true} component={RouteMain} />
     </>
   );
 };

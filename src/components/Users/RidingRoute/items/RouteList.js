@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import { getDateContext, getTimeContext } from "../../../../util";
 import "./RouteList.css";
 
-const RouteList = ({ routes }) => {
+const RouteList = ({ routes, setSelectedId }) => {
+  const onClickHandler = (event) => {
+    const { id } = event.target.parentNode;
+    setSelectedId(id);
+  };
   return (
     <div className="route-list">
       <ul>
@@ -27,7 +31,7 @@ const RouteList = ({ routes }) => {
               route_num_of_try_count: count,
             } = ele;
             return (
-              <li key={id} className="value">
+              <li key={id} id={id} className="value" onClick={onClickHandler}>
                 <div className="date">{getDateContext({ date })}</div>
                 <div className="name">
                   <Link to={`/route/${id}`}>{name}</Link>
