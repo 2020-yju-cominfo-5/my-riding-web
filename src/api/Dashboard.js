@@ -1,8 +1,8 @@
-import { authAxiosInstance } from "./Axios";
+import API from "./API";
 
 const url = `http://54.145.82.27/api`;
 
 export const getDashboard = async () => {
-  const response = await authAxiosInstance.get(`${url}/dashboard`);
+  const response = await API.get(`${url}/dashboard`);
   return response.data;
 };
