@@ -25,9 +25,7 @@ const Navigation = ({ auth }) => {
           const { status } = err.response;
           switch (status) {
             case 401:
-              alert(
-                "본인인증 실패 : 잘못된 접근 또는 인증토큰이 만료되었습니다.",
-              );
+              alert("잘못된 접근 또는 인증토큰이 만료되었습니다.");
               localStorage.removeItem("token");
               setIsLogin(false);
               break;
