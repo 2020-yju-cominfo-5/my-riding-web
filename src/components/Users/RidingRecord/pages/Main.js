@@ -10,7 +10,8 @@ import { getRidingRecordByYear } from "../../../../api/RidingRecord";
 const Main = () => {
   const currentYear = new Date().getFullYear();
   const years = [`${currentYear}`, `${currentYear - 1}`, `${currentYear - 2}`];
-  const [year, setYear] = useState(currentYear);
+  const [year, setYear] = useState(years[0]);
+  const [prevYear, setPrevYear] = useState();
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
@@ -19,9 +20,17 @@ const Main = () => {
       .then((res) => {
         // TODO NO DATA 알고리즘 추가 필요 -> 해당 년도에 등록된 라이딩 기록이 없습니다.
         const { data } = res;
-        setStats(data.stats, ...stats);
+        const stats = Object.values(data.stats);
+        // FIXME stats object -> array 로 변경 필요, 변경 시 stats
+        if (stats.length === 0) {
+          setYear(prevYear);
+          alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
+          return;
+        }
+        setStats(stats, ...stats);
       })
       .catch((err) => {
+        console.log(err);
         if (!err.response) {
           alert("서버와의 연결에 실패하였습니다.");
           return;
@@ -32,6 +41,8 @@ const Main = () => {
   }, [year]);
 
   const yearChangeHandler = ({ value }) => {
+    setStats([]);
+    setPrevYear(year);
     setYear(value);
   };
 
@@ -44,7 +55,7 @@ const Main = () => {
             <Dropdown
               options={years}
               onChange={yearChangeHandler}
-              value={years[0]}
+              value={year}
               placeholder="조회년도"
             />
           </div>
@@ -67,10 +78,15 @@ const Main = () => {
             <li>토</li>
           </ul>
           <ul className="chart-contents">
-            {/* FIXME stats object -> array 로 변경 필요 변경 시 바로 map 적용 */}
-            {Object.values(stats).map((stat, idx) => {
+            {/* FIXME stats object -> array 로 변경 필요, 변경 시 바로 map 적용 */}
+            {Object.values(stats)
+              .reverse()
+              .map((stat, idx) => {
+                return <WeekStat key={idx} stat={stat} year={year} />;
+              })}
+            {/* {stats.map((stat, idx) => {
               return <WeekStat key={idx} stat={stat} year={year} />;
-            })}
+            })} */}
           </ul>
         </div>
       </div>

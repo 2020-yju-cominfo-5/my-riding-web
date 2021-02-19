@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Navigation auth={{ isLogin, setIsLogin }} />
-        {isLogin ? <Users /> : <NoneUsers />}
+        {localStorage.getItem("token") ? <Users /> : <NoneUsers />}
       </BrowserRouter>
     </div>
   );

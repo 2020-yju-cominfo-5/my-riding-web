@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getRidingRecordByWeek } from "../../../../api/RidingRecord";
 import { getDateContext, getTimeContext } from "../../../../util";
 import Title from "../../../item/Title";
@@ -8,6 +8,8 @@ import "./List.css";
 
 const List = ({ match }) => {
   const { year, week } = match.params;
+  const history = useHistory();
+
   const [data, setData] = useState({
     stat: {
       startDate: "",
@@ -20,19 +22,21 @@ const List = ({ match }) => {
   useEffect(() => {
     getRidingRecordByWeek(year, week)
       .then((res) => {
-        // FIXME stats -> stat
-        // FIXME stat 와 records 해체문법 적용하기
-        setData({ stat: res.data.stats, records: res.data.stats.records });
-        console.log(res.data);
+        const { stat, records } = res.data;
+        setData({ stat, records });
+
         setScoreSum(
-          res.data.records.reduce((prev, curr) => {
-            const prevScore = prev.score ? prev.score : prev;
-            return prevScore + curr.score;
-          }),
+          records.length === 1
+            ? records[0].score
+            : records.reduce((prev, curr) => {
+                const prevScore = prev.score ? prev.score : prev;
+                return prevScore + curr.score;
+              }),
         );
       })
-      .catch((err) => {
-        console.log(err.response);
+      .catch(() => {
+        alert(`${year}년 ${week}주차 라이딩 일지 조회에 실패하였습니다.`);
+        history.push("/record");
       });
   }, []);
 

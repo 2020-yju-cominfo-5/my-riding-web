@@ -11,8 +11,6 @@ const Navigation = ({ auth }) => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      setIsLogin(true);
-      // BUG requestAuth URL 수정
       requestAuth()
         .then(() => {
           setIsLogin(true);

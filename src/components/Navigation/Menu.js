@@ -4,11 +4,12 @@ import { requestLogout } from "../../api/Auth";
 
 const Menu = () => {
   const history = useHistory();
-  const onClickHandler = (event) => {
-    requestLogout();
-    localStorage.removeItem("token");
-    alert("로그아웃되었습니다.");
-    history.push("/");
+  const onClickHandler = () => {
+    requestLogout().finally(() => {
+      localStorage.removeItem("token");
+      alert("로그아웃되었습니다.");
+      history.push("/");
+    });
   };
 
   return (
