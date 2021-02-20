@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import imageCompression from "browser-image-compression";
+import PasswordUpdate from "./items/PasswordUpdate";
 import { getProfile, updateProfileImg } from "../../api/Auth";
 import { getDateContext } from "../../util";
-import imageCompression from "browser-image-compression";
 import "./Profile.css";
 
 const Profile = () => {
@@ -14,6 +15,8 @@ const Profile = () => {
   const [imgFlag, setImgFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [imgFileUrl, setImgFileUrl] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const { user_account, user_nickname, created_at } = data;
 
   useEffect(() => {
@@ -49,6 +52,7 @@ const Profile = () => {
   };
   const onImgSubmitHandler = () => {
     if (imgFlag) {
+      // TODO 프로필 사진 변경 API 추가
       updateProfileImg(imgFile);
       // .then(() => {
       //   alert("프로필 사진 변경을 성공하였습니다.");
@@ -60,9 +64,15 @@ const Profile = () => {
       alert("새로 고침 후, 다시 변경바랍니다.");
     }
   };
+  const modalOpenHandler = () => {
+    setModalIsOpen(true);
+  };
 
   return (
     <div className="profile">
+      {modalIsOpen && (
+        <PasswordUpdate controller={{ modalIsOpen, setModalIsOpen }} />
+      )}
       <div className="top">
         <div className="title">PROFILE</div>
         <div className="img-section">
@@ -105,7 +115,12 @@ const Profile = () => {
           <li>
             <span className="title">비밀번호</span>
             <span className="value">
-              <button className="btn-password-update">변경</button>
+              <button
+                className="btn-password-update"
+                onClick={modalOpenHandler}
+              >
+                변경
+              </button>
             </span>
           </li>
           <li>

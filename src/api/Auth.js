@@ -31,5 +31,6 @@ export const updateProfileImg = async (imgFile) => {
 };
 
 export const updatePassword = async (password, passwordConfirm) => {
+  // TODO 패스워드 변경 API 추가
   console.log(password, passwordConfirm);
 };

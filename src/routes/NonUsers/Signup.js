@@ -24,6 +24,7 @@ const Signup = ({ history }) => {
   const [nickName, setNickName] = useState("");
   // TODO picture 수정하기
 
+  // FIXME PasswordUpdate 참고 수정 필요!!
   const inputHandler = {
     required: "on",
     autoComplete: "off",
