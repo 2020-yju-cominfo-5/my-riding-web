@@ -16,7 +16,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 60px;
   font-weight: 900;
-  padding-top: 50px;
+  padding-top: 40px;
   color: #fff;
 }
 
@@ -24,8 +24,7 @@
   position: relative;
   width: 250px;
   height: 250px;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin: 30px auto;
 }
 
 .users .profile .top .img,
@@ -36,29 +35,31 @@
 }
 
 .users .profile .top .img {
-  box-sizing: border-box;
   position: absolute;
+  box-sizing: border-box;
   border: 10px solid #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .users .profile .top .img-save {
-  visibility: hidden;
-  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 230px;
+  display: inline-block;
+  background-color: initial;
+  box-shadow: initial;
+  border: none;
+  outline: none;
 }
 
-.users .profile .top .img:hover {
-  cursor: pointer;
-}
-
-.users .profile .top .img:hover + .img-save {
+.users .profile .top .img-save:hover {
   visibility: initial;
   background-color: #00000050;
   cursor: pointer;
   transition: 0.5s;
-  content: "aaa";
-  line-height: 250px;
-  /* z-index: 100; */
 }
 
 .users .profile .top .filebox {
@@ -96,6 +97,11 @@
   border: 0;
 }
 
+.users .profile .top .img-txt {
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+}
+
 .users .profile .bottom {
   padding-top: 60px;
 }
@@ -118,4 +124,23 @@
 .users .profile .bottom li span.value {
   font-weight: 700;
   width: 200px;
+}
+
+.users .profile .bottom li .btn-password-update {
+  width: 70px;
+  height: 35px;
+  line-height: 32px;
+  border-radius: 10px;
+  background-color: #3773d4;
+  color: #fff;
+  box-shadow: none;
+  border: 1px solid #3773d4;
+  outline: none;
+}
+
+.users .profile .bottom li .btn-password-update:hover {
+  background-color: #fff;
+  color: #3773d4;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  transition: 0.5s;
 }

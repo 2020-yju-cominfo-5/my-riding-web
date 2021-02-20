@@ -24,3 +24,12 @@ export const getProfile = async () => {
   const response = await API.get("/auth/profile");
   return response.data;
 };
+
+export const updateProfileImg = async (imgFile) => {
+  // TODO 프로필 사진 변경 API 추가
+  console.log(imgFile);
+};
+
+export const updatePassword = async (password, passwordConfirm) => {
+  console.log(password, passwordConfirm);
+};
