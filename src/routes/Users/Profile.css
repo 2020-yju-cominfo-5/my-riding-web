@@ -1,0 +1,121 @@
+.users .profile {
+  width: 50%;
+  height: 800px;
+  margin: 30px auto;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+}
+
+.users .profile .top {
+  background-color: #3773d4;
+  height: 460px;
+}
+
+.users .profile .top .title {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  padding-top: 50px;
+  color: #fff;
+}
+
+.users .profile .top .img-section {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.users .profile .top .img,
+.users .profile .top .img-save {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+}
+
+.users .profile .top .img {
+  box-sizing: border-box;
+  position: absolute;
+  border: 10px solid #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.users .profile .top .img-save {
+  visibility: hidden;
+  color: #fff;
+}
+
+.users .profile .top .img:hover {
+  cursor: pointer;
+}
+
+.users .profile .top .img:hover + .img-save {
+  visibility: initial;
+  background-color: #00000050;
+  cursor: pointer;
+  transition: 0.5s;
+  content: "aaa";
+  line-height: 250px;
+  /* z-index: 100; */
+}
+
+.users .profile .top .filebox {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.users .profile .top .filebox label {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background: url("../../img/icon-camera.png") center/35px no-repeat;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.users .profile .top .filebox label:hover {
+  background: url("../../img/icon-camera-over.png") center/35px no-repeat;
+  background-color: #fdfdfd;
+  transition: 0.5s;
+}
+
+.users .profile .top .filebox input[type="file"] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.users .profile .bottom {
+  padding-top: 60px;
+}
+
+.users .profile .bottom li {
+  font-size: 25px;
+  height: 65px;
+}
+
+.users .profile .bottom li span {
+  display: inline-block;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.users .profile .bottom li span.title {
+  width: 160px;
+  text-align: left;
+}
+
+.users .profile .bottom li span.value {
+  font-weight: 700;
+  width: 200px;
+}
