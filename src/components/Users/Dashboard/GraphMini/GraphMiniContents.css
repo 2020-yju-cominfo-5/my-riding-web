@@ -16,15 +16,14 @@
 }
 
 .graph-mini .contents .result {
-  height: 66px;
   font-family: "Roboto", sans-serif;
   font-size: 30px;
   color: #2f2f2f;
-  margin-top: 10px;
+  margin: 10px 0 25px 0;
 }
 
 .graph-mini .contents .this-week {
-  padding-top: 20px;
+  padding-top: 15px;
   height: 230px;
   border-bottom: 1px solid #f7f7fa;
 }
