@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getDateShortContext } from "../../../../util";
+import { getDateShortContext } from "../../../../util/getDateContext";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
@@ -46,9 +46,9 @@ const WeekStat = ({ stat, year, score }) => {
           </div>
           <div className="time">
             <span className="title">총 시간</span>
-            <span className="value">{`${Math.floor(sum.time / 60)}시간 ${
-              sum.time % 60
-            }분`}</span>
+            <span className="value">{`${Math.floor(
+              sum.time / 60,
+            )}시간 ${sum.time % 60}분`}</span>
           </div>
           <div className="avg-speed">
             <span className="title">평균 속도</span>

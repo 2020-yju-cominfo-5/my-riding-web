@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as moment from "moment";
+import { getDateKorContext } from "../../../util/getDateContext";
 import "./Graph.css";
-import { getDateContext } from "../../../util";
 
 const Graph = ({ stats }) => {
   const [data, setData] = useState(stats);
@@ -35,9 +35,9 @@ const Graph = ({ stats }) => {
           )}
         </p>
         <p className="sub">
-          {getDateContext({ date: startDate }) +
+          {getDateKorContext({ date: startDate }) +
             " ~ " +
-            getDateContext({ date: endDate })}
+            getDateKorContext({ date: endDate })}
         </p>
       </div>
       <div className="body">

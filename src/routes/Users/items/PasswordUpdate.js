@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { updatePassword } from "../../../api/Auth";
+import getRegPatterns from "../../../util/getRegPatterns";
 import "./PasswordUpdate.css";
 
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ const PasswordUpdate = ({ controller }) => {
     passwordConfirm: "비밀번호가 일치하지 않습니다.",
     success: "저장을 눌러 비밀번호를 변경해주세요.",
   };
-  const passwordPattern = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,}$/;
+  const passwordPattern = getRegPatterns("password");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [msg, setMsg] = useState(msgs.default);
@@ -50,7 +51,6 @@ const PasswordUpdate = ({ controller }) => {
       const { name, value } = target;
       switch (name) {
         case "password":
-          console.log(passwordPattern.test(value));
           passwordPattern.test(value)
             ? passwordConfirm === value
               ? setMsg(msgs.success)

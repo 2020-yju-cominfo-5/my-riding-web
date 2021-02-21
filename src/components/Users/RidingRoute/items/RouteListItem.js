@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getDateContext, getTimeContext } from "../../../../util";
+import {
+  getDateKorContext,
+  getTimeContext,
+} from "../../../../util/getDateContext";
 
 const RouteListItem = ({ data, setSelectedId }) => {
   const {
@@ -18,7 +21,7 @@ const RouteListItem = ({ data, setSelectedId }) => {
 
   return (
     <li key={id} id={id} className="value" onClick={onClickHandler}>
-      <div className="date">{getDateContext({ date })}</div>
+      <div className="date">{getDateKorContext({ date })}</div>
       <div className="name">
         <Link to={`/route/${id}`}>{name}</Link>
       </div>

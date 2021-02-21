@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getRidingRecordByWeek } from "../../../../api/RidingRecord";
-import { getDateContext, getTimeContext } from "../../../../util";
+import {
+  getDateKorContext,
+  getTimeContext,
+} from "../../../../util/getDateContext";
 import Title from "../../../item/Title";
 import WeekStat from "../items/WeekStat";
 import "./List.css";
@@ -59,7 +62,7 @@ const List = ({ match }) => {
               const { id, date, title, distance, time, score } = record;
               return (
                 <li key={id}>
-                  <span>{getDateContext({ date })}</span>
+                  <span>{getDateKorContext({ date })}</span>
                   <span>
                     <Link to={`/record/show/${id}`}>{title}</Link>
                   </span>
