@@ -31,9 +31,9 @@ const List = ({ match }) => {
           records.length === 1
             ? records[0].score
             : records.reduce((prev, curr) => {
-                const prevScore = prev.score ? prev.score : prev;
-                return prevScore + curr.score;
-              }),
+                const sum = prev.score + curr.score;
+                return { score: sum };
+              }).score,
         );
       })
       .catch(() => {
