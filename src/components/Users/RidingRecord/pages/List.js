@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { getRidingRecordByWeek } from "../../../../api/RidingRecord";
-import {
-  getDateKorContext,
-  getTimeContext,
-} from "../../../../util/getDateContext";
+import { useHistory } from "react-router-dom";
 import Title from "../../../item/Title";
 import WeekStat from "../items/WeekStat";
+import RecordListTitle from "../items/List/RecordListTitle";
+import RecordListData from "../items/List/RecordListData";
+import { getRidingRecordByWeek } from "../../../../api/RidingRecord";
+
 import "./List.css";
 
 const List = ({ match }) => {
@@ -49,37 +48,8 @@ const List = ({ match }) => {
       <div className="record-list">
         <WeekStat stat={data.stat} score={scoreSum} />
         <div className="list">
-          <ul className="record-title">
-            <li>날짜</li>
-            <li>제목</li>
-            <li>거리</li>
-            <li>시간</li>
-            <li>라이딩 점수</li>
-            <li>&nbsp;</li>
-          </ul>
-          <ul className="records">
-            {data.records.map((record) => {
-              const { id, date, title, distance, time, score } = record;
-              return (
-                <li key={id}>
-                  <span>{getDateKorContext({ date })}</span>
-                  <span>
-                    <Link to={`/record/show/${id}`}>{title}</Link>
-                  </span>
-                  <span>{(distance / 1000).toFixed(1)} km</span>
-                  <span>{getTimeContext({ time })}</span>
-                  <span>
-                    <i className="fas fa-bolt"></i>
-                    {score}
-                  </span>
-                  <span>
-                    {/* TODO btn 으로 변경, 삭제 API 적용 */}
-                    <Link to={`/record`}>삭제</Link>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+          <RecordListTitle />
+          <RecordListData records={data.records} />
         </div>
       </div>
     </>

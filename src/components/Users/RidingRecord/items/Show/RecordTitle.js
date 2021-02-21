@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Title from "../../../item/Title";
+import Title from "../../../../item/Title";
 
 const RecordTitle = ({ data: { id, title } }) => {
   return (
