@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { updatePassword } from "../../../api/Auth";
+import "./PasswordUpdate.css";
 
 Modal.setAppElement("#root");
 
@@ -13,6 +15,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     width: 350,
     border: "none",
+    boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.5)",
   },
 };
 
@@ -22,11 +25,11 @@ const PasswordUpdate = ({ controller }) => {
     return <></>;
   }
 
-  // TODO CSS 수정 필요
+  // TODO CSS 수정 필요, 비밀번호 수정 버튼 및 API 연결
   // FIXME Signup.js 와 refactoring 필요...
   const msgs = {
     default: "변경할 비밀번호를 입력해주세요.",
-    password: "비밀번호는 문자, 숫자, 특수문자 조합 8자 이상 입력해주세요.",
+    password: "문자, 숫자, 특수문자 조합 8자 이상",
     passwordConfirm: "비밀번호가 일치하지 않습니다.",
     success: "저장을 눌러 비밀번호를 변경해주세요.",
   };
@@ -70,6 +73,17 @@ const PasswordUpdate = ({ controller }) => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    updatePassword(password, passwordConfirm)
+      .then(() => {
+        alert("비밀번호 변경에 성공하였습니다.");
+        closeModal();
+      })
+      .catch(() => {
+        alert("비밀번호 변경에 실패하였습니다.");
+      });
+  };
 
   return (
     <>
@@ -79,7 +93,8 @@ const PasswordUpdate = ({ controller }) => {
         style={customStyles}
         contentLabel="Related Project"
       >
-        <form>
+        <form className="password-update" onSubmit={onSubmitHandler}>
+          <div className="title">비밀번호 변경</div>
           <div className="password">
             <input
               type="password"
@@ -103,6 +118,7 @@ const PasswordUpdate = ({ controller }) => {
             <i className="fas fa-check-circle" />
           </div>
           <div className="warning-msg">{msg}</div>
+          <input className="password-update-btn" type="submit" value="저장" />
         </form>
       </Modal>
     </>
