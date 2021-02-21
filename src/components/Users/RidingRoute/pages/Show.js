@@ -1,9 +1,56 @@
-import React from "react";
-import Title from "../../item/Title";
+import React, { useState, useEffect } from "react";
+import { getRidingRouteById } from "../../../../api/RidingRoute";
+import { getDateContext, getTimeContext } from "../../../../util";
+import Title from "../../../item/Title";
 
 import "./Show.css";
 
-const Show = ({ match: { params } }) => {
+const Show = ({ match }) => {
+  const { id } = match.params;
+  const [data, setData] = useState({
+    name: "",
+    like: 0,
+    usrCount: 0,
+    tryCount: 0,
+    distacne: 0,
+    time: 0,
+    grade: 0,
+    minAlt: 0,
+    maxAlt: 0,
+    myRank: 0,
+    myBestRecord: 0,
+    myAvgRecord: 0,
+    topRankerAccount: "",
+    topRankerRecord: 0,
+    rank: [],
+  });
+  useEffect(() => {
+    getRidingRouteById(id)
+      .then((res) => {
+        const { route, record, rankvalue } = res.data;
+        console.log(res.data);
+        setData({
+          name: route[0].route_title,
+          like: route[0].route_like,
+          usrCount: route[0].route_num_of_try_user,
+          tryCount: route[0].route_num_of_try_count,
+          distacne: route[0].route_distance,
+          time: route[0].route_time,
+          grade: route[0].route_avg_degree,
+          minAlt: route[0].route_max_altitude,
+          maxAlt: route[0].route_min_altitude,
+          myRank: rankvalue.record_user_rank,
+          myBestRecord: rankvalue.record_user_top,
+          myAvgRecord: rankvalue.record_user_avg,
+          topRankerAccount: rankvalue.record_top_score_user_account,
+          topRankerRecord: rankvalue.record_top_score_user_time,
+          rank: record,
+        });
+      })
+      .catch((err) => {
+        alert("경로 정보 조회에 실패하였습니다.");
+      });
+  }, []);
   const {
     name,
     like,
@@ -17,95 +64,10 @@ const Show = ({ match: { params } }) => {
     myRank,
     myBestRecord,
     myAvgRecord,
+    topRankerAccount,
+    topRankerRecord,
     rank,
-  } = {
-    name: `아양교~공항교 라이딩 ${params.id}`,
-    like: 10,
-    usrCount: 35,
-    tryCount: 100,
-    distacne: 15.2,
-    time: 367,
-    grade: 13,
-    minAlt: 12.2,
-    maxAlt: 25.6,
-    myRank: 1,
-    myBestRecord: "01:20:30",
-    myAvgRecord: "01:45:50",
-    rank: [
-      {
-        name: "정재순",
-        record: "01:20:30",
-        date: "0000년 00월 00일",
-        maxSpeed: 25,
-      },
-      {
-        name: "김창한",
-        record: "01:22:15",
-        date: "0000년 00월 00일",
-        maxSpeed: 21,
-      },
-      {
-        name: "박중규",
-        record: "01:25:20",
-        date: "0000년 00월 00일",
-        maxSpeed: 23,
-      },
-      {
-        name: "정재순",
-        record: "01:20:30",
-        date: "0000년 00월 00일",
-        maxSpeed: 25,
-      },
-      {
-        name: "김창한",
-        record: "01:22:15",
-        date: "0000년 00월 00일",
-        maxSpeed: 21,
-      },
-      {
-        name: "박중규",
-        record: "01:25:20",
-        date: "0000년 00월 00일",
-        maxSpeed: 23,
-      },
-      {
-        name: "정재순",
-        record: "01:20:30",
-        date: "0000년 00월 00일",
-        maxSpeed: 25,
-      },
-      {
-        name: "김창한",
-        record: "01:22:15",
-        date: "0000년 00월 00일",
-        maxSpeed: 21,
-      },
-      {
-        name: "박중규",
-        record: "01:25:20",
-        date: "0000년 00월 00일",
-        maxSpeed: 23,
-      },
-      {
-        name: "정재순",
-        record: "01:20:30",
-        date: "0000년 00월 00일",
-        maxSpeed: 25,
-      },
-      {
-        name: "김창한",
-        record: "01:22:15",
-        date: "0000년 00월 00일",
-        maxSpeed: 21,
-      },
-      {
-        name: "박중규",
-        record: "01:25:20",
-        date: "0000년 00월 00일",
-        maxSpeed: 23,
-      },
-    ],
-  };
+  } = data;
 
   return (
     <div className="route-show">
@@ -162,11 +124,15 @@ const Show = ({ match: { params } }) => {
                   <div className="record">
                     <div className="wrapper">
                       <p className="title">통산 최고 기록</p>
-                      <p className="value">{myBestRecord}</p>
+                      <p className="value">
+                        {getTimeContext({ time: myBestRecord })}
+                      </p>
                     </div>
                     <div className="wrapper">
                       <p className="title">평균 기록</p>
-                      <p className="value">{myAvgRecord}</p>
+                      <p className="value">
+                        {getTimeContext({ time: myAvgRecord })}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -180,11 +146,13 @@ const Show = ({ match: { params } }) => {
                   <div className="record">
                     <div className="user-name">
                       <i className="fas fa-crown"></i>
-                      <p className="txt">{rank[0].name}</p>
+                      <p className="txt">{topRankerAccount}</p>
                     </div>
                     <div className="wrapper">
                       <p className="title">최고 기록</p>
-                      <p className="value">{rank[0].record}</p>
+                      <p className="value">
+                        {getTimeContext({ time: topRankerRecord })}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -203,9 +171,15 @@ const Show = ({ match: { params } }) => {
             </li>
             <div className="user-rank-wrapper">
               {rank.map((ele, idx) => {
-                const { name, record, date, maxSpeed } = ele;
+                // console.log(ele);
+                const {
+                  user_account: name,
+                  rec_time: record,
+                  created_at: date,
+                  rec_max_speed: maxSpeed,
+                } = ele;
                 return (
-                  <li className="user">
+                  <li className="user" key={idx}>
                     <span>
                       {idx === 0 ? (
                         <i className="fas fa-crown"></i>
@@ -214,8 +188,8 @@ const Show = ({ match: { params } }) => {
                       )}
                     </span>
                     <span>{name}</span>
-                    <span>{record}</span>
-                    <span>{date}</span>
+                    <span>{getTimeContext({ time: record })}</span>
+                    <span>{getDateContext({ date })}</span>
                     <span>{maxSpeed}km</span>
                   </li>
                 );
