@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   getDateKorContext,
   getTimeContext,
-} from "../../../../util/getDateContext";
+} from "../../../../../util/getDateContext";
 
 const RouteListItem = ({ data, setSelectedId }) => {
   const {

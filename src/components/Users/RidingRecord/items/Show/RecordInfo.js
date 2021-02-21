@@ -2,7 +2,7 @@ import React from "react";
 import {
   getDateKorContext,
   getTimeContext,
-} from "../../../../util/getDateContext";
+} from "../../../../../util/getDateContext";
 
 const RecordInfo = ({ info }) => {
   const {
