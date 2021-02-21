@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getDateContext } from "../../../util";
+import { getDateKorContext } from "../../../util/getDateContext";
 
 import "./NotiItem.css";
 
@@ -52,7 +52,7 @@ const NotiItem = ({ noti }) => {
           <p className="txt">{content[category]}</p>
         </div>
       </div>
-      <div className="date">{getDateContext({ date: created_at })}</div>
+      <div className="date">{getDateKorContext({ date: created_at })}</div>
       {/* TODO 라이딩 알림 확인 API 추가 필요 -> 버튼 이벤트 추가*/}
       <div className="close-btn">&times;</div>
     </div>

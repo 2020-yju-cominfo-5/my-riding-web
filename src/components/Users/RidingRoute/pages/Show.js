@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getRidingRouteById } from "../../../../api/RidingRoute";
-import { getDateContext, getTimeContext } from "../../../../util";
+import {
+  getDateKorContext,
+  getTimeContext,
+} from "../../../../util/getDateContext";
 import Title from "../../../item/Title";
 
 import "./Show.css";
@@ -189,7 +192,7 @@ const Show = ({ match }) => {
                     </span>
                     <span>{name}</span>
                     <span>{getTimeContext({ time: record })}</span>
-                    <span>{getDateContext({ date })}</span>
+                    <span>{getDateKorContext({ date })}</span>
                     <span>{maxSpeed}km</span>
                   </li>
                 );

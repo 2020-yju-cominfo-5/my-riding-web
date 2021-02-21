@@ -1,5 +1,5 @@
 import React from "react";
-import { getDateContext } from "../../../util";
+import { getDateKorContext } from "../../../util/getDateContext";
 import "./ProfileMini.css";
 
 const ProfileMini = ({ user }) => {
@@ -22,7 +22,7 @@ const ProfileMini = ({ user }) => {
         <div className="footer">
           <div className="latest">
             <p className="title">최근 라이딩</p>
-            <p className="date">{getDateContext({ date: last_riding })}</p>
+            <p className="date">{getDateKorContext({ date: last_riding })}</p>
           </div>
           <div className="record-detail">
             <p>내 라이딩 기록 상세 보기 &gt;</p>

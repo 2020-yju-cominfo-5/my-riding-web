@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import imageCompression from "browser-image-compression";
 import PasswordUpdate from "./items/PasswordUpdate";
 import { getProfile, updateProfileImg } from "../../api/Auth";
-import { getDateContext } from "../../util";
+import { getDateKorContext } from "../../util/getDateContext";
 import "./Profile.css";
 
 const Profile = () => {
@@ -130,7 +130,7 @@ const Profile = () => {
           <li>
             <span className="title">가입일</span>
             <span className="value">
-              {getDateContext({ date: created_at })}
+              {getDateKorContext({ date: created_at })}
             </span>
           </li>
         </ul>
