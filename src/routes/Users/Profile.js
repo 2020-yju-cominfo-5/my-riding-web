@@ -26,7 +26,7 @@ const Profile = () => {
         // XXX setImgFileUrl 확인 필요
         setImgFileUrl(res.data.user_picture);
       })
-      .catch((err) => {
+      .catch(() => {
         console.log("Profile 조회에 실패하였습니다.");
       });
   }, []);
@@ -53,15 +53,15 @@ const Profile = () => {
   const onImgSubmitHandler = () => {
     if (imgFlag) {
       // TODO 프로필 사진 변경 API 추가
-      updateProfileImg(imgFile);
-      // .then(() => {
-      //   alert("프로필 사진 변경을 성공하였습니다.");
-      // })
-      // .catch(() => {
-      //   alert("프로필 사진 변경을 실패하였습니다.");
-      // });
+      updateProfileImg(imgFile)
+        .then(() => {
+          alert("프로필 사진 변경을 성공하였습니다.");
+        })
+        .catch(() => {
+          alert("프로필 사진 변경을 실패하였습니다.");
+        });
     } else {
-      alert("새로 고침 후, 다시 변경바랍니다.");
+      alert("새로 고침 후, 다시 시도바랍니다.");
     }
   };
   const modalOpenHandler = () => {
