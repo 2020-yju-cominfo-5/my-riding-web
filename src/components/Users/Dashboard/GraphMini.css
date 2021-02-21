@@ -1,0 +1,49 @@
+.graph-mini div {
+  box-sizing: border-box;
+}
+
+.graph-mini .menus {
+  height: 66px;
+}
+
+.graph-mini .menus .menu {
+  display: inline-block;
+  width: 33.33%;
+  height: inherit;
+  background-color: #f7f7fa;
+  position: relative;
+}
+
+.graph-mini .menus .menu:first-child {
+  border-top-left-radius: 8px;
+}
+
+.graph-mini .menus .menu:last-child {
+  border-top-right-radius: 8px;
+}
+
+.graph-mini .menus .selected {
+  background-color: #fff;
+}
+
+.graph-mini .menus .menu .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+.graph-mini .menus .selected .img {
+  opacity: 1;
+}
+
+.graph-mini .menus .menu .img:hover {
+  opacity: 1;
+  transform: scale(1.1) translate(-45%, -45%);
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transition: 0.5s;
+}

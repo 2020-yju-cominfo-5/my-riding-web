@@ -4,6 +4,7 @@ import "./ProfileMini.css";
 
 const ProfileMini = ({ user }) => {
   const { nickname, score, count, last_riding } = user;
+  console.log(nickname);
   return (
     <div className="profile-mini">
       <div className="user-img"></div>
