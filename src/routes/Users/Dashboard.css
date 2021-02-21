@@ -54,10 +54,23 @@
   text-align: center;
   color: #2f2f2f;
 }
-
+.users .dashboard-right .noti-no-data,
 .users .dashboard-right .noti-board {
   width: 800px;
-  height: 300px;
+  height: 295px;
+  margin-bottom: 10px;
+}
+
+.users .dashboard-right .noti-no-data {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 295px;
+  font-family: "Noto Sans", sans-serif;
+  color: #6b6b6b;
+  font-size: 20px;
+}
+
+.users .dashboard-right .noti-board {
   background: none;
   overflow-x: hidden;
   overflow-y: auto;
@@ -81,7 +94,7 @@
 }
 
 .users .dashboard-right .noti-item {
-  height: 90px;
+  height: 85px;
   margin: 8px auto;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
