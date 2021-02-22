@@ -4,7 +4,7 @@ import WeekStat from "../../items/WeekStat";
 const RecordMainChartContens = ({ year, stats }) => {
   return (
     <ul className="chart-contents">
-      {stats.reverse().map((stat, idx) => {
+      {stats.map((stat, idx) => {
         return <WeekStat key={idx} stat={stat} year={year} />;
       })}
     </ul>

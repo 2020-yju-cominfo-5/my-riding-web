@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const ChartWeek = ({ values }) => {
+const ChartWeek = ({ values, height }) => {
   const dataset = {
     distance: Array.from({ length: 7 }, () => 0),
     time: Array.from({ length: 7 }, () => 0),
@@ -46,7 +46,7 @@ const ChartWeek = ({ values }) => {
       display: false,
     },
   };
-  return <Line data={chartData} height={65} options={options}></Line>;
+  return <Line data={chartData} height={height || 65} options={options}></Line>;
 };
 
 export default ChartWeek;

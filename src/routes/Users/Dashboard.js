@@ -24,8 +24,8 @@ const Dashboard = () => {
             <GraphMini stats={data.stats} />
           </div>
           <div className="dashboard-right">
-            <p className="dashboard-title">라이딩 요약</p>
-            <Graph stats={data.stats} />
+            <p className="dashboard-title">라이딩 통계 요약</p>
+            <Graph stat={data.stats} />
             <p className="dashboard-title">라이딩 알림</p>
             <NotiBoard noti={data.notifications} />
           </div>
