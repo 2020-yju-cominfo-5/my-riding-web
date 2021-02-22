@@ -8,7 +8,7 @@ const RidingRecord = () => {
   return (
     <>
       <Route path="/record" exact={true} component={RecordMain} />
-      <Route path="/record/week/:week" component={RecordList} />
+      <Route path="/record/week/:year/:week" component={RecordList} />
       <Route path="/record/show/:id" component={RecordShow} />
     </>
   );

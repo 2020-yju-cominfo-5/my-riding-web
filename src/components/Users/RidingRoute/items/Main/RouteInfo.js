@@ -1,11 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// TODO route path 요청
+// import { getRidingRouteById } from "../../../../../api/RidingRoute";
+import { getTimeContext } from "../../../../../util/getDateContext";
 
 import "./RouteInfo.css";
 
-const RouteInfo = ({ data }) => {
-  // TODO axios
-  const { id, name, startAddress, endAddress, distance, time } = data;
+const RouteInfo = ({ route }) => {
+  const {
+    id,
+    route_title: name,
+    route_start_point_address: startAddress,
+    route_end_point_address: endAddress,
+    route_distance: distance,
+    route_time: time,
+  } = route;
+
+  if (!id) {
+    return <></>;
+  }
+
+  // TODO route path 요청
+  console.log("route path 요청", id);
+  // getRidingRouteById(id).then((res) => {
+  //   console.log(res);
+  // });
+
   // const path = [
   //   { lat: 35.185689, lng: 129.071681 },
   //   { lat: 35.185749, lng: 129.071722 },
@@ -246,9 +266,9 @@ const RouteInfo = ({ data }) => {
             </li>
             <li>
               <div className="title">거리</div>
-              <div className="value">{distance}</div>
+              <div className="value">{distance}km</div>
               <div className="title">시간</div>
-              <div className="value">{time}</div>
+              <div className="value">{getTimeContext({ time })}</div>
             </li>
           </ul>
         </div>
