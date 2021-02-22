@@ -14,15 +14,14 @@ const Main = () => {
   const [year, setYear] = useState(years[0]);
   const [prevYear, setPrevYear] = useState();
   const [stats, setStats] = useState([]);
+  const [label, setLabel] = useState("distance");
 
   useEffect(() => {
     // TODO 에러 시 예외 처리 추가
     getRidingRecordByYear(year)
       .then((res) => {
         // TODO NO DATA 알고리즘 추가 필요 -> 해당 년도에 등록된 라이딩 기록이 없습니다.
-        const { data } = res;
-        const stats = Object.values(data.stats);
-        // FIXME stats object -> array 로 변경 필요, 변경 시 stats
+        const { stats } = res.data;
         if (stats.length === 0) {
           setYear(prevYear);
           alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
@@ -58,7 +57,7 @@ const Main = () => {
       <div className="record-main">
         <RecordMainHeader data={header} />
         <div className="chart-section">
-          <RecordMainChartTitle year={year} />
+          <RecordMainChartTitle year={year} setLabel={setLabel} />
           <RecordMainChartContens year={year} stats={stats} />
         </div>
       </div>

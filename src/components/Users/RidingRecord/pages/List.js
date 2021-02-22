@@ -31,9 +31,9 @@ const List = ({ match }) => {
           records.length === 1
             ? records[0].score
             : records.reduce((prev, curr) => {
-                const prevScore = prev.score ? prev.score : prev;
-                return prevScore + curr.score;
-              }),
+                const sum = prev.score + curr.score;
+                return { score: sum };
+              }).score,
         );
       })
       .catch(() => {
@@ -46,7 +46,7 @@ const List = ({ match }) => {
     <>
       <Title title="주간 라이딩 일지" />
       <div className="record-list">
-        <WeekStat stat={data.stat} score={scoreSum} />
+        <WeekStat stat={data.stat} score={scoreSum} height={85} />
         <div className="list">
           <RecordListTitle />
           <RecordListData records={data.records} />

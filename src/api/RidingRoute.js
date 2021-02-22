@@ -6,6 +6,6 @@ export const getRidingRouteList = async () => {
 };
 
 export const getRidingRouteById = async (id) => {
-  const response = await API.post(`/route/${id}`);
+  const response = await API.get(`/route/${id}`);
   return response.data;
 };

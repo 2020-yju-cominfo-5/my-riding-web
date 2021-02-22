@@ -16,7 +16,7 @@ const RecordListData = ({ records }) => {
             <span>
               <Link to={`/record/show/${id}`}>{title}</Link>
             </span>
-            <span>{(distance / 1000).toFixed(1)} km</span>
+            <span>{distance} km</span>
             <span>{getTimeContext({ time })}</span>
             <span>
               <i className="fas fa-bolt"></i>
