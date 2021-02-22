@@ -23,8 +23,8 @@ const Graph = ({ stat }) => {
   useEffect(() => {
     if (
       isRightBtn &&
-      prevDate.year == date.year &&
-      prevDate.week == date.week
+      parseInt(prevDate.year) === parseInt(date.year) &&
+      parseInt(prevDate.week) === parseInt(date.week)
     ) {
       return;
     }

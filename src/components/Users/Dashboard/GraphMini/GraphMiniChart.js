@@ -1,108 +1,44 @@
 import React from "react";
 import "./GraphMiniChart.css";
 
-const GraphMiniChart = () => {
+const GraphMiniChart = ({ data }) => {
+  const dataSet = Array.from({ length: 7 }, () => 0);
+
+  const size = Math.max.apply(
+    Math,
+    data.map(function(ele) {
+      return ele.value / 10;
+    }),
+  );
+  data.map((ele) => {
+    const idx = ele.day ? ele.day - 1 : 6;
+    dataSet[idx] = Math.round(ele.value / size);
+  });
+
   return (
     <div className="chart">
       <ul className="data">
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
-        <li className="line-x">
-          <ul className="stat">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-            <li className="activate"></li>
-          </ul>
-        </li>
+        {dataSet.map((ele, idx) => {
+          return (
+            <li key={idx} className="line-x">
+              <ul className="stat">
+                {(() => {
+                  const array = [];
+                  for (let i = 1; i <= 10; i++) {
+                    const bar =
+                      i <= 10 - ele ? (
+                        <li key={i}></li>
+                      ) : (
+                        <li key={i} className="activate"></li>
+                      );
+                    array.push(bar);
+                  }
+                  return array;
+                })()}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
       <ul className="label">
         <li className="line-x">월</li>

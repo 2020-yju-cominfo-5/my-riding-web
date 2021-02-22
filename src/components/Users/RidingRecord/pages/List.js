@@ -46,7 +46,7 @@ const List = ({ match }) => {
     <>
       <Title title="주간 라이딩 일지" />
       <div className="record-list">
-        <WeekStat stat={data.stat} score={scoreSum} />
+        <WeekStat stat={data.stat} score={scoreSum} height={85} />
         <div className="list">
           <RecordListTitle />
           <RecordListData records={data.records} />
