@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getDateShortContext } from "../../../../util";
+import { getDateShortContext } from "../../../../util/getDateContext";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
-const WeekStat = ({ stat, score }) => {
-  const { week, startDate, endDate, values } = stat;
+const WeekStat = ({ stat, year, score }) => {
+  const { startDate, endDate, values } = stat;
+  const week = stat.week || 0;
 
   // <<-- 해당 주에 운동 기록이 없을 경우 -->>
   if (values.length === 0) {
@@ -32,13 +33,11 @@ const WeekStat = ({ stat, score }) => {
         <div className="chart-left">
           <div className="date">
             {week ? (
-              <Link to={`/record/week/${week}`}>
+              <Link to={`/record/week/${year}/${week}`}>
                 {getDateShortContext({ startDate, endDate })}
               </Link>
             ) : (
-              <p to={`/record/week/${week}`}>
-                {getDateShortContext({ startDate, endDate })}
-              </p>
+              <p>{getDateShortContext({ startDate, endDate })}</p>
             )}
           </div>
           <div className="distance">
@@ -47,9 +46,9 @@ const WeekStat = ({ stat, score }) => {
           </div>
           <div className="time">
             <span className="title">총 시간</span>
-            <span className="value">{`${Math.floor(sum.time / 60)}시간 ${
-              sum.time % 60
-            }분`}</span>
+            <span className="value">{`${Math.floor(
+              sum.time / 60,
+            )}시간 ${sum.time % 60}분`}</span>
           </div>
           <div className="avg-speed">
             <span className="title">평균 속도</span>

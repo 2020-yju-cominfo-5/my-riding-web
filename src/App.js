@@ -5,15 +5,13 @@ import NoneUsers from "./components/NonUsers/NonUsers";
 import Users from "./components/Users/Users";
 
 const App = () => {
-  localStorage.setItem("isLogin", true);
-  // localStorage.removeItem("isLogin");
-  const isLogin = localStorage.getItem("isLogin");
+  const token = localStorage.getItem("token");
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
-        {isLogin ? <Users /> : <NoneUsers />}
+        <Navigation token={token} />
+        {token ? <Users /> : <NoneUsers />}
       </BrowserRouter>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import RecordDetail from "../items/RecordDetail";
-import RecordTitle from "../items/RecordTitle";
-import RecordElevation from "../items/RecordElevation";
+import RecordDetail from "../items/Show/RecordDetail";
+import RecordTitle from "../items/Show/RecordTitle";
+import RecordElevation from "../items/Show/RecordElevation";
+import { getRidingRecordById } from "../../../../api/RidingRecord";
 
 import "./Show.css";
-import { getRidingRecordById } from "../../../../api/RidingRecord";
 
 const Show = ({ match }) => {
   const { id } = match.params;
