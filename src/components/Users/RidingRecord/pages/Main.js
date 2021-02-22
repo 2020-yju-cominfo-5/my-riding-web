@@ -14,6 +14,7 @@ const Main = () => {
   const [year, setYear] = useState(years[0]);
   const [prevYear, setPrevYear] = useState();
   const [stats, setStats] = useState([]);
+  const [label, setLabel] = useState("distance");
 
   useEffect(() => {
     // TODO 에러 시 예외 처리 추가
@@ -56,7 +57,7 @@ const Main = () => {
       <div className="record-main">
         <RecordMainHeader data={header} />
         <div className="chart-section">
-          <RecordMainChartTitle year={year} />
+          <RecordMainChartTitle year={year} setLabel={setLabel} />
           <RecordMainChartContens year={year} stats={stats} />
         </div>
       </div>

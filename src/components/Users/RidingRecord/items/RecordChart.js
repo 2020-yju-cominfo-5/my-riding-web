@@ -58,8 +58,8 @@ const ChartWeek = ({ values, height }) => {
           display: false,
         },
         ticks: {
-          // min: -5000,
-          max: (Math.max.apply(null, dataset.distance) * 4) / 1,
+          min: (Math.min.apply(null, dataset.distance) * 3) / 5,
+          max: (Math.max.apply(null, dataset.distance) * 5) / 3,
           // stepSize: 5000,
         },
       },
@@ -74,8 +74,8 @@ const ChartWeek = ({ values, height }) => {
           display: false,
         },
         ticks: {
-          // min: -50,
-          max: (Math.max.apply(null, dataset.time) * 4) / 2,
+          min: (Math.min.apply(null, dataset.time) * 2) / 5,
+          max: (Math.max.apply(null, dataset.time) * 5) / 4,
           //   stepSize: 20,
         },
       },
@@ -90,8 +90,8 @@ const ChartWeek = ({ values, height }) => {
           display: false,
         },
         ticks: {
-          // min: -30,
-          max: (Math.max.apply(null, dataset.avgSpeed) * 4) / 3,
+          min: (Math.min.apply(null, dataset.avgSpeed) * 1) / 5,
+          max: (Math.max.apply(null, dataset.avgSpeed) * 5) / 5 + 1,
           //   stepSize: 20,
         },
       },
