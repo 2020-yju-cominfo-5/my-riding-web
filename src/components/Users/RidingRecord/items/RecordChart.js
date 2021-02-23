@@ -1,7 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const ChartWeek = ({ values, height }) => {
+const ChartWeek = ({ values, height, label }) => {
+  const CHART_OPACITY = 40;
   const dataset = {
     distance: Array.from({ length: 7 }, () => 0),
     time: Array.from({ length: 7 }, () => 0),
@@ -24,7 +25,9 @@ const ChartWeek = ({ values, height }) => {
         data: dataset.distance,
         fill: false,
         backgroundColor: "#ffbf00",
-        borderColor: `#ffbf00${height ? "" : 50}`,
+        borderColor: `#ffbf00${
+          height ? "" : label === "distance" ? "" : CHART_OPACITY
+        }`,
       },
       {
         yAxisID: "time",
@@ -32,7 +35,9 @@ const ChartWeek = ({ values, height }) => {
         data: dataset.time,
         fill: false,
         backgroundColor: "#f56c8c",
-        borderColor: `#f56c8c${height ? "" : 50}`,
+        borderColor: `#f56c8c${
+          height ? "" : label === "time" ? "" : CHART_OPACITY
+        }`,
       },
       {
         yAxisID: "avgSpeed",
@@ -40,7 +45,9 @@ const ChartWeek = ({ values, height }) => {
         data: dataset.avgSpeed,
         fill: false,
         backgroundColor: "#44a2eb",
-        borderColor: `#44a2eb${height ? "" : 50}`,
+        borderColor: `#44a2eb${
+          height ? "" : label === "avgSpeed" ? "" : CHART_OPACITY
+        }`,
       },
     ],
   };
@@ -49,7 +56,8 @@ const ChartWeek = ({ values, height }) => {
     yAxes: [
       {
         id: "distance",
-        display: height,
+        // display: height || label === "distance",
+        display: label ? label === "distance" : true,
         scaleLabel: {
           display: true,
           labelString: "거리(km)",
@@ -65,7 +73,8 @@ const ChartWeek = ({ values, height }) => {
       },
       {
         id: "time",
-        display: height,
+        // display: height || label === "time",
+        display: label ? label === "time" : true,
         scaleLabel: {
           display: true,
           labelString: "시간(분)",
@@ -81,7 +90,8 @@ const ChartWeek = ({ values, height }) => {
       },
       {
         id: "avgSpeed",
-        display: height,
+        // display: height || label === "avgSpeed",
+        display: label ? label === "avgSpeed" : true,
         scaleLabel: {
           display: true,
           labelString: "평균 속도(km/h)",

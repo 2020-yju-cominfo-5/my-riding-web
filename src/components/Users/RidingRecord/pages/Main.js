@@ -5,7 +5,7 @@ import "./Main.css";
 import "react-dropdown/style.css";
 import { getRidingRecordByYear } from "../../../../api/RidingRecord";
 import RecordMainHeader from "../items/Main/RecordMainHeader";
-import RecordMainChartTitle from "../items/Main/RecordMainChartTitle";
+// import RecordMainChartTitle from "../items/Main/RecordMainChartTitle";
 import RecordMainChartContens from "../items/Main/RecordMainChartContens";
 
 const Main = () => {
@@ -14,7 +14,7 @@ const Main = () => {
   const [year, setYear] = useState(years[0]);
   const [prevYear, setPrevYear] = useState();
   const [stats, setStats] = useState([]);
-  const [label, setLabel] = useState("distance");
+  const [label, setLabel] = useState();
 
   useEffect(() => {
     // TODO 에러 시 예외 처리 추가
@@ -55,10 +55,10 @@ const Main = () => {
     <>
       <Title title="라이딩 일지" />
       <div className="record-main">
-        <RecordMainHeader data={header} />
+        <RecordMainHeader data={header} setLabel={setLabel} />
         <div className="chart-section">
-          <RecordMainChartTitle year={year} setLabel={setLabel} />
-          <RecordMainChartContens year={year} stats={stats} />
+          {/* <RecordMainChartTitle year={year} /> */}
+          <RecordMainChartContens year={year} stats={stats} label={label} />
         </div>
       </div>
     </>

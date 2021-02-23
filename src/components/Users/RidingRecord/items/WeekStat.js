@@ -4,7 +4,8 @@ import { getDateShortContext } from "../../../../util/getDateContext";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
-const WeekStat = ({ stat, year, score, height }) => {
+// BUG 렌더링 여러번??? 컴포넌트 분리???
+const WeekStat = ({ stat, year, score, height, label }) => {
   const { startDate, endDate, values } = stat;
   const week = stat.week || 0;
 
@@ -66,7 +67,7 @@ const WeekStat = ({ stat, year, score, height }) => {
           )}
         </div>
         <div className="chart-right">
-          <RecordChart values={values} height={height} />
+          <RecordChart values={values} height={height} label={label} />
         </div>
       </div>
     </>
