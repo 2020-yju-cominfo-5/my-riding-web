@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.dashboard-right .graph .title .main .hidden {
+  visibility: hidden;
+}
+
 .dashboard-right .graph .title .main .fas:hover {
   color: #3774d3;
   font-size: 30px;

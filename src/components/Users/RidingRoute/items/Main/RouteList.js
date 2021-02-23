@@ -1,7 +1,7 @@
 import React from "react";
-import RouteListTitle from "../items/RouteListTitle";
-import "./RouteList.css";
+import RouteListTitle from "./RouteListTitle";
 import RouteListItem from "./RouteListItem";
+import "./RouteList.css";
 
 const RouteList = ({ routes, setSelectedId }) => {
   return (
