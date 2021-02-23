@@ -22,6 +22,7 @@ const Navigation = ({ token }) => {
               "본인인증 실패 : 잘못된 접근 또는 인증토큰이 만료되었습니다.",
             );
             localStorage.removeItem("token");
+            window.location.replace("/");
             break;
           default:
             alert("서버와의 연결에 실패하였습니다.");

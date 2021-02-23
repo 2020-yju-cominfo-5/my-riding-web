@@ -20,6 +20,7 @@ export const getRidingRecordByWeek = async (year, week) => {
   return response.data;
 };
 
+// TODO 백엔드 수정 현황 확인 필요
 export const getRidingRecordById = async (id) => {
   const response = await API.get(`record/${id}`);
   return response.data;
