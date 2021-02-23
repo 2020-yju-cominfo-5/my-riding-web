@@ -28,7 +28,6 @@ const Show = ({ match }) => {
     getRidingRouteById(id)
       .then((res) => {
         const { route, record, rankvalue } = res.data;
-        console.log(res.data);
         setData({
           name: route[0].route_title,
           like: route[0].route_like,
