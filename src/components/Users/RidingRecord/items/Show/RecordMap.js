@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -7,8 +7,6 @@ import {
 } from "@react-google-maps/api";
 
 const MapRecord = ({ path, setGraphData }) => {
-  useEffect(() => {}, [path]);
-
   const options = {
     map: {
       center: { lat: 35.89527, lng: 128.62256 },

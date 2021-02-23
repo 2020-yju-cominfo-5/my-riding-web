@@ -15,6 +15,7 @@ const Show = ({ match }) => {
   useEffect(() => {
     getRidingRecordById(id).then((res) => {
       const { records, path } = res.data;
+      console.log(res.data);
       setTitle({ id, title: records[0].title });
       // setDetail({ info: records[0], path });
       // FIXME path 정보 수정필요

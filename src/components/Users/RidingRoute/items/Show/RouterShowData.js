@@ -20,7 +20,7 @@ const RouterShowData = ({ data }) => {
     topRankerRecord: data.topRankerRecord,
   };
   const { rank } = data;
-
+  
   return (
     <div className="section">
       <div className="info">
