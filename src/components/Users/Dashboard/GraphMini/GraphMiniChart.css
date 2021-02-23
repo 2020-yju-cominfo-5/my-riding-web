@@ -1,0 +1,28 @@
+.graph-mini .value .chart {
+  height: 70px;
+}
+
+.graph-mini .value .chart .line-x {
+  display: inline-block;
+}
+
+.graph-mini .value .chart .data .line-x .stat {
+  margin: 0 7px;
+}
+
+.graph-mini .value .chart .data .line-x .stat li {
+  width: 20px;
+  height: 5px;
+  background-color: #d8d8d8;
+  margin-bottom: 3px;
+}
+
+.graph-mini .value .chart .data .line-x .stat li.activate {
+  background-color: #3773d4;
+}
+
+.graph-mini .value .chart .label .line-x {
+  text-align: center;
+  font-size: 13px;
+  margin: 0 11px;
+}
