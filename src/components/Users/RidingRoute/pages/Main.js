@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import Title from "../../../item/Title";
-import RouteList from "../items/RouteList";
-import RouteInfo from "../items/RouteInfo";
+import RouteList from "../items/Main/RouteList";
+import RouteInfo from "../items/Main/RouteInfo";
 import { getRidingRouteList } from "../../../../api/RidingRoute";
 
 const Main = () => {

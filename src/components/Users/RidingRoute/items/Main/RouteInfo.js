@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getRidingRouteById } from "../../../../api/RidingRoute";
-import { getTimeContext } from "../../../../util";
+// TODO route path 요청
+// import { getRidingRouteById } from "../../../../../api/RidingRoute";
+import { getTimeContext } from "../../../../../util/getDateContext";
 
 import "./RouteInfo.css";
 

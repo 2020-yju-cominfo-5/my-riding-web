@@ -1,5 +1,8 @@
 import React from "react";
-import { getDateContext, getTimeContext } from "../../../../util";
+import {
+  getDateKorContext,
+  getTimeContext,
+} from "../../../../../util/getDateContext";
 
 const RecordInfo = ({ info }) => {
   const {
@@ -14,7 +17,7 @@ const RecordInfo = ({ info }) => {
   return (
     <ul className="info">
       <li>
-        <div className="date">{getDateContext({ date })}</div>
+        <div className="date">{getDateKorContext({ date })}</div>
       </li>
       <li>
         <div className="start">
@@ -31,7 +34,7 @@ const RecordInfo = ({ info }) => {
       <li>
         <div className="distance">
           <p className="title">거리</p>
-          <p className="value">{(distance / 1000).toFixed(1)} km</p>
+          <p className="value">{distance} km</p>
         </div>
         <div className="avg-speed">
           <p className="title">평균 속도</p>

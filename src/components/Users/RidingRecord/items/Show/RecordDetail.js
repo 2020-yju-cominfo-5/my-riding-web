@@ -4,6 +4,7 @@ import RecordMap from "./RecordMap";
 
 const RecordDetail = ({ data, setGraphData }) => {
   const { info, path } = data;
+  
   return (
     <div className="detail">
       <RecordInfo info={info} />
