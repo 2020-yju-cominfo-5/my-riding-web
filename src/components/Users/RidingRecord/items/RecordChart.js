@@ -57,52 +57,60 @@ const ChartWeek = ({ values, height, label }) => {
       {
         id: "distance",
         // display: height || label === "distance",
-        display: label ? label === "distance" : true,
+        // display: label ? label === "distance" : true,
         scaleLabel: {
           display: true,
           labelString: "거리(km)",
+          fontStyle: label === "distance" && "bold",
         },
         gridLines: {
-          display: false,
+          display: label === "distance",
         },
         ticks: {
           min: (Math.min.apply(null, dataset.distance) * 3) / 5,
           max: (Math.max.apply(null, dataset.distance) * 5) / 3,
           // stepSize: 5000,
+          fontStyle: label === "distance" && "bold",
         },
+
+        pointLabels: {},
       },
       {
         id: "time",
         // display: height || label === "time",
-        display: label ? label === "time" : true,
+        // display: label ? label === "time" : true,
         scaleLabel: {
           display: true,
           labelString: "시간(분)",
+          fontStyle: label === "time" && "bold",
         },
         gridLines: {
-          display: false,
+          display: label === "time",
         },
         ticks: {
           min: (Math.min.apply(null, dataset.time) * 2) / 5,
           max: (Math.max.apply(null, dataset.time) * 5) / 4,
           //   stepSize: 20,
+          fontStyle: label === "time" && "bold",
         },
       },
       {
         id: "avgSpeed",
         // display: height || label === "avgSpeed",
-        display: label ? label === "avgSpeed" : true,
+        // display: label ? label === "avgSpeed" : true,
         scaleLabel: {
           display: true,
           labelString: "평균 속도(km/h)",
+          fontStyle: label === "avgSpeed" && "bold",
         },
         gridLines: {
-          display: false,
+          display: label === "avgSpeed",
         },
         ticks: {
           min: (Math.min.apply(null, dataset.avgSpeed) * 1) / 5,
           max: (Math.max.apply(null, dataset.avgSpeed) * 5) / 5 + 1,
           //   stepSize: 20,
+          fontStyle: label === "avgSpeed" && "bold",
         },
       },
     ],

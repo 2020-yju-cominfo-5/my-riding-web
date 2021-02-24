@@ -16,7 +16,7 @@ const ProfileMini = ({ user }) => {
             <p className="value">{score}</p>
           </div>
           <div className="count">
-            <p className="title">라이딩 점수</p>
+            <p className="title">총 라이딩 횟수</p>
             <p className="value">{count}</p>
           </div>
         </div>
