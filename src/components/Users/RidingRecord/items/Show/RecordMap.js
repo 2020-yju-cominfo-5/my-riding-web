@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -7,8 +7,6 @@ import {
 } from "@react-google-maps/api";
 
 const MapRecord = ({ path, setGraphData }) => {
-  useEffect(() => {}, [path]);
-
   const options = {
     map: {
       center: { lat: 35.89527, lng: 128.62256 },
@@ -21,33 +19,33 @@ const MapRecord = ({ path, setGraphData }) => {
     },
   };
 
-  const onLoad = useCallback(function callback(map) {
-    const elevator = new window.google.maps.ElevationService();
+  const getDistance = () => {
+    let distance = 0;
 
-    const getDistance = () => {
-      let distance = 0;
+    if (path.length < 2) {
+      return distance;
+    }
 
-      if (path.length < 2) {
-        return distance;
+    path.forEach((_, idx) => {
+      if (path.length - 1 === idx) {
+        return;
       }
 
-      path.forEach((_, idx) => {
-        if (path.length - 1 === idx) {
-          return;
-        }
+      const point_1 = path[idx];
+      const point_2 = path[parseInt(idx) + 1];
 
-        const point_1 = path[idx];
-        const point_2 = path[parseInt(idx) + 1];
+      const result = window.google.maps.geometry.spherical.computeDistanceBetween(
+        new window.google.maps.LatLng(point_1.lat, point_1.lng),
+        new window.google.maps.LatLng(point_2.lat, point_2.lng),
+      );
 
-        const result = window.google.maps.geometry.spherical.computeDistanceBetween(
-          new window.google.maps.LatLng(point_1.lat, point_1.lng),
-          new window.google.maps.LatLng(point_2.lat, point_2.lng),
-        );
+      distance += Math.round(result);
+    });
+    return distance;
+  };
 
-        distance += Math.round(result);
-      });
-      return distance;
-    };
+  const onLoad = useCallback(function callback(map) {
+    const elevator = new window.google.maps.ElevationService();
 
     const plotElevation = (elevations, status) => {
       if (status !== "OK") {
@@ -69,11 +67,14 @@ const MapRecord = ({ path, setGraphData }) => {
           (getDistance() / 500) * dataSet.elevations.length,
         );
         const distanceTxt =
-          tmpDistance < 1000 ? tmpDistance + "m" : tmpDistance / 1000 + "km";
+          tmpDistance < 1000
+            ? tmpDistance + "m"
+            : Math.round(tmpDistance / 10) / 100 + "km";
         dataSet.distance.push(distanceTxt);
       });
 
-      var data = {
+      console.log(map, "map1");
+      setGraphData({
         labels: dataSet.distance,
         datasets: [
           {
@@ -86,8 +87,9 @@ const MapRecord = ({ path, setGraphData }) => {
             borderWidth: 2,
           },
         ],
-      };
-      setGraphData(data);
+        locations: dataSet.locations,
+        map,
+      });
     };
 
     elevator.getElevationAlongPath(
@@ -99,15 +101,14 @@ const MapRecord = ({ path, setGraphData }) => {
     );
   }, []);
 
-  const containerStyle = {
-    width: "100%",
-    height: "100%",
-  };
   return (
     <>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}>
         <GoogleMap
-          mapContainerStyle={containerStyle}
+          mapContainerStyle={{
+            width: "100%",
+            height: "100%",
+          }}
           options={options.map}
           onLoad={onLoad}
         >
