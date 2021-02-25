@@ -34,7 +34,7 @@ const RecordInfo = ({ info }) => {
       <li>
         <div className="distance">
           <p className="title">거리</p>
-          <p className="value">{(distance / 1000).toFixed(1)} km</p>
+          <p className="value">{distance} km</p>
         </div>
         <div className="avg-speed">
           <p className="title">평균 속도</p>
@@ -44,7 +44,7 @@ const RecordInfo = ({ info }) => {
       <li>
         <div className="time">
           <p className="title">시간</p>
-          <p className="value">{getTimeContext(time)}</p>
+          <p className="value">{getTimeContext({ time })}</p>
         </div>
         <div className="max-speed">
           <p className="title">최고 속도</p>

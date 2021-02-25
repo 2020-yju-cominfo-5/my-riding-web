@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "apiTest": "npx json-server --watch ./db.json --routes ./routes.json --port 5000"
+    "apiTest": "npx json-server --watch ./db.json --routes ./routes.json --port 5000",
+    "deploy": "react-scripts build && aws s3 sync ./build s3://my-riding"
   },
   "eslintConfig": {
     "extends": "react-app"

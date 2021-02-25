@@ -3,28 +3,28 @@ import { getTimeContext } from "../../../../util/getDateContext";
 import GraphMiniChart from "./GraphMiniChart";
 import "./GraphMiniContents.css";
 
-const GraphMiniContents = ({ menu, week, year }) => {
+const GraphMiniContents = ({ menu, weekData, yearData }) => {
   const weekResult = () => {
-    const sum = week.reduce((prev, next) => {
-      return { data: prev.data + next.data };
-    }).data;
+    const sum = weekData.reduce((prev, next) => {
+      return { value: prev.value + next.value };
+    }).value;
     switch (menu) {
       case "distance":
-        return `${sum / 10000}km`;
+        return `${sum}km`;
       case "time":
         return getTimeContext({ time: sum });
       case "avg_speed":
-        return `${Math.round((sum / week.length) * 10) / 10}km/h`;
+        return `${Math.round((sum / weekData.length) * 10) / 10}km/h`;
       default:
         break;
     }
     return menu;
   };
   const yearResult = () => {
-    const tmpYear = year[menu];
+    const tmpYear = yearData[menu];
     switch (menu) {
       case "distance":
-        return `${tmpYear / 10000}km`;
+        return `${tmpYear}km`;
       case "time":
         return getTimeContext({ time: tmpYear });
       case "avg_speed":
@@ -40,12 +40,12 @@ const GraphMiniContents = ({ menu, week, year }) => {
         <div className="wrapper">
           <div className="title">이번 주</div>
           <div className="value">
-            {week.length === 0 ? (
+            {weekData.length === 0 ? (
               <div className="no-data">기록된 라이딩이 없습니다.</div>
             ) : (
               <>
                 <div className="result">{weekResult()}</div>
-                <GraphMiniChart />
+                <GraphMiniChart data={weekData} />
               </>
             )}
           </div>
@@ -53,7 +53,7 @@ const GraphMiniContents = ({ menu, week, year }) => {
       </div>
       <div className="this-year">
         <div className="title">올해</div>
-        {year.distance & year.time & year.avg_speed ? (
+        {yearData.distance & yearData.time & yearData.avg_speed ? (
           <div className="result">{yearResult()}</div>
         ) : (
           <div className="no-data">기록된 라이딩이 없습니다.</div>

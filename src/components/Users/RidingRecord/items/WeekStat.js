@@ -4,7 +4,8 @@ import { getDateShortContext } from "../../../../util/getDateContext";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
-const WeekStat = ({ stat, year, score }) => {
+// BUG 렌더링 여러번??? 컴포넌트 분리???
+const WeekStat = ({ stat, year, score, height, label }) => {
   const { startDate, endDate, values } = stat;
   const week = stat.week || 0;
 
@@ -42,7 +43,7 @@ const WeekStat = ({ stat, year, score }) => {
           </div>
           <div className="distance">
             <span className="title">총 거리</span>
-            <span className="value">{(sum.distance / 1000).toFixed(1)} km</span>
+            <span className="value">{sum.distance} km</span>
           </div>
           <div className="time">
             <span className="title">총 시간</span>
@@ -52,7 +53,9 @@ const WeekStat = ({ stat, year, score }) => {
           </div>
           <div className="avg-speed">
             <span className="title">평균 속도</span>
-            <span className="value">{sum.avg_speed} km</span>
+            <span className="value">
+              {Math.round((sum.avg_speed / values.length) * 10) / 10} km/h
+            </span>
           </div>
           {score ? (
             <div className="score">
@@ -64,7 +67,7 @@ const WeekStat = ({ stat, year, score }) => {
           )}
         </div>
         <div className="chart-right">
-          <RecordChart values={values} />
+          <RecordChart values={values} height={height} label={label} />
         </div>
       </div>
     </>
