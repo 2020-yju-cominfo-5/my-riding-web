@@ -86,7 +86,6 @@ const PasswordUpdate = ({ controller }) => {
   };
 
   return (
-    <>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -121,7 +120,6 @@ const PasswordUpdate = ({ controller }) => {
           <input className="password-update-btn" type="submit" value="저장" />
         </form>
       </Modal>
-    </>
   );
 };
 

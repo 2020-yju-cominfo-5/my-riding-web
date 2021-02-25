@@ -10,7 +10,7 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
     }).value;
     switch (menu) {
       case "distance":
-        return `${sum / 10000}km`;
+        return `${sum}km`;
       case "time":
         return getTimeContext({ time: sum });
       case "avg_speed":
@@ -24,7 +24,7 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
     const tmpYear = yearData[menu];
     switch (menu) {
       case "distance":
-        return `${tmpYear / 10000}km`;
+        return `${tmpYear}km`;
       case "time":
         return getTimeContext({ time: tmpYear });
       case "avg_speed":

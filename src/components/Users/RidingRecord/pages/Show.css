@@ -7,11 +7,19 @@
   margin-right: 30px;
 }
 
-.record-show .header-title div a {
+.record-show .header-title div a,
+.record-show .header-title div .edit-btn {
   font-family: "Noto Sans", sans-serif;
   font-size: 23px;
   color: #1383c1;
   text-decoration: none;
+}
+
+.record-show .header-title div .edit-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .record-show .detail {

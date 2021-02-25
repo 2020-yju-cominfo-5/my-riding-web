@@ -21,13 +21,14 @@ const Main = () => {
     getRidingRecordByYear(year)
       .then((res) => {
         // TODO NO DATA 알고리즘 추가 필요 -> 해당 년도에 등록된 라이딩 기록이 없습니다.
-        const { stats } = res.data;
-        if (stats.length === 0) {
+        const { stats: newStats } = res.data;
+        if (newStats.length === 0) {
           setYear(prevYear);
           alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
           return;
         }
-        setStats(stats, ...stats);
+        console.log();
+        setStats(newStats.reverse(), ...stats);
       })
       .catch((err) => {
         console.log(err);

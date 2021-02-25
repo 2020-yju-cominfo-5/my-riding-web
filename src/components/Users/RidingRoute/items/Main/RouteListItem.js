@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteRidingRouteById } from "../../../../../api/RidingRoute";
 import {
   getDateKorContext,
   getTimeContext,
@@ -15,8 +16,21 @@ const RouteListItem = ({ data, setSelectedId }) => {
     route_like: like,
     route_num_of_try_count: count,
   } = data;
+
   const onClickHandler = () => {
     setSelectedId(id);
+  };
+  const onDeleteHandler = () => {
+    if (window.confirm(`[${name}] 을 라이디 경로 목록에서 삭제하겠습니까?`)) {
+      deleteRidingRouteById(id)
+        .then((res) => {
+          alert("라이딩 경로 삭제에 성공하였습니다.");
+          window.location.reload(`route`);
+        })
+        .catch((err) => {
+          alert("라이딩 경로 삭제에 실패하였습니다.");
+        });
+    }
   };
 
   return (
@@ -37,9 +51,9 @@ const RouteListItem = ({ data, setSelectedId }) => {
           {count} 회
         </div>
       </div>
-      <div className="del-btn">
-        <Link to={`/route/delete/${id}`}>삭제</Link>
-      </div>
+      <button className="del-btn" onClick={onDeleteHandler}>
+        삭제
+      </button>
     </li>
   );
 };

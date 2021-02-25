@@ -9,3 +9,8 @@ export const getRidingRouteById = async (id) => {
   const response = await API.get(`/route/${id}`);
   return response.data;
 };
+
+export const deleteRidingRouteById = async (id) => {
+  const response = await API.delete(`/route/${id}`);
+  return response.data;
+};

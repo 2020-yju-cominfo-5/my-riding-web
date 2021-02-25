@@ -115,9 +115,19 @@
   line-height: 65px;
 }
 
-.route-list .value a {
+.route-list .value a,
+.route-list .value .del-btn {
   color: #1383c1;
   text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.route-list .value .del-btn {
+  border: none;
+  background: none;
+  outline: none;
+  line-height: 65px;
 }
 
 .route-list .value .date {
