@@ -1,7 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const ChartWeek = ({ values, height }) => {
+const ChartWeek = ({ values, height, label }) => {
+  const CHART_OPACITY = 20;
   const dataset = {
     distance: Array.from({ length: 7 }, () => 0),
     time: Array.from({ length: 7 }, () => 0),
@@ -15,104 +16,59 @@ const ChartWeek = ({ values, height }) => {
     dataset.avgSpeed[day] = ele.avg_speed;
   });
 
+  const getChart = {
+    datasets: (id, labelName, color) => {
+      const currentColor =
+        !label || label === id ? color : `${color}${CHART_OPACITY}`;
+
+      return {
+        yAxisID: id,
+        label: labelName,
+        data: dataset[id],
+        fill: false,
+        backgroundColor: currentColor,
+        borderColor: currentColor,
+      };
+    },
+    yAxes: (id, labelString, maxTick) => {
+      return {
+        id,
+        scaleLabel: {
+          display: true,
+          labelString,
+          fontStyle: label === id && "bold",
+        },
+        gridLines: {
+          display: label === id,
+        },
+        ticks: {
+          max: (Math.max.apply(null, dataset[id]) * 5) / maxTick,
+          fontStyle: label === id && "bold",
+        },
+      };
+    },
+  };
+
   const chartData = {
     labels: ["월", "화", "수", "목", "금", "토", "일"],
     datasets: [
-      {
-        yAxisID: "distance",
-        label: "거리",
-        data: dataset.distance,
-        fill: false,
-        backgroundColor: "#ffbf00",
-        borderColor: `#ffbf00${height ? "" : 50}`,
-      },
-      {
-        yAxisID: "time",
-        label: "시간",
-        data: dataset.time,
-        fill: false,
-        backgroundColor: "#f56c8c",
-        borderColor: `#f56c8c${height ? "" : 50}`,
-      },
-      {
-        yAxisID: "avgSpeed",
-        label: "평균 속도",
-        data: dataset.avgSpeed,
-        fill: false,
-        backgroundColor: "#44a2eb",
-        borderColor: `#44a2eb${height ? "" : 50}`,
-      },
+      getChart.datasets("distance", "거리", "#ffbf00"),
+      getChart.datasets("time", "시간", "#f56c8c"),
+      getChart.datasets("avgSpeed", "평균 속도", "#44a2eb"),
     ],
   };
 
-  const scales = {
-    yAxes: [
-      {
-        id: "distance",
-        display: height,
-        scaleLabel: {
-          display: true,
-          labelString: "거리(km)",
-        },
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          min: (Math.min.apply(null, dataset.distance) * 3) / 5,
-          max: (Math.max.apply(null, dataset.distance) * 5) / 3,
-          // stepSize: 5000,
-        },
-      },
-      {
-        id: "time",
-        display: height,
-        scaleLabel: {
-          display: true,
-          labelString: "시간(분)",
-        },
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          min: (Math.min.apply(null, dataset.time) * 2) / 5,
-          max: (Math.max.apply(null, dataset.time) * 5) / 4,
-          //   stepSize: 20,
-        },
-      },
-      {
-        id: "avgSpeed",
-        display: height,
-        scaleLabel: {
-          display: true,
-          labelString: "평균 속도(km/h)",
-        },
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          min: (Math.min.apply(null, dataset.avgSpeed) * 1) / 5,
-          max: (Math.max.apply(null, dataset.avgSpeed) * 5) / 5 + 1,
-          //   stepSize: 20,
-        },
-      },
-    ],
-  };
+  const callbacks = {
+    label: function(tooltipItem, data) {
+      const idx = tooltipItem.datasetIndex;
+      let label = data.datasets[idx].label || "";
 
-  const tooltips = {
-    mode: "index",
-    intersect: false,
-    callbacks: {
-      label: function(tooltipItem, data) {
-        const idx = tooltipItem.datasetIndex;
-        let label = data.datasets[idx].label || "";
-
-        const unit = [" km", " 분", " km/h"];
-        if (label) {
-          label += `: `;
-        }
-        label += Math.round(tooltipItem.yLabel * 100) / 100 + unit[idx];
-        return label;
-      },
+      const unit = [" km", " 분", " km/h"];
+      if (label) {
+        label += `: `;
+      }
+      label += Math.round(tooltipItem.yLabel * 100) / 100 + unit[idx];
+      return label;
     },
   };
 
@@ -124,10 +80,21 @@ const ChartWeek = ({ values, height }) => {
         boxWidth: 12,
       },
     },
-    tooltips,
-    scales,
+    tooltips: {
+      mode: "index",
+      intersect: false,
+      callbacks,
+    },
+    scales: {
+      yAxes: [
+        getChart.yAxes("distance", "거리(km)", 2),
+        getChart.yAxes("time", "시간(분)", 3),
+        getChart.yAxes("avgSpeed", "평균 속도(km/h)", 4),
+      ],
+    },
   };
 
+  // TODO 가로선 진해지게, y 축 값 순서 바뀌게
   return <Line data={chartData} height={height || 65} options={options}></Line>;
 };
 
