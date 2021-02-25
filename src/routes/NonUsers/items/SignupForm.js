@@ -60,6 +60,7 @@ const SignupForm = ({ imgFile }) => {
   };
 
   const onSubmitHandler = (event) => {
+    event.preventDefault();
     // FIXME api 수정 시, 프로필 이미지 추가 전송
     console.log(imgFile);
 
@@ -73,7 +74,6 @@ const SignupForm = ({ imgFile }) => {
       .then((res) => {
         const { message } = res;
         alert(message);
-        history.push("/");
       })
       .catch((err) => {
         if (!err.response) {
@@ -112,7 +112,9 @@ const SignupForm = ({ imgFile }) => {
             alert("서버와의 연결에 실패하였습니다.");
             break;
         }
-        history.push("/");
+      })
+      .finally(() => {
+        window.location.replace("/");
       });
   };
   return (

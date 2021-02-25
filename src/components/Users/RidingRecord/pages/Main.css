@@ -110,6 +110,11 @@
   margin-top: 20px;
 }
 
+.users .chart-section .no-data {
+  text-align: center;
+  margin-top: 100px;
+}
+
 .users .chart-section .chart-title {
   border-top: 1px solid #d5d5d5;
   border-bottom: 1px solid #d5d5d5;
