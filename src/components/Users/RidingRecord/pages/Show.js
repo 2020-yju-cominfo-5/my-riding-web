@@ -11,6 +11,7 @@ const Show = ({ match }) => {
   const [data, setData] = useState();
   const [graphData, setGraphData] = useState();
   const [position, setPosition] = useState();
+
   const tmpPath = [
     { lat: 35.896725779882495, lng: 128.61992229254435 },
     { lat: 35.89615433382256, lng: 128.62008322508524 },
@@ -42,30 +43,21 @@ const Show = ({ match }) => {
   }
 
   return (
-    <>
-      {data ? (
-        <div className="record-show">
-          <RecordTitle data={{ id: data.id, title: data.records[0].title }} />
-          <RecordDetail
-            data={{ info: data.records[0], path: tmpPath }}
-            position={position}
-            setGraphData={setGraphData}
-          />
-          {graphData && (
-            <div className="chart">
-              {Object.keys(graphData).length !== 0 && (
-                <RecordElevation
-                  graphData={graphData}
-                  setPosition={setPosition}
-                />
-              )}
-            </div>
+    <div className="record-show">
+      <RecordTitle data={{ id: data.id, title: data.records[0].title }} />
+      <RecordDetail
+        data={{ info: data.records[0], path: tmpPath }}
+        position={position}
+        setGraphData={setGraphData}
+      />
+      {graphData && (
+        <div className="chart">
+          {Object.keys(graphData).length !== 0 && (
+            <RecordElevation graphData={graphData} setPosition={setPosition} />
           )}
         </div>
-      ) : (
-        "a"
       )}
-    </>
+    </div>
   );
 };
 

@@ -94,6 +94,7 @@ const ChartWeek = ({ values, height, label }) => {
     },
   };
 
+  // TODO 가로선 진해지게, y 축 값 순서 바뀌게
   return <Line data={chartData} height={height || 65} options={options}></Line>;
 };
 
