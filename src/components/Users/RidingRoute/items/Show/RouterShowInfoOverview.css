@@ -1,0 +1,21 @@
+.top .item {
+  box-sizing: border-box;
+  width: 15%;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.top .item > div {
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.5;
+}
+
+.top .item .title {
+  font-size: 25px;
+  color: #5e5e5e;
+}
+
+.top .item .value {
+  font-size: 40px;
+  color: #2f2f2f;
+}
