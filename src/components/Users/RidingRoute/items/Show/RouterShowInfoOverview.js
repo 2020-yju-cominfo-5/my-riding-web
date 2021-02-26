@@ -1,4 +1,5 @@
 import React from "react";
+import "./RouterShowInfoOverview.css";
 
 const RouterShowInfoOverview = ({ data }) => {
   const { distacne, time, grade, minAlt, maxAlt } = data;

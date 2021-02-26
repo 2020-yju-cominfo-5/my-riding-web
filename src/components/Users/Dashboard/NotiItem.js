@@ -5,7 +5,7 @@ import { getDateKorContext } from "../../../util/getDateContext";
 import "./NotiItem.css";
 
 const NotiItem = ({ noti }) => {
-  const { contentId, type, msg, url, created_at } = noti;
+  const { type, msg, url, created_at } = noti;
 
   const types = {
     1001: "route",
@@ -23,21 +23,21 @@ const NotiItem = ({ noti }) => {
       medal: (
         <>
           {/* <Link to={`/profile/badge/${contentId}`}>달성 기록</Link> 메뉴에서 */}
-          달성 기록 메뉴에서 배지 상세정보를 확인하세요.
+          어플리케이션에서 배지 상세정보를 확인하세요.
         </>
       ),
       record: (
         <>
           {/* FIXME URL 정보로 수정해야함 */}
-          <Link to={`/record/show/${contentId}`}>라이딩 일지</Link> 메뉴에서
-          세부 라이딩 정보를 확인하세요.
+          <Link to={`${url}`}>라이딩 일지</Link> 메뉴에서 세부 라이딩 정보를
+          확인하세요.
         </>
       ),
       route: (
         <>
           {/* FIXME URL 정보로 수정해야함 */}
-          <Link to={`/route/show/${contentId}`}>라이딩 경로</Link> 메뉴에서 세부
-          경로 정보를 확인하세요.
+          <Link to={`${url}`}>라이딩 경로</Link> 메뉴에서 세부 경로 정보를
+          확인하세요.
         </>
       ),
     },
