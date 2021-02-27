@@ -33,9 +33,19 @@ const Show = ({ match }) => {
   ];
 
   useEffect(() => {
-    getRidingRecordById(id).then((res) => {
-      setData({ id, ...res.data });
-    });
+    getRidingRecordById(id)
+      .then((res) => {
+        if (!res.data.records.length) {
+          alert("존재하지 않는 라이딩 일지입니다.");
+          window.history.back();
+          return;
+        }
+
+        setData({ id, ...res.data });
+      })
+      .catch((err) => {
+        alert("라이딩 일지 정보 조회에 실패하였습니다.");
+      });
   }, []);
 
   if (!data) {

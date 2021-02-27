@@ -4,7 +4,7 @@ import {
   getTimeContext,
 } from "../../../../../util/getDateContext";
 
-const RouterShowRank = ({ rank }) => {
+const RouteShowRank = ({ rank }) => {
   return (
     <div className="rank">
       <ul>
@@ -45,4 +45,4 @@ const RouterShowRank = ({ rank }) => {
   );
 };
 
-export default RouterShowRank;
+export default RouteShowRank;

@@ -53,7 +53,7 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
       </div>
       <div className="this-year">
         <div className="title">올해</div>
-        {yearData.distance & yearData.time & yearData.avg_speed ? (
+        {yearData.distance && yearData.time && yearData.avg_speed ? (
           <div className="result">{yearResult()}</div>
         ) : (
           <div className="no-data">기록된 라이딩이 없습니다.</div>
