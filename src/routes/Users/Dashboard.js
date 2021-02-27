@@ -12,7 +12,6 @@ const Dashboard = () => {
   useEffect(() => {
     getDashboard().then((res) => {
       setData(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -72,13 +71,11 @@ const Dashboard = () => {
         <>
           <div className="dashboard-left">
             <ProfileMini user={data.user} />
-            <GraphMini stats={data.stats} />
-            {/* <GraphMini stats={stats} /> */}
+            <GraphMini stat={data.stats} year={data.year} />
           </div>
           <div className="dashboard-right">
             <p className="dashboard-title">라이딩 통계 요약</p>
             <Graph stat={data.stats} />
-            {/* <Graph stat={stats} /> */}
             <p className="dashboard-title">라이딩 알림</p>
             <NotiBoard noti={data.notifications} />
           </div>

@@ -35,6 +35,13 @@
 .route-create .bottom .map {
   width: 65%;
   height: 60%;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+.route-create .bottom .activate {
+  transform: translateY(-20%);
+  height: 140%;
 }
 
 .route-create .bottom .chart {
@@ -43,4 +50,3 @@
   height: 40%;
   padding-top: 30px;
 }
-

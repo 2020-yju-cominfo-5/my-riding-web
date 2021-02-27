@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { GoogleMap, LoadScript, Polyline } from "@react-google-maps/api";
 import RecordElevation from "../../../RidingRecord/items/Show/RecordElevation";
 
@@ -11,12 +11,20 @@ import setPlotElevation from "../../../../../util/setPlotElevation";
 import "./RouteCreateEditorController.css";
 
 const RouteCreateEditor = ({ path, newPath, record }) => {
+  const DEFAULT_OPACITY = 0.2;
+
   const options = getMapOptions(path[0]);
+  // TODO {}
   const [graphData, setGraphData] = useState();
   const [position, setPosition] = useState();
   const [markers, setMarkers] = useState();
   const [pointIcon, setPointIcon] = useState();
+  // TODO {}
   const [addressFlag, setAddressFlag] = useState();
+  const [opacityStates, setOpacityStates] = useState(
+    Array.from({ length: path.length }, () => DEFAULT_OPACITY),
+  );
+  const [state, setstate] = useState(0);
 
   const onLoad = useCallback(() => {
     const elevator = new window.google.maps.ElevationService();
@@ -38,11 +46,16 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
     setPlotElevation({ elevator, path, plotElevation });
   }, []);
 
-  const onAddressFlagHandler = () => {};
+  const onAddressFlagHandler = ({ target }) => {
+    addressFlag ? setAddressFlag() : setAddressFlag(target.name);
+  };
 
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
   return (
     <div className="bottom">
-      <div className="map">
+      <div className={`map ${addressFlag && "activate"}`}>
         <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}>
           <GoogleMap
             mapContainerStyle={{
@@ -55,9 +68,39 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
             {position && <MapMarker position={position} icon={pointIcon} />}
             {markers && <MapMarker {...markers.start} />}
             {markers && <MapMarker {...markers.end} />}
-            {/* {path.map((ele, idx) => {
-              return <MapMarker key={idx} position={ele} />;
-            })} */}
+            {addressFlag &&
+              path.map((ele, idx) => {
+                return (
+                  <MapMarker
+                    key={idx}
+                    position={ele}
+                    options={{
+                      opacity: opacityStates[idx],
+                      onMouseOver: (event) => {
+                        const idx = parseInt(
+                          event.domEvent.target.parentNode.name.split(
+                            "gmimap",
+                          )[1],
+                        );
+                        opacityStates[idx] = 1;
+                        setstate(idx);
+                        // console.log(idx);
+                        // gmimap1
+                      },
+                      onMouseOut: (event) => {
+                        const idx = parseInt(
+                          event.domEvent.target.parentNode.name.split(
+                            "gmimap",
+                          )[1],
+                        );
+
+                        opacityStates[idx] = DEFAULT_OPACITY;
+                        setstate();
+                      },
+                    }}
+                  />
+                );
+              })}
             <Polyline path={newPath} options={options.polyline} />
             <Polyline path={path} options={options.prevPolyline} />
           </GoogleMap>
@@ -73,7 +116,7 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
           <div className="start">
             <div className="title">
               <p>출발지</p>
-              <button className="start-reset" onClick={onAddressFlagHandler}>
+              <button name="start" onClick={onAddressFlagHandler}>
                 재설정
               </button>
             </div>
@@ -83,7 +126,7 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
           <div className="end">
             <div className="title">
               <p>도착지</p>
-              <button className="start-reset" onClick={onAddressFlagHandler}>
+              <button name="end" onClick={onAddressFlagHandler}>
                 재설정
               </button>
             </div>
