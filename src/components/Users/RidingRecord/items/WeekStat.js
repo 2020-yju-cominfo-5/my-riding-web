@@ -43,7 +43,7 @@ const WeekStat = ({ stat, year, score, height, label }) => {
           </div>
           <div className="distance">
             <span className="title">총 거리</span>
-            <span className="value">{sum.distance} km</span>
+            <span className="value">{Math.round(sum.distance)} km</span>
           </div>
           <div className="time">
             <span className="title">총 시간</span>
