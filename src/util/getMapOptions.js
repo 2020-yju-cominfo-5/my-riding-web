@@ -10,7 +10,7 @@ const getMapOptions = (center) => {
       strokeWeight: 5,
     },
     prevPolyline: {
-      strokeColor: "#32AF7B99",
+      strokeColor: "#32AF7B70",
       strokeWeight: 5,
     },
   };

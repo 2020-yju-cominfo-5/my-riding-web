@@ -14,46 +14,40 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
   const options = getMapOptions(path[0]);
   const [graphData, setGraphData] = useState();
   const [position, setPosition] = useState();
-  const [markers, setMarkers] = useState();
-  const [pointIcon, setPointIcon] = useState();
+  const [icons, setIcons] = useState();
   const [address, setAddress] = useState({
     start: {
-      idxPoint: 0,
+      flag: false,
+      idx: 0,
       name: record.startAddress,
     },
     end: {
-      idxPoint: path.length - 1,
+      flag: false,
+      idx: path.length - 1,
       name: record.endAddress,
     },
   });
   const [addressFlag, setAddressFlag] = useState();
-  console.log(address.start, address.end);
 
   const onLoad = useCallback(() => {
     const elevator = new window.google.maps.ElevationService();
     const plotElevation = getPlotElevation({ path, setGraphData });
-    const mapMarkers = {
-      start: {
-        position: newPath[0],
-        icon: getMarkerIcon("start", new window.google.maps.Size(30, 40)),
-      },
-      end: {
-        position: newPath[newPath.length - 1],
-        icon: getMarkerIcon("end", new window.google.maps.Size(30, 40)),
-      },
-    };
-    const icon = getMarkerIcon("point", new window.google.maps.Size(20, 20));
-    setMarkers(mapMarkers);
-    setPointIcon(icon);
+    setIcons({
+      start: getMarkerIcon("start", new window.google.maps.Size(30, 40)),
+      end: getMarkerIcon("end", new window.google.maps.Size(30, 40)),
+      point: getMarkerIcon("point", new window.google.maps.Size(20, 20)),
+    });
     setPlotElevation({ elevator, path, plotElevation });
-  }, []);
+  }, [address]);
 
   const onAddressFlagHandler = ({ target }) => {
     addressFlag === target.name
       ? setAddressFlag()
       : setAddressFlag(target.name);
-    // addressFlag ? setAddressFlag() : setAddressFlag(target.name);
   };
+
+  const minIdx = Math.min(address.start.idx, address.end.idx);
+  const maxIdx = Math.max(address.start.idx, address.end.idx);
 
   return (
     <div className="bottom">
@@ -66,13 +60,17 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
             }}
             options={options.map}
             onLoad={onLoad}
-            // onZoomChanged={(event) => {
-            //   console.log(event, "a");
-            // }}
           >
-            {position && <MapMarker position={position} icon={pointIcon} />}
-            {/* {markers && <MapMarker {...markers.start} />} */}
-            {/* {markers && <MapMarker {...markers.end} />} */}
+            {position && <MapMarker position={position} icon={icons.point} />}
+            {icons && address.start.flag && (
+              <MapMarker
+                position={path[address.start.idx]}
+                icon={icons.start}
+              />
+            )}
+            {icons && address.end.flag && (
+              <MapMarker position={path[address.end.idx]} icon={icons.end} />
+            )}
             {addressFlag &&
               path.map((ele, idx) => {
                 return (
@@ -88,8 +86,18 @@ const RouteCreateEditor = ({ path, newPath, record }) => {
                   />
                 );
               })}
-            <Polyline path={newPath} options={options.polyline} />
-            <Polyline path={path} options={options.prevPolyline} />
+            <Polyline
+              path={path.slice(minIdx, maxIdx + 1)}
+              options={options.polyline}
+            />
+            <Polyline
+              path={path}
+              options={
+                address.start.flag && address.end.flag
+                  ? options.prevPolyline
+                  : options.polyline
+              }
+            />
           </GoogleMap>
         </LoadScript>
       </div>

@@ -18,27 +18,29 @@ const MapMarker = ({
 
     switch (addressFlag) {
       case "start":
-        if (idx === address.end.idxPoint) {
+        if (idx === address.end.idx) {
           alert("출발지와 도착지는 같을 수 없습니다.");
           return;
         }
         newAddress = {
           start: {
-            idxPoint: idx,
+            flag: true,
+            idx,
             name: lat() + lng(),
           },
           end: address.end,
         };
         break;
       case "end":
-        if (idx === address.start.idxPoint) {
+        if (idx === address.start.idx) {
           alert("출발지와 도착지는 같을 수 없습니다.");
           return;
         }
         newAddress = {
           start: address.start,
           end: {
-            idxPoint: idx,
+            flag: true,
+            idx,
             name: lat() + lng(),
           },
         };
