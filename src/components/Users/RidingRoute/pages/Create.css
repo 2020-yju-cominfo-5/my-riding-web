@@ -22,13 +22,12 @@
 
 .route-create .bottom {
   position: relative;
-  height: 600px;
+  height: 550px;
   width: 99%;
   margin: 0 auto;
 }
 
-.route-create .bottom div {
-  border: 1px solid blue;
+.route-create .bottom > div {
   position: absolute;
   box-sizing: border-box;
 }
@@ -38,14 +37,10 @@
   height: 60%;
 }
 
-.route-create .bottom .graph {
+.route-create .bottom .chart {
   bottom: 0;
   width: 65%;
   height: 40%;
+  padding-top: 30px;
 }
 
-.route-create .bottom .controller {
-  right: 0;
-  height: inherit;
-  width: 35%;
-}

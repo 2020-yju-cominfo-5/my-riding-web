@@ -1,7 +1,7 @@
 import React from "react";
-import "./RouterShowInfoOverview.css";
+import "./RouteShowInfoOverview.css";
 
-const RouterShowInfoOverview = ({ data }) => {
+const RouteShowInfoOverview = ({ data }) => {
   const { distacne, time, grade, minAlt, maxAlt } = data;
 
   return (
@@ -30,4 +30,4 @@ const RouterShowInfoOverview = ({ data }) => {
   );
 };
 
-export default RouterShowInfoOverview;
+export default RouteShowInfoOverview;

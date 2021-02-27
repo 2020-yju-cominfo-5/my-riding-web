@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getRidingRouteById } from "../../../../api/RidingRoute";
-import RouterShowData from "../items/Show/RouterShowData";
-import RouterShowHeader from "../items/Show/RouterShowHeader";
+import RouteShowData from "../items/Show/RouteShowData";
+import RouteShowHeader from "../items/Show/RouteShowHeader";
 
 import "./Show.css";
 
@@ -59,8 +59,8 @@ const Show = ({ match }) => {
 
   return (
     <div className="route-show">
-      <RouterShowHeader data={header} />
-      <RouterShowData data={data} />
+      <RouteShowHeader data={header} />
+      <RouteShowData data={data} />
     </div>
   );
 };

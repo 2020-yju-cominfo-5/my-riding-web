@@ -1,7 +1,7 @@
 import React from "react";
 import { getTimeContext } from "../../../../../util/getDateContext";
 
-const RouterShowInfoDetail = ({ data }) => {
+const RouteShowInfoDetail = ({ data }) => {
   const {
     myRank,
     usrCount,
@@ -88,4 +88,4 @@ const RouterShowInfoDetail = ({ data }) => {
   );
 };
 
-export default RouterShowInfoDetail;
+export default RouteShowInfoDetail;
