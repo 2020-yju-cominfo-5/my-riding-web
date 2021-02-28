@@ -28,9 +28,9 @@ export const getProfile = async () => {
 // FIXME 프로필 사진 변경 API 추가
 //   1. post -> put 또는 patch 로 변경
 //   2. /auth/update/img 로 url 변경
-export const updateProfileImg = async (imgFile) => {
-  const resposne = await API.post("/auth/imagechange");
-  await console.log(imgFile);
+export const updateProfileImg = async (data) => {
+  const resposne = await API.post("/auth/imagechange", data);
+  return resposne.data;
 };
 
 // FIXME 패스워드 변경 API 추가
