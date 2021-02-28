@@ -1,11 +1,7 @@
-import axios from "axios";
-import { authAxiosInstance } from "./Axios";
-
-// const url = `${process.env.REACT_APP_SERVER_URL}/record`;
-const url = `http://54.145.82.27/api/record`;
+import API from "./API";
 
 export const getRidingRecordByYear = async (year) => {
-  const response = await authAxiosInstance.get(`${url}/year`, {
+  const response = await API.get("/record/year", {
     params: {
       stat_year: year,
     },
@@ -13,9 +9,8 @@ export const getRidingRecordByYear = async (year) => {
   return response.data;
 };
 
-// TODO 바디에 year, week 추가하기
 export const getRidingRecordByWeek = async (year, week) => {
-  const response = await authAxiosInstance.get(`${url}/week`, {
+  const response = await API.get("/record/week", {
     params: {
       year,
       week,
@@ -25,6 +20,13 @@ export const getRidingRecordByWeek = async (year, week) => {
 };
 
 export const getRidingRecordById = async (id) => {
-  const response = await authAxiosInstance.get(`${url}/${id}`);
+  const response = await API.get(`record/${id}`);
   return response.data;
+};
+
+// TODO 라이딩 이름 변경 api 연결
+export const updateRidingRecordTitle = async (id, title) => {
+  console.log(id, title);
+  // const response = await API.patch(`record/${id}`);
+  // return response.data;
 };

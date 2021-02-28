@@ -1,0 +1,231 @@
+.route-show .fa-crown {
+  color: #f5e040;
+  padding-left: 10px;
+}
+
+.route-show .header-title {
+  height: 120px;
+  width: initial;
+}
+
+.route-show .header-title > div {
+  display: inline-block;
+}
+
+.route-show .header-title .sub-title {
+  margin-left: 40px;
+}
+
+.route-show .header-title .sub-title .fas {
+  margin-right: 10px;
+}
+
+.route-show .header-title .sub-title .fa-heart {
+  color: red;
+}
+
+.route-show .header-title .sub-title .fa-biking {
+  color: #3774d3;
+}
+
+.route-show .header-title .sub-title .txt {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  line-height: 2.2;
+  color: #5e5e5e;
+  margin-right: 40px;
+}
+
+.route-show .section .info {
+  /* border: 1px solid red; */
+}
+
+.route-show .section .info > .top {
+  margin-bottom: 30px;
+}
+
+.route-show .section .info > .bottom {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.route-show .section .info > .bottom > div {
+  height: inherit;
+  float: left;
+}
+
+.route-show .section .info > .bottom .left {
+  width: 60%;
+}
+
+.route-show .section .info > .bottom .left .map {
+  border: 1px solid blue;
+  height: 65%;
+}
+
+.route-show .section .info > .bottom .left .graph {
+  border: 1px solid blue;
+  height: 35%;
+}
+
+.route-show .section .info > .bottom .right {
+  width: 30%;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 0 2%;
+}
+
+.route-show .section .info > .bottom .right > div {
+  box-sizing: border-box;
+  height: 50%;
+  padding: 30px;
+}
+
+.route-show .section .info > .bottom .right .record-sub-title {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #2f2f2f;
+  margin-bottom: 25px;
+}
+
+.route-show .section .info > .bottom .right .record-value > div {
+  float: left;
+}
+
+.route-show .section .info > .bottom .right .record-value .img {
+  width: 80px;
+  height: 80px;
+  background: url("../../../../img/profileImg-test.jpg") center/80px no-repeat;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.route-show .section .info > .bottom .right .record-value .record {
+  /* border: 1px solid blue; */
+  margin: 10px 0;
+}
+
+.route-show .section .info > .bottom .right .record-value .record p {
+  display: inline-block;
+  font-size: 17px;
+  margin: 5px 0;
+  /* border: 1px solid blue; */
+}
+
+.route-show .section .info > .bottom .right .record-value .record .title {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  color: #2f2f2f;
+  width: 110px;
+  padding-left: 10px;
+  margin-right: 5px;
+}
+
+.route-show .section .info > .bottom .right .record-value .record .value {
+  font-family: "Roboto", sans-serif;
+  color: #2f2f2f;
+}
+
+.route-show .section .info > .bottom .right .record-value .record .fas {
+  margin-right: 10px;
+}
+
+.route-show .section .info > .bottom .right .my-record .record-title p {
+  display: inline-block;
+}
+
+.route-show
+  .section
+  .info
+  > .bottom
+  .right
+  .my-record
+  .record-title
+  p:nth-child(1) {
+  width: 70%;
+}
+
+.route-show
+  .section
+  .info
+  > .bottom
+  .right
+  .my-record
+  .record-title
+  p:nth-child(2) {
+  width: 30%;
+  text-align: right;
+}
+
+.route-show .rank {
+  margin-bottom: 10vh;
+}
+
+.route-show .rank li {
+  height: 50px;
+  border-top: 1px solid #d5d5d5;
+  width: 720px;
+  color: #2f2f2f;
+}
+
+.route-show .rank li.user:hover {
+  background-color: #3774d3;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.route-show .rank li.user:hover .fa-crown {
+  color: #ffffff;
+}
+
+.route-show .rank span {
+  display: inline-block;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.route-show .rank span:nth-child(1) {
+  width: 100px;
+}
+
+.route-show .rank span:nth-child(2) {
+  width: 120px;
+}
+
+.route-show .rank span:nth-child(3) {
+  width: 140px;
+}
+
+.route-show .rank span:nth-child(4) {
+  width: 210px;
+}
+
+.route-show .rank span:nth-child(5) {
+  width: 150px;
+}
+
+.route-show .rank .user-rank-wrapper {
+  height: 250px;
+  overflow: auto;
+  width: 750px;
+}
+
+.route-show .rank .user-rank-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.route-show .rank .user-rank-wrapper::-webkit-scrollbar-thumb {
+  background-color: #373a44;
+  border-radius: 10px;
+}
+
+.route-show .rank .user-rank-wrapper::-webkit-scrollbar-track {
+  background-color: #e1e1ea;
+  border-radius: 10px;
+}

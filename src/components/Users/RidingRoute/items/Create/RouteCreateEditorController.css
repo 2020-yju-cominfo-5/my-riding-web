@@ -1,0 +1,137 @@
+.route-create .bottom .controller {
+  right: 0;
+  height: inherit;
+  width: 35%;
+}
+
+.route-create .bottom .controller > div {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.route-create .bottom .controller .address {
+  box-sizing: border-box;
+  height: 60%;
+  padding: 30px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.route-create .bottom .controller .address .fas {
+  color: #3773d4;
+  font-size: 30px;
+  margin: 25px 0;
+  text-align: center;
+  display: block;
+}
+
+.route-create .bottom .controller .address .title {
+  position: relative;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  color: #3773d4;
+  margin-bottom: 20px;
+  height: 30px;
+}
+
+.route-create .bottom .controller .address .title p,
+.route-create .bottom .controller .address .title button {
+  position: absolute;
+  display: inline-block;
+}
+
+.route-create .bottom .controller .address .title p {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.route-create .bottom .controller .address .title button {
+  left: 65%;
+  width: 80px;
+  height: inherit;
+  background-color: #3773d4;
+  color: #fff;
+  outline: none;
+  border-radius: 20px;
+  font-family: "Noto Sans", sans-serif;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.route-create .bottom .controller .address .title button.save-mode {
+  background-color: #fd6565;
+}
+
+.route-create .bottom .controller .address .value {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.17;
+  text-align: center;
+  color: #636363;
+}
+
+.route-create .bottom .controller .address .text {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.3;
+  color: #5c5c5c;
+  font-weight: 300;
+}
+
+.route-create .bottom .controller .btn {
+  height: 25%;
+  margin-top: 35px;
+}
+
+.route-create .bottom .controller .btn button {
+  box-sizing: border-box;
+  background: none;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.route-create .bottom .controller .btn .save {
+  border: 1px solid #3773d4;
+  color: #3773d4;
+}
+
+.route-create .bottom .controller .btn .reset {
+  border: 1px solid #5e5e5e;
+  color: #5e5e5e;
+}
+
+.route-create .bottom .controller .btn .exit {
+  border: 1px solid #fd6565;
+  color: #fd6565;
+}
+
+.route-create .bottom .controller .btn button:hover {
+  color: #fff;
+}
+
+.route-create .bottom .controller .btn .save:hover {
+  background-color: #3773d4;
+}
+
+.route-create .bottom .controller .btn .reset:hover {
+  background-color: #5e5e5e;
+}
+
+.route-create .bottom .controller .btn .exit:hover {
+  background-color: #fd6565;
+}

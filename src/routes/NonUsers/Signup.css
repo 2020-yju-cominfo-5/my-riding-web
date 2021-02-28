@@ -30,14 +30,14 @@
   background-color: #5e5e5e;
 }
 
-.non-users .signup .sub .img-wrapper {
+.non-users .signup .sub .img-section {
   width: 250px;
   height: 250px;
   margin: 50% auto;
   position: relative;
 }
 
-.non-users .signup .sub .img-profile {
+.non-users .signup .sub .img {
   position: absolute;
   width: 250px;
   height: 250px;
@@ -45,18 +45,37 @@
   border-radius: 100%;
   box-sizing: border-box;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.7);
-  background: url("../../img/profileImg-test.jpg") center/250px no-repeat;
 }
 
-.non-users .signup .sub .btn-upload {
+.non-users .signup .sub .filebox label {
   position: absolute;
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  background: url("../../img/btn-upload.png") center/70px no-repeat;
-  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.7);
+  background: url("../../img/icon-camera.png") center/35px no-repeat;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
   right: 0;
   bottom: 0;
+}
+
+.non-users .signup .sub .filebox label:hover {
+  background: url("../../img/icon-camera-over.png") center/35px no-repeat;
+  background-color: #fdfdfd;
+  transition: 0.5s;
+}
+
+.non-users .signup .sub .filebox input[type="file"] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .non-users form {

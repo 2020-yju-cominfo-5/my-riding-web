@@ -43,16 +43,19 @@
 .users .header .legend-section {
   width: 260px;
   right: 40px;
+  height: 70px;
 }
 
 .users .header .legend-section > div {
   float: left;
   /* display: inline-block; */
   height: 10px;
-  width: 80px;
   line-height: 80px;
   font-family: "Noto Sans", sans-serif;
   font-weight: 600;
+  cursor: pointer;
+  margin-right: 25px;
+  transition: 0.3s;
 }
 
 .users .header .legend-section > div::before {
@@ -62,6 +65,7 @@
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 1px;
+  transition: 0.3s;
 }
 
 .users .header .legend-section > div:nth-child(1) {
@@ -69,6 +73,11 @@
 }
 
 .users .header .legend-section > div:nth-child(1)::before {
+  border: 1px solid #ffbf00;
+  background-color: #ffbf0050;
+}
+
+.users .header .legend-section > div:nth-child(1):hover:before {
   background-color: #ffbf00;
 }
 
@@ -77,6 +86,11 @@
 }
 
 .users .header .legend-section > div:nth-child(2)::before {
+  border: 1px solid #f56c8c;
+  background-color: #f56c8c50;
+}
+
+.users .header .legend-section > div:nth-child(2):hover:before {
   background-color: #f56c8c;
 }
 
@@ -84,11 +98,21 @@
   color: #44a2eb;
 }
 .users .header .legend-section > div:nth-child(3)::before {
+  border: 1px solid #44a2eb;
+  background-color: #44a2eb50;
+}
+
+.users .header .legend-section > div:nth-child(3):hover:before {
   background-color: #44a2eb;
 }
 
 .users .chart-section {
   margin-top: 20px;
+}
+
+.users .chart-section .no-data {
+  text-align: center;
+  margin-top: 100px;
 }
 
 .users .chart-section .chart-title {
