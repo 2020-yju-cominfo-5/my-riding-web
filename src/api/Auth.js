@@ -25,12 +25,18 @@ export const getProfile = async () => {
   return response.data;
 };
 
+// FIXME 프로필 사진 변경 API 추가
+//   1. post -> put 또는 patch 로 변경
+//   2. /auth/update/img 로 url 변경
 export const updateProfileImg = async (imgFile) => {
-  // TODO 프로필 사진 변경 API 추가
+  const resposne = await API.post("/auth/imagechange");
   await console.log(imgFile);
 };
 
-export const updatePassword = async (password, passwordConfirm) => {
-  // TODO 패스워드 변경 API 추가
-  await console.log(password, passwordConfirm);
+// FIXME 패스워드 변경 API 추가
+//   1. post -> put 또는 patch 로 변경
+//   2. /auth/update/password 로 url 변경
+export const updatePassword = async (data) => {
+  const resposne = await API.post("/auth/passwordchange", data);
+  return resposne.data;
 };

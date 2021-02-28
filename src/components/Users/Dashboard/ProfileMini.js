@@ -4,7 +4,6 @@ import "./ProfileMini.css";
 
 const ProfileMini = ({ user }) => {
   const { nickname, score, count, last_riding, last_riding_id } = user;
-  console.log(user);
   const onClickHandler = () => {
     window.location.replace(`/record/show/${last_riding_id}`);
   };

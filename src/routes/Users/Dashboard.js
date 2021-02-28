@@ -21,7 +21,7 @@ const Dashboard = () => {
   //   endDate: "2021-01-09",
   //   values: [
   //     {
-//       day: 0,
+  //       day: 0,
   //       distance: 30000,
   //       time: 50,
   //       avg_speed: 20,

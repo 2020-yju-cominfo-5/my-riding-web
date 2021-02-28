@@ -12,7 +12,7 @@ const Profile = () => {
     user_picture: "",
     created_at: "",
   });
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(true);
 
   useEffect(() => {
     getProfile()
