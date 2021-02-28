@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 import { requestSignup } from "../../../api/Auth";
 import { getSignupMsgs } from "../../../util/getMsgs";
 import getRegPatterns from "../../../util/getRegPatterns";
 
 const SignupForm = ({ imgFile }) => {
-  const history = useHistory();
   const msgs = getSignupMsgs;
   const patterns = getRegPatterns();
 
+  console.log(imgFile);
   const [msg, setMsg] = useState(msgs.default);
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -60,20 +59,20 @@ const SignupForm = ({ imgFile }) => {
   };
 
   const onSubmitHandler = (event) => {
+    event.preventDefault();
     // FIXME api 수정 시, 프로필 이미지 추가 전송
-    console.log(imgFile);
 
-    requestSignup({
-      user_account: id,
-      user_password: password,
-      user_password_confirmation: passwordConfirm,
-      user_nickname: nickName,
-      user_picture: "picture",
-    })
+    const formData = new FormData();
+    formData.append("user_account", id);
+    formData.append("user_password", password);
+    formData.append("user_password_confirmation", passwordConfirm);
+    formData.append("user_nickname", nickName);
+    formData.append("user_picture", imgFile);
+
+    requestSignup(formData)
       .then((res) => {
         const { message } = res;
         alert(message);
-        history.push("/");
       })
       .catch((err) => {
         if (!err.response) {
@@ -112,7 +111,9 @@ const SignupForm = ({ imgFile }) => {
             alert("서버와의 연결에 실패하였습니다.");
             break;
         }
-        history.push("/");
+      })
+      .finally(() => {
+        window.location.replace("/");
       });
   };
   return (

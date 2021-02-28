@@ -9,8 +9,8 @@ const RidingRoute = () => {
   return (
     <>
       <Route path="/route" exact={true} component={RouteMain} />
-      <Route path="/route/:id" component={RouteShow} />
-      <Route path="/route/create" component={RouteCreate} />
+      <Route path="/route/show/:id" component={RouteShow} />
+      <Route path="/route/create/:id" component={RouteCreate} />
       <Route path="/route/edit/:id" component={RouteEdit} />
     </>
   );

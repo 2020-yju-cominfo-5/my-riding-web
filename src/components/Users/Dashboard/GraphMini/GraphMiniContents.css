@@ -31,3 +31,8 @@
 .graph-mini .contents .this-year {
   padding-top: 10px;
 }
+
+.graph-mini .no-data {
+  font-family: "Noto Sans", sans-serif;
+  margin-top: 10px;
+}

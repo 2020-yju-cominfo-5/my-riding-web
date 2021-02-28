@@ -1,0 +1,52 @@
+.route-create .top {
+  margin: 15px 0 35px 0;
+}
+
+.route-create .top input {
+  width: 500px;
+  height: 60px;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #dfdfdf;
+  font-family: "Noto Sans", sans-serif;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 0 20px 10px;
+}
+
+.route-create .top input:focus {
+  box-shadow: 0 0 10px 0 #3774d3;
+  transition: 0.5s;
+}
+
+.route-create .bottom {
+  position: relative;
+  height: 550px;
+  width: 99%;
+  margin: 0 auto;
+}
+
+.route-create .bottom > div {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.route-create .bottom .map {
+  width: 65%;
+  height: 60%;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+.route-create .bottom .activate {
+  transform: translateY(-20%);
+  height: 140%;
+}
+
+.route-create .bottom .chart {
+  bottom: 0;
+  width: 65%;
+  height: 40%;
+  padding-top: 30px;
+}

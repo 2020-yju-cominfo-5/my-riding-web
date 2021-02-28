@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteRidingRouteById } from "../../../../../api/RidingRoute";
 import {
   getDateKorContext,
   getTimeContext,
 } from "../../../../../util/getDateContext";
+import getRoundValue from "../../../../../util/getRoundValue";
 
 const RouteListItem = ({ data, setSelectedId }) => {
   const {
@@ -15,17 +17,30 @@ const RouteListItem = ({ data, setSelectedId }) => {
     route_like: like,
     route_num_of_try_count: count,
   } = data;
+
   const onClickHandler = () => {
     setSelectedId(id);
+  };
+  const onDeleteHandler = () => {
+    if (window.confirm(`[${name}] 을 라이디 경로 목록에서 삭제하겠습니까?`)) {
+      deleteRidingRouteById(id)
+        .then((res) => {
+          alert("라이딩 경로 삭제에 성공하였습니다.");
+          window.location.reload(`route`);
+        })
+        .catch((err) => {
+          alert("라이딩 경로 삭제에 실패하였습니다.");
+        });
+    }
   };
 
   return (
     <li key={id} id={id} className="value" onClick={onClickHandler}>
       <div className="date">{getDateKorContext({ date })}</div>
       <div className="name">
-        <Link to={`/route/${id}`}>{name}</Link>
+        <Link to={`/route/show/${id}`}>{name}</Link>
       </div>
-      <div className="distance">{distance}km</div>
+      <div className="distance">{getRoundValue(distance)}km</div>
       <div className="time">{getTimeContext({ time })}</div>
       <div className="etc">
         <div className="like">
@@ -37,9 +52,9 @@ const RouteListItem = ({ data, setSelectedId }) => {
           {count} 회
         </div>
       </div>
-      <div className="del-btn">
-        <Link to={`/route/delete/${id}`}>삭제</Link>
-      </div>
+      <button className="del-btn" onClick={onDeleteHandler}>
+        삭제
+      </button>
     </li>
   );
 };

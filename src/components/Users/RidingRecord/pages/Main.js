@@ -22,11 +22,11 @@ const Main = () => {
       .then((res) => {
         // TODO NO DATA 알고리즘 추가 필요 -> 해당 년도에 등록된 라이딩 기록이 없습니다.
         const { stats: newStats } = res.data;
-        if (newStats.length === 0) {
-          setYear(prevYear);
-          alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
-          return;
-        }
+        // if (newStats.length === 0) {
+        //   setYear(prevYear);
+        //   alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
+        //   return;
+        // }
         console.log();
         setStats(newStats.reverse(), ...stats);
       })
@@ -59,7 +59,13 @@ const Main = () => {
         <RecordMainHeader data={header} setLabel={setLabel} />
         <div className="chart-section">
           {/* <RecordMainChartTitle year={year} /> */}
-          <RecordMainChartContens year={year} stats={stats} label={label} />
+          {stats.length !== 0 ? (
+            <RecordMainChartContens year={year} stats={stats} label={label} />
+          ) : (
+            <div className="no-data">
+              {year}년에 등록된 라이딩 일지가 없습니다.
+            </div>
+          )}
         </div>
       </div>
     </>
