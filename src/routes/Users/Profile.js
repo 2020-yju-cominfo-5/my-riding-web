@@ -18,6 +18,7 @@ const Profile = () => {
     getProfile()
       .then((res) => {
         setData(res.data);
+        console.log(res.data);
       })
       .catch(() => {
         console.log("Profile 조회에 실패하였습니다.");

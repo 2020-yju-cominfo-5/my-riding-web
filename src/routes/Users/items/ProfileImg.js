@@ -9,7 +9,10 @@ const ProfileImg = ({ img }) => {
 
   const onClickImgSubmit = () => {
     if (imgFlag) {
-      updateProfileImg(imgFile)
+      const formData = new FormData();
+      formData.append("user_picture", imgFile);
+
+      updateProfileImg(formData)
         .then(() => {
           // TODO 새로고침 필요한지 렌더링 확인 필요
           alert("프로필 사진 변경을 성공하였습니다.");

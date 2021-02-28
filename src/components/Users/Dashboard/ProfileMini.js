@@ -3,8 +3,10 @@ import { getDateKorContext } from "../../../util/getDateContext";
 import "./ProfileMini.css";
 
 const ProfileMini = ({ user }) => {
-  const { nickname, score, count, last_riding } = user;
-  console.log(user);
+  const { nickname, score, count, last_riding, last_riding_id } = user;
+  const onClickHandler = () => {
+    window.location.replace(`/record/show/${last_riding_id}`);
+  };
 
   return (
     <div className="profile-mini">
@@ -26,7 +28,7 @@ const ProfileMini = ({ user }) => {
             <p className="title">최근 라이딩</p>
             <p className="date">{getDateKorContext({ date: last_riding })}</p>
           </div>
-          <div className="record-detail">
+          <div className="record-detail" onClick={onClickHandler}>
             <p>내 라이딩 기록 상세 보기 &gt;</p>
           </div>
         </div>
