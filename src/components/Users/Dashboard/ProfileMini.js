@@ -1,12 +1,19 @@
 import React from "react";
-import { getDateContext } from "../../../util";
+import { getDateKorContext } from "../../../util/getDateContext";
 import "./ProfileMini.css";
 
 const ProfileMini = ({ user }) => {
-  const { nickname, score, count, last_riding } = user;
+  const { nickname, score, count, last_riding, last_riding_id, picture } = user;
+  const onClickHandler = () => {
+    window.location.replace(`/record/show/${last_riding_id}`);
+  };
+
   return (
     <div className="profile-mini">
-      <div className="user-img"></div>
+      <div
+        className="user-img"
+        style={{ background: `url(data:${picture}) center/cover no-repeat` }}
+      ></div>
       <div className="user-info">
         <div className="name">{nickname}</div>
         <div className="section">
@@ -15,16 +22,16 @@ const ProfileMini = ({ user }) => {
             <p className="value">{score}</p>
           </div>
           <div className="count">
-            <p className="title">라이딩 점수</p>
+            <p className="title">총 라이딩 횟수</p>
             <p className="value">{count}</p>
           </div>
         </div>
         <div className="footer">
           <div className="latest">
             <p className="title">최근 라이딩</p>
-            <p className="date">{getDateContext({ date: last_riding })}</p>
+            <p className="date">{getDateKorContext({ date: last_riding })}</p>
           </div>
-          <div className="record-detail">
+          <div className="record-detail" onClick={onClickHandler}>
             <p>내 라이딩 기록 상세 보기 &gt;</p>
           </div>
         </div>

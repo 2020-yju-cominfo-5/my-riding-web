@@ -1,21 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { requestAuth } from "../../api/Auth";
 import NavTitle from "./NavTitle";
 import Menu from "./Menu";
 import "./Navigation.css";
 
-const Navigation = ({ auth }) => {
-  const { isLogin, setIsLogin } = auth;
+const Navigation = ({ token }) => {
   const location = useLocation();
+  const [img, setImg] = useState();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      setIsLogin(true);
-      // BUG requestAuth URL 수정
       requestAuth()
-        .then(() => {
-          setIsLogin(true);
+        .then((res) => {
+          setImg(res.data.user_picture);
         })
         .catch((err) => {
           if (!err.response) {
@@ -29,21 +27,19 @@ const Navigation = ({ auth }) => {
                 "본인인증 실패 : 잘못된 접근 또는 인증토큰이 만료되었습니다.",
               );
               localStorage.removeItem("token");
-              setIsLogin(false);
+              window.location.replace("/");
               break;
             default:
-              alert("서버와의 연결에 실패하였습니다.1");
+              alert("서버와의 연결에 실패하였습니다.");
               break;
           }
         });
-    } else {
-      setIsLogin(false);
     }
-  }, [location]);
+  }, [location, token]);
 
   return (
     <div className="navigation">
-      <div className="wrapper">{isLogin ? <Menu /> : <NavTitle />}</div>
+      <div className="wrapper">{token ? <Menu img={img} /> : <NavTitle />}</div>
     </div>
   );
 };
