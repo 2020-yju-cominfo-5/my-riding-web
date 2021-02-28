@@ -45,6 +45,7 @@ const Show = ({ match }) => {
       })
       .catch((err) => {
         alert("라이딩 일지 정보 조회에 실패하였습니다.");
+        window.history.back();
       });
   }, []);
 

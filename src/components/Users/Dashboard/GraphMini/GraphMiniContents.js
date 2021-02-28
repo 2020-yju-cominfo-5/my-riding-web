@@ -10,7 +10,7 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
     }).value;
     switch (menu) {
       case "distance":
-        return `${sum}km`;
+        return `${Math.round(sum * 10) / 10}km`;
       case "time":
         return getTimeContext({ time: sum });
       case "avg_speed":
@@ -21,14 +21,14 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
     return menu;
   };
   const yearResult = () => {
-    const tmpYear = yearData[menu];
+    const tmpYearData = yearData[menu];
     switch (menu) {
       case "distance":
-        return `${tmpYear}km`;
+        return `${Math.round(tmpYearData * 10) / 10}km`;
       case "time":
-        return getTimeContext({ time: tmpYear });
+        return getTimeContext({ time: tmpYearData });
       case "avg_speed":
-        return `${Math.round(tmpYear * 10) / 10}km/h`;
+        return `${Math.round(tmpYearData * 10) / 10}km/h`;
       default:
         break;
     }
