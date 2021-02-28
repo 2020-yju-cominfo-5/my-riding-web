@@ -1,4 +1,5 @@
 import React from "react";
+import getRoundValue from "../../../../../util/getRoundValue";
 import "./RouteShowInfoOverview.css";
 
 const RouteShowInfoOverview = ({ data }) => {
@@ -8,7 +9,7 @@ const RouteShowInfoOverview = ({ data }) => {
     <div className="top">
       <div className="item">
         <div className="title">거리</div>
-        <div className="value">{distacne}km</div>
+        <div className="value">{getRoundValue(distacne)}km</div>
       </div>
       <div className="item">
         <div className="title">예상 시간</div>

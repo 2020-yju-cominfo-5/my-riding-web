@@ -29,7 +29,7 @@ export const getProfile = async () => {
 //   1. post -> put 또는 patch 로 변경
 //   2. /auth/update/img 로 url 변경
 export const updateProfileImg = async (data) => {
-  const resposne = await API.post("/auth/imagechange", data);
+  const resposne = await API.post("/auth/update/image", data);
   return resposne.data;
 };
 
@@ -37,6 +37,6 @@ export const updateProfileImg = async (data) => {
 //   1. post -> put 또는 patch 로 변경
 //   2. /auth/update/password 로 url 변경
 export const updatePassword = async (data) => {
-  const resposne = await API.post("/auth/passwordchange", data);
+  const resposne = await API.patch("/auth/update/password", data);
   return resposne.data;
 };

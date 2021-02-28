@@ -16,6 +16,7 @@ const ProfileImg = ({ img }) => {
         .then(() => {
           // TODO 새로고침 필요한지 렌더링 확인 필요
           alert("프로필 사진 변경을 성공하였습니다.");
+          window.location.reload();
         })
         .catch(() => {
           alert("프로필 사진 변경을 실패하였습니다.");
@@ -52,7 +53,7 @@ const ProfileImg = ({ img }) => {
         <div
           className="img"
           style={{
-            background: `url(${imgFileUrl}) center/cover no-repeat`,
+            background: `url(data:${imgFileUrl}) center/cover no-repeat`,
           }}
         ></div>
         {imgFlag && (

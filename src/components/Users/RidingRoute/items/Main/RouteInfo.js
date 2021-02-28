@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // TODO route path 요청
 // import { getRidingRouteById } from "../../../../../api/RidingRoute";
 import { getTimeContext } from "../../../../../util/getDateContext";
+import getRoundValue from "../../../../../util/getRoundValue";
 
 import "./RouteInfo.css";
 
@@ -266,7 +267,7 @@ const RouteInfo = ({ route }) => {
             </li>
             <li>
               <div className="title">거리</div>
-              <div className="value">{distance}km</div>
+              <div className="value">{getRoundValue(distance)}km</div>
               <div className="title">시간</div>
               <div className="value">{getTimeContext({ time })}</div>
             </li>

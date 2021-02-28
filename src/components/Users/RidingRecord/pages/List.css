@@ -107,12 +107,21 @@
   margin-right: 15px;
 }
 
-.record-list .records li > span,
-.record-list .records li > span > a {
+.record-list .records li > span {
   display: inline-block;
 }
 
 .record-list .records li > span > a {
   text-decoration: none;
   color: #1383c1;
+}
+
+.record-list .records li > span .del-btn {
+  outline: none;
+  border: none;
+  background: none;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  color: #1383c1;
+  cursor: pointer;
 }

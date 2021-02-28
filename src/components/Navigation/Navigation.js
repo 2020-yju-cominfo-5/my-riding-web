@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { requestAuth } from "../../api/Auth";
 import NavTitle from "./NavTitle";
@@ -7,13 +7,13 @@ import "./Navigation.css";
 
 const Navigation = ({ token }) => {
   const location = useLocation();
+  const [img, setImg] = useState();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       requestAuth()
         .then((res) => {
-          // TODO 사진 불러오기
-          // console.log(res);
+          setImg(res.data.user_picture);
         })
         .catch((err) => {
           if (!err.response) {
@@ -39,7 +39,7 @@ const Navigation = ({ token }) => {
 
   return (
     <div className="navigation">
-      <div className="wrapper">{token ? <Menu /> : <NavTitle />}</div>
+      <div className="wrapper">{token ? <Menu img={img} /> : <NavTitle />}</div>
     </div>
   );
 };

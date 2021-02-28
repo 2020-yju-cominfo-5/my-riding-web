@@ -3,6 +3,7 @@ import {
   getDateKorContext,
   getTimeContext,
 } from "../../../../../util/getDateContext";
+import getRoundValue from "../../../../../util/getRoundValue";
 
 const RecordInfo = ({ info }) => {
   const {
@@ -34,11 +35,11 @@ const RecordInfo = ({ info }) => {
       <li>
         <div className="distance">
           <p className="title">거리</p>
-          <p className="value">{distance} km</p>
+          <p className="value">{getRoundValue(distance)} km</p>
         </div>
         <div className="avg-speed">
           <p className="title">평균 속도</p>
-          <p className="value">{avgSpeed} km/h</p>
+          <p className="value">{getRoundValue(avgSpeed)} km/h</p>
         </div>
       </li>
       <li>
@@ -48,7 +49,7 @@ const RecordInfo = ({ info }) => {
         </div>
         <div className="max-speed">
           <p className="title">최고 속도</p>
-          <p className="value">{maxSpeed} km/h</p>
+          <p className="value">{getRoundValue(maxSpeed)} km/h</p>
         </div>
       </li>
     </ul>

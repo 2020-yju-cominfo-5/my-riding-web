@@ -57,7 +57,7 @@
 
 .users .profile .top .img-save:hover {
   visibility: initial;
-  background-color: #00000050;
+  background-color: #00000090;
   cursor: pointer;
   transition: 0.5s;
 }
