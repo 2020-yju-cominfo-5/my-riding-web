@@ -30,3 +30,8 @@ export const updateRidingRecordTitle = async (id, title) => {
   // const response = await API.patch(`record/${id}`);
   // return response.data;
 };
+
+export const deleteRidingRecordById = async (id) => {
+  const response = await API.delete(`/record/${id}`);
+  return response.data;
+};

@@ -68,7 +68,7 @@ const SignupForm = ({ imgFile }) => {
     formData.append("user_password_confirmation", passwordConfirm);
     formData.append("user_nickname", nickName);
     formData.append("user_picture", imgFile);
-    
+
     requestSignup(formData)
       .then((res) => {
         const { message } = res;
@@ -113,7 +113,7 @@ const SignupForm = ({ imgFile }) => {
         }
       })
       .finally(() => {
-        // window.location.replace("/");
+        window.location.replace("/");
       });
   };
   return (
