@@ -5,6 +5,7 @@ import {
   getDateKorContext,
   getTimeContext,
 } from "../../../../../util/getDateContext";
+import getRoundValue from "../../../../../util/getRoundValue";
 
 const RouteListItem = ({ data, setSelectedId }) => {
   const {
@@ -37,9 +38,9 @@ const RouteListItem = ({ data, setSelectedId }) => {
     <li key={id} id={id} className="value" onClick={onClickHandler}>
       <div className="date">{getDateKorContext({ date })}</div>
       <div className="name">
-        <Link to={`/route/${id}`}>{name}</Link>
+        <Link to={`/route/show/${id}`}>{name}</Link>
       </div>
-      <div className="distance">{distance}km</div>
+      <div className="distance">{getRoundValue(distance)}km</div>
       <div className="time">{getTimeContext({ time })}</div>
       <div className="etc">
         <div className="like">

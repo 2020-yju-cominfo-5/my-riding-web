@@ -26,7 +26,13 @@ export const getRidingRecordById = async (id) => {
 
 // TODO 라이딩 이름 변경 api 연결
 export const updateRidingRecordTitle = async (id, title) => {
-  console.log(id, title);
-  // const response = await API.patch(`record/${id}`);
-  // return response.data;
+  const response = await API.patch(`record/${id}`, {
+    title,
+  });
+  return response.data;
+};
+
+export const deleteRidingRecordById = async (id) => {
+  const response = await API.delete(`/record/${id}`);
+  return response.data;
 };

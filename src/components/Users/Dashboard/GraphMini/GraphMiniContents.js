@@ -1,6 +1,7 @@
 import React from "react";
 import { getTimeContext } from "../../../../util/getDateContext";
 import GraphMiniChart from "./GraphMiniChart";
+import getRoundValue from "../../../../util/getRoundValue";
 import "./GraphMiniContents.css";
 
 const GraphMiniContents = ({ menu, weekData, yearData }) => {
@@ -10,25 +11,25 @@ const GraphMiniContents = ({ menu, weekData, yearData }) => {
     }).value;
     switch (menu) {
       case "distance":
-        return `${sum}km`;
+        return `${getRoundValue(sum)}km`;
       case "time":
         return getTimeContext({ time: sum });
       case "avg_speed":
-        return `${Math.round((sum / weekData.length) * 10) / 10}km/h`;
+        return `${getRoundValue(sum / weekData.length)}km/h`;
       default:
         break;
     }
     return menu;
   };
   const yearResult = () => {
-    const tmpYear = yearData[menu];
+    const tmpYearData = yearData[menu];
     switch (menu) {
       case "distance":
-        return `${tmpYear}km`;
+        return `${getRoundValue(tmpYearData)}km`;
       case "time":
-        return getTimeContext({ time: tmpYear });
+        return getTimeContext({ time: tmpYearData });
       case "avg_speed":
-        return `${Math.round(tmpYear * 10) / 10}km/h`;
+        return `${getRoundValue(tmpYearData)}km/h`;
       default:
         break;
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getDateShortContext } from "../../../../util/getDateContext";
+import getRoundValue from "../../../../util/getRoundValue";
 import RecordChart from "./RecordChart";
 import "./WeekStat.css";
 
@@ -43,7 +44,7 @@ const WeekStat = ({ stat, year, score, height, label }) => {
           </div>
           <div className="distance">
             <span className="title">총 거리</span>
-            <span className="value">{Math.round(sum.distance)} km</span>
+            <span className="value">{getRoundValue(sum.distance)} km</span>
           </div>
           <div className="time">
             <span className="title">총 시간</span>
@@ -54,7 +55,7 @@ const WeekStat = ({ stat, year, score, height, label }) => {
           <div className="avg-speed">
             <span className="title">평균 속도</span>
             <span className="value">
-              {Math.round((sum.avg_speed / values.length) * 10) / 10} km/h
+              {getRoundValue(sum.avg_speed / values.length)} km/h
             </span>
           </div>
           {score ? (
