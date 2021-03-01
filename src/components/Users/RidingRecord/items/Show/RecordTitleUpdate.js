@@ -51,7 +51,6 @@ const RecordTitleUpdate = ({ id, title, controller }) => {
       // TODO 라이딩 이름 변경 api 연결
       updateRidingRecordTitle(id, newTitle)
         .then((res) => {
-          console.log(res);
           window.location.reload(`record/show/${id}`);
         })
         .catch((err) => {

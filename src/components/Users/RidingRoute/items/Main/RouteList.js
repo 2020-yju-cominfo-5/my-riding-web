@@ -3,7 +3,7 @@ import RouteListTitle from "./RouteListTitle";
 import RouteListItem from "./RouteListItem";
 import "./RouteList.css";
 
-const RouteList = ({ routes, setSelectedId }) => {
+const RouteList = ({ routes, setSelectedId, setPath }) => {
   return (
     <div className="route-list">
       <ul>
@@ -15,6 +15,7 @@ const RouteList = ({ routes, setSelectedId }) => {
                 key={ele.id}
                 data={ele}
                 setSelectedId={setSelectedId}
+                setPath={setPath}
               />
             );
           })}

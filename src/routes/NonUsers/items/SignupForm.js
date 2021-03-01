@@ -8,7 +8,6 @@ const SignupForm = ({ imgFile }) => {
   const msgs = getSignupMsgs;
   const patterns = getRegPatterns();
 
-  console.log(imgFile);
   const [msg, setMsg] = useState(msgs.default);
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");

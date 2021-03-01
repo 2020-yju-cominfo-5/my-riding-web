@@ -18,6 +18,7 @@ const RouteShowData = ({ data }) => {
     myAvgRecord: data.myAvgRecord,
     topRankerAccount: data.topRankerAccount,
     topRankerRecord: data.topRankerRecord,
+    path: data.path,
   };
   const { rank } = data;
 

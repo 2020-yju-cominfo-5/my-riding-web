@@ -13,7 +13,6 @@ const RecordListData = ({ records }) => {
     if (window.confirm(`[${name}]을 삭제하시겠습니까?`)) {
       deleteRidingRecordById(id)
         .then((res) => {
-          console.log(res);
           window.location.reload();
         })
         .catch((err) => {

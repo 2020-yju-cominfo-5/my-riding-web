@@ -11,7 +11,7 @@
 
 .route-create .bottom .controller .address {
   box-sizing: border-box;
-  height: 60%;
+  height: 330px;
   padding: 30px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
@@ -115,7 +115,7 @@
   color: #5e5e5e;
 }
 
-.route-create .bottom .controller .btn .exit {
+.route-create .bottom .controller .btn .cancel {
   border: 1px solid #fd6565;
   color: #fd6565;
 }
@@ -132,6 +132,6 @@
   background-color: #5e5e5e;
 }
 
-.route-create .bottom .controller .btn .exit:hover {
+.route-create .bottom .controller .btn .cancel:hover {
   background-color: #fd6565;
 }

@@ -27,16 +27,13 @@ const Main = () => {
         //   alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
         //   return;
         // }
-        console.log();
         setStats(newStats.reverse(), ...stats);
       })
       .catch((err) => {
-        console.log(err);
         if (!err.response) {
           alert("서버와의 연결에 실패하였습니다.");
           return;
         }
-        console.log(err.response);
         alert("라이딩 일지를 가져오는데 실패하였습니다.");
       });
   }, [year]);

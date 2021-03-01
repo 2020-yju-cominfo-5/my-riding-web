@@ -10,8 +10,6 @@ const Menu = ({ img }) => {
     });
   };
 
-  console.log(img);
-
   return (
     <>
       <Link to="/" className="nav-title">
@@ -33,7 +31,8 @@ const Menu = ({ img }) => {
           to="/profile"
           className="img"
           style={{
-            background: `url(data:${img}) center/cover no-repeat`,
+            // background: `url(data:${img}) center/cover no-repeat`,
+            background: `url(${img}) center/cover no-repeat`,
           }}
         />
         <div className="dropdown"></div>
