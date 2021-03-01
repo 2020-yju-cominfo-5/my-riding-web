@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Marker } from "@react-google-maps/api";
+import { requestAddress } from "../../../../../api/RidingRoute";
 const MapMarker = ({
   position,
   icon,
@@ -16,41 +17,44 @@ const MapMarker = ({
   const onClickHandler = ({ latLng: { lat, lng } }) => {
     let newAddress;
 
-    switch (addressFlag) {
-      case "start":
-        if (idx === address.end.idx) {
-          alert("출발지와 도착지는 같을 수 없습니다.");
-          return;
-        }
-        newAddress = {
-          start: {
-            flag: true,
-            idx,
-            name: lat() + lng(),
-          },
-          end: address.end,
-        };
-        break;
-      case "end":
-        if (idx === address.start.idx) {
-          alert("출발지와 도착지는 같을 수 없습니다.");
-          return;
-        }
-        newAddress = {
-          start: address.start,
-          end: {
-            flag: true,
-            idx,
-            name: lat() + lng(),
-          },
-        };
-        break;
-      default:
-        break;
-    }
-    
-    setAddressFlag();
-    setAddress(newAddress);
+    requestAddress(lat(), lng()).then((res) => {
+      const name = res.data.results[1].formatted_address;
+
+      switch (addressFlag) {
+        case "start":
+          if (idx === address.end.idx) {
+            alert("출발지와 도착지는 같을 수 없습니다.");
+            return;
+          }
+          newAddress = {
+            start: {
+              flag: true,
+              idx,
+              name,
+            },
+            end: address.end,
+          };
+          break;
+        case "end":
+          if (idx === address.start.idx) {
+            alert("출발지와 도착지는 같을 수 없습니다.");
+            return;
+          }
+          newAddress = {
+            start: address.start,
+            end: {
+              flag: true,
+              idx,
+              name,
+            },
+          };
+          break;
+        default:
+          break;
+      }
+      setAddressFlag();
+      setAddress(newAddress);
+    });
   };
 
   useEffect(() => {
