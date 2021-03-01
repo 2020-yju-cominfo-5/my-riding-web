@@ -48,7 +48,7 @@ const MapMarker = ({
       default:
         break;
     }
-    console.log(newAddress);
+    
     setAddressFlag();
     setAddress(newAddress);
   };
@@ -70,13 +70,7 @@ const MapMarker = ({
       onClick: onClickHandler,
     });
   }, [isEditor, opacity]);
-  // isEditor &&
-  //   setOptions({
-  //     opacity: DEFAULT_OPACITY,
-  //     onMouseOver: () => {},
-  //     onMouseOut: () => {},
-  //   });
-  // return <Marker position={position} icon={icon} {...options} />;
+
   return <Marker position={position} icon={icon} {...options} />;
 };
 

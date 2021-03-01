@@ -53,7 +53,8 @@ const ProfileImg = ({ img }) => {
         <div
           className="img"
           style={{
-            background: `url(data:${imgFileUrl}) center/cover no-repeat`,
+            // background: `url(data:${imgFileUrl}) center/cover no-repeat`,
+            background: `url(${imgFileUrl}) center/cover no-repeat`,
           }}
         ></div>
         {imgFlag && (

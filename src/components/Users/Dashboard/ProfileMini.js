@@ -12,7 +12,8 @@ const ProfileMini = ({ user }) => {
     <div className="profile-mini">
       <div
         className="user-img"
-        style={{ background: `url(data:${picture}) center/cover no-repeat` }}
+        // style={{ background: `url(data:${picture}) center/cover no-repeat` }}
+        style={{ background: `url(${picture}) center/cover no-repeat` }}
       ></div>
       <div className="user-info">
         <div className="name">{nickname}</div>
