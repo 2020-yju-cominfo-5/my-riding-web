@@ -13,6 +13,7 @@ const Graph = ({ stat }) => {
     endDate: stat.endDate,
   });
   const [values, setValues] = useState(stat.values);
+  const [loading, setLoading] = useState(false);
 
   const { week, year } = date;
   const { startDate, endDate } = period;
@@ -28,9 +29,17 @@ const Graph = ({ stat }) => {
     ) {
       return;
     }
+
+    setValues([]);
+    setLoading(true);
     // TODO 대쉬보드 라이딩 요약
     getDashboardStat(date)
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
+        const { startDate, endDate, values } = res.data;
+        setLoading(false);
+        setPeriod({ startDate, endDate });
+        setValues(values);
         // TODO 데이터 매핑 필요
         // setPeriod({});
         // setValues({});
@@ -93,7 +102,9 @@ const Graph = ({ stat }) => {
         </p>
       </div>
       <div className="body">
-        {values.length === 0 ? (
+        {loading ? (
+          <div className="no-data">로딩 중 ...</div>
+        ) : values.length === 0 ? (
           <div className="no-data">해당 주에 라이딩 기록이 없습니다.</div>
         ) : (
           <RecordChart values={values} height={95} />

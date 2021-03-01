@@ -9,11 +9,6 @@ const GraphMini = ({ stat, year }) => {
   const weekData = stat.values.map((ele) => {
     return { day: ele.day, value: ele[selectedMenu] };
   });
-  const yearData = {
-    distance: 1000,
-    time: 20000,
-    avg_speed: 300.56,
-  };
 
   return (
     <div className="graph-mini">
@@ -21,8 +16,7 @@ const GraphMini = ({ stat, year }) => {
       <GraphMiniContents
         menu={selectedMenu}
         weekData={weekData}
-        yearData={yearData}
-        // yearData={year}
+        yearData={year}
       />
     </div>
   );

@@ -27,7 +27,7 @@ const Main = () => {
         //   alert(`${year}년에 등록된 라이딩 일지가 없습니다.`);
         //   return;
         // }
-        setStats(newStats.reverse(), ...stats);
+        setStats(newStats, ...stats);
       })
       .catch((err) => {
         if (!err.response) {
