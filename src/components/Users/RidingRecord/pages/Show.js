@@ -3,6 +3,9 @@ import RecordDetail from "../items/Show/RecordDetail";
 import RecordTitle from "../items/Show/RecordTitle";
 import RecordElevation from "../items/Show/RecordElevation";
 import { getRidingRecordById } from "../../../../api/RidingRecord";
+import RecordInfo from "../items/Show/RecordInfo";
+import RecordMap from "../items/Show/RecordMap";
+import getPathData from "../../../../util/getPathData";
 
 import "./Show.css";
 
@@ -11,6 +14,7 @@ const Show = ({ match }) => {
   const [data, setData] = useState();
   const [graphData, setGraphData] = useState();
   const [position, setPosition] = useState();
+  const [path, setPath] = useState();
 
   const tmpPath = [
     { lat: 35.896725779882495, lng: 128.61992229254435 },
@@ -35,17 +39,18 @@ const Show = ({ match }) => {
   useEffect(() => {
     getRidingRecordById(id)
       .then((res) => {
-        if (!res.data.records.length) {
+        const { records, path } = res.data;
+        if (!records.length || !path.data) {
           alert("존재하지 않는 라이딩 일지입니다.");
           window.history.back();
           return;
         }
-
         setData({ id, ...res.data });
       })
       .catch((err) => {
         alert("라이딩 일지 정보 조회에 실패하였습니다.");
-        window.history.back();
+        window.location.replace("/record");
+        return;
       });
   }, []);
 
@@ -56,8 +61,12 @@ const Show = ({ match }) => {
   return (
     <div className="record-show">
       <RecordTitle data={{ id: data.id, title: data.records[0].title }} />
+
       <RecordDetail
-        data={{ info: data.records[0], path: tmpPath }}
+        data={{
+          info: data.records[0],
+          path: getPathData(data.path, "records"),
+        }}
         position={position}
         setGraphData={setGraphData}
       />

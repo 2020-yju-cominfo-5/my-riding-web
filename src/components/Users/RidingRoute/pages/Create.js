@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getRidingRecordById } from "../../../../api/RidingRecord";
+import getPathData from "../../../../util/getPathData";
 import RouteCreateDeatil from "../items/Create/RouteCreateDetail";
 import RouteCreateEditor from "../items/Create/RouteCreateEditor";
 import "./Create.css";
@@ -59,19 +60,6 @@ const Create = ({ match }) => {
     return <>로딩중</>;
   }
 
-  //   route_title:학교라이딩0001
-  // route_image;
-  // route_distance:6
-  // route_time:33
-  // route_avg_degree:22
-  // route_max_altitude:26
-  // route_min_altitude:24
-  // route_start_point_address:대구광역시 북구 복현로22길
-  // route_end_point_address:대구광역시 북구 산격동33길
-  // points[0][lat]:35.185689
-  // points[0][lng]:129.07168
-  // points[1][lat]:35.185749
-  // points[1][lng]:129.071722
   return (
     <div className="route-create">
       <RouteCreateDeatil
@@ -81,7 +69,7 @@ const Create = ({ match }) => {
       />
       <RouteCreateEditor
         id={id}
-        path={tmpPath}
+        path={getPathData(data.path, "records")}
         record={data.records[0]}
         newTitle={newTitle}
         newData={newData}

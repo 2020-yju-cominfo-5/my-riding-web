@@ -45,7 +45,7 @@ const Show = ({ match }) => {
           topRankerAccount: rankvalue.record_top_score_user_account,
           topRankerRecord: rankvalue.record_top_score_user_time,
           rank: record,
-          path: getPathData(routedata),
+          path: getPathData(routedata, "points"),
         });
       })
       .catch((err) => {

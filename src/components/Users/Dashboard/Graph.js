@@ -35,7 +35,6 @@ const Graph = ({ stat }) => {
     // TODO 대쉬보드 라이딩 요약
     getDashboardStat(date)
       .then((res) => {
-        console.log(res.data);
         const { startDate, endDate, values } = res.data;
         setLoading(false);
         setPeriod({ startDate, endDate });
