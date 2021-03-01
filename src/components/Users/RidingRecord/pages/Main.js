@@ -12,7 +12,7 @@ const Main = () => {
   const currentYear = new Date().getFullYear();
   const years = [`${currentYear}`, `${currentYear - 1}`, `${currentYear - 2}`];
   const [year, setYear] = useState(years[0]);
-  const [prevYear, setPrevYear] = useState();
+  // const [prevYear, setPrevYear] = useState();
   const [stats, setStats] = useState([]);
   const [label, setLabel] = useState();
 
@@ -40,7 +40,7 @@ const Main = () => {
 
   const yearChangeHandler = ({ value }) => {
     setStats([]);
-    setPrevYear(year);
+    // setPrevYear(year);
     setYear(value);
   };
   const header = {

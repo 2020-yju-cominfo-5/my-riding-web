@@ -24,3 +24,15 @@ export const requestCreateRidingRoute = async (data) => {
   const response = await API.post("/route", data);
   return response.data;
 };
+
+export const requestAddress = async (lat, lng) => {
+  // const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`;
+  const response = await API.get("/address", {
+    params: {
+      lat,
+      lng,
+      api_key: process.env.REACT_APP_GOOGLE_MAP_KEY,
+    },
+  });
+  return response.data;
+};
