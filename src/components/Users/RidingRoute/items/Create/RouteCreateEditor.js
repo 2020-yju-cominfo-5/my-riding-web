@@ -114,7 +114,10 @@ const RouteCreateEditor = ({
         formData.append("route_min_altitude", newData.maxAlt);
         formData.append("route_start_point_address", address.start.name);
         formData.append("route_end_point_address", address.end.name);
-        formData.append("points", newPath);
+        // formData.append("points", JSON.stringify(newPath));
+        newPath.map((ele, idx) => {
+          formData.append(`points[${idx}]`, JSON.stringify(ele));
+        });
 
         window.confirm("저장 하시겠습니까?") &&
           requestCreateRidingRoute(formData).then(() => {

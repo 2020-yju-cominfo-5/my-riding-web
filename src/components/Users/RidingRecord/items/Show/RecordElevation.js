@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import useMouseLeave from "../../../../../hooks/useMouseLeave";
 
-const ChartElevation = ({ graphData, setPosition }) => {
+const ChartElevation = ({ graphData, setPosition, height }) => {
   const callbacks = {
     label: function(tooltipItem, data) {
       const idx = tooltipItem.datasetIndex;
@@ -45,7 +45,14 @@ const ChartElevation = ({ graphData, setPosition }) => {
     setPosition();
   });
 
-  return <Bar data={graphData} height={75} options={options} ref={Graph}></Bar>;
+  return (
+    <Bar
+      data={graphData}
+      height={height || 75}
+      options={options}
+      ref={Graph}
+    ></Bar>
+  );
 };
 
 export default ChartElevation;

@@ -7,7 +7,7 @@ import {
 } from "../../../../../util/getDateContext";
 import getRoundValue from "../../../../../util/getRoundValue";
 
-const RouteListItem = ({ data, setSelectedId }) => {
+const RouteListItem = ({ data, setSelectedId, setPath }) => {
   const {
     id,
     created_at: date,
@@ -20,6 +20,7 @@ const RouteListItem = ({ data, setSelectedId }) => {
 
   const onClickHandler = () => {
     setSelectedId(id);
+    setPath();
   };
   const onDeleteHandler = () => {
     if (window.confirm(`[${name}] 을 라이디 경로 목록에서 삭제하겠습니까?`)) {

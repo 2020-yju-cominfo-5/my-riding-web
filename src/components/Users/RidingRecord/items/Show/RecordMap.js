@@ -12,10 +12,7 @@ const MapRecord = ({ path, position, setGraphData }) => {
 
   const onLoad = useCallback(function callback(map) {
     const elevator = new window.google.maps.ElevationService();
-    const icon = getMarkerIcon(
-      "point",
-      new window.google.maps.Size(20, 20),
-    );
+    const icon = getMarkerIcon("point", new window.google.maps.Size(20, 20));
     const plotElevation = getPlotElevation({ path, setGraphData });
 
     setPlotElevation({ elevator, path, plotElevation });
@@ -31,7 +28,7 @@ const MapRecord = ({ path, position, setGraphData }) => {
             height: "100%",
           }}
           options={options.map}
-          onLoad={onLoad}
+          onLoad={setGraphData && onLoad}
         >
           {position && <MapMarker position={position} icon={pointIcon} />}
           <Polyline path={path} options={options.polyline} />

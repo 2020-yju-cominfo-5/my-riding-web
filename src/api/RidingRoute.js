@@ -10,6 +10,11 @@ export const getRidingRouteById = async (id) => {
   return response.data;
 };
 
+export const getRidingRoutePathById = async (id) => {
+  const response = await API.get(`/route/path/${id}`);
+  return response.data;
+};
+
 export const deleteRidingRouteById = async (id) => {
   const response = await API.delete(`/route/${id}`);
   return response.data;
