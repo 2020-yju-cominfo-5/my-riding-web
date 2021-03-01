@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { getTimeContext } from "../../../../../util/getDateContext";
+import RecordMap from "../../../RidingRecord/items/Show/RecordMap";
+import RecordElevation from "../../../RidingRecord/items/Show/RecordElevation";
 
-const RouterShowInfoDetail = ({ data }) => {
+const RouteShowInfoDetail = ({ data }) => {
   const {
     myRank,
     usrCount,
@@ -9,15 +11,34 @@ const RouterShowInfoDetail = ({ data }) => {
     myAvgRecord,
     topRankerAccount,
     topRankerRecord,
+    path,
   } = data;
 
   const isMyRecordExist = Number.isInteger(myRank);
-  
+  const [graphData, setGraphData] = useState();
+  const [position, setPosition] = useState();
+
   return (
     <div className="bottom">
       <div className="left">
-        <div className="map">지도</div>
-        <div className="graph">그래프</div>
+        <div className="map">
+          {path && (
+            <RecordMap
+              path={path}
+              position={position}
+              setGraphData={setGraphData}
+            />
+          )}
+        </div>
+        <div className="graph">
+          {path && (
+            <RecordElevation
+              graphData={graphData}
+              setPosition={setPosition}
+              height={60}
+            />
+          )}
+        </div>
       </div>
       <div className="right">
         <div className="my-record">
@@ -88,4 +109,4 @@ const RouterShowInfoDetail = ({ data }) => {
   );
 };
 
-export default RouterShowInfoDetail;
+export default RouteShowInfoDetail;

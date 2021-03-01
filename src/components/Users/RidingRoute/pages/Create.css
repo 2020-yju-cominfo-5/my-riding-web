@@ -22,30 +22,37 @@
 
 .route-create .bottom {
   position: relative;
-  height: 600px;
+  height: 700px;
   width: 99%;
   margin: 0 auto;
 }
 
-.route-create .bottom div {
-  border: 1px solid blue;
+.route-create .bottom > div {
   position: absolute;
   box-sizing: border-box;
 }
 
 .route-create .bottom .map {
   width: 65%;
-  height: 60%;
+  height: 330px;
+  transition: 0.5s;
+  z-index: 100;
 }
 
-.route-create .bottom .graph {
-  bottom: 0;
+.route-create .bottom .activate {
+  transform: translateY(-20%);
+  height: 140%;
+}
+
+.route-create .bottom .chart {
+  top: 330px;
   width: 65%;
-  height: 40%;
+  height: 220px;
+  padding-top: 30px;
 }
 
-.route-create .bottom .controller {
-  right: 0;
-  height: inherit;
-  width: 35%;
+.route-create .bottom .map-img {
+  top: 550px;
+  /* border: 1px solid blue; */
+  display: none;
 }

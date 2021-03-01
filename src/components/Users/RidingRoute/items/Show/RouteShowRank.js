@@ -3,8 +3,9 @@ import {
   getDateKorContext,
   getTimeContext,
 } from "../../../../../util/getDateContext";
+import getRoundValue from "../../../../../util/getRoundValue";
 
-const RouterShowRank = ({ rank }) => {
+const RouteShowRank = ({ rank }) => {
   return (
     <div className="rank">
       <ul>
@@ -35,7 +36,7 @@ const RouterShowRank = ({ rank }) => {
                 <span>{name}</span>
                 <span>{getTimeContext({ time: record })}</span>
                 <span>{getDateKorContext({ date })}</span>
-                <span>{maxSpeed}km</span>
+                <span>{getRoundValue(maxSpeed)}km</span>
               </li>
             );
           })}
@@ -45,4 +46,4 @@ const RouterShowRank = ({ rank }) => {
   );
 };
 
-export default RouterShowRank;
+export default RouteShowRank;

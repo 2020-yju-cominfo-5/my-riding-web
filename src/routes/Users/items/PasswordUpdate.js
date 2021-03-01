@@ -35,6 +35,7 @@ const PasswordUpdate = ({ controller }) => {
     success: "저장을 눌러 비밀번호를 변경해주세요.",
   };
   const passwordPattern = getRegPatterns("password");
+  const [passwordPrev, setPasswordPrev] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [msg, setMsg] = useState(msgs.default);
@@ -44,6 +45,7 @@ const PasswordUpdate = ({ controller }) => {
     autoComplete: "off",
     onChange: ({ target }) => {
       const { name, value } = target;
+      name === "passwordPrev" && setPasswordPrev(value);
       name === "password" && setPassword(value);
       name === "passwordConfirm" && setPasswordConfirm(value);
     },
@@ -75,7 +77,11 @@ const PasswordUpdate = ({ controller }) => {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    updatePassword(password, passwordConfirm)
+    updatePassword({
+      user_password_old: passwordPrev,
+      user_password_new: password,
+      user_password_new_confirmation: passwordConfirm,
+    })
       .then(() => {
         alert("비밀번호 변경에 성공하였습니다.");
         closeModal();
@@ -86,40 +92,51 @@ const PasswordUpdate = ({ controller }) => {
   };
 
   return (
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Related Project"
-      >
-        <form className="password-update" onSubmit={onSubmitHandler}>
-          <div className="title">비밀번호 변경</div>
-          <div className="password">
-            <input
-              type="password"
-              placeholder="비밀번호"
-              name="password"
-              {...inputHandler}
-              value={password}
-              minLength={8}
-            />
-            <i className="fas fa-lock" />
-          </div>
-          <div className="password-check">
-            <input
-              type="password"
-              placeholder="비밀번호 확인"
-              name="passwordConfirm"
-              {...inputHandler}
-              value={passwordConfirm}
-              minLength={8}
-            />
-            <i className="fas fa-check-circle" />
-          </div>
-          <div className="warning-msg">{msg}</div>
-          <input className="password-update-btn" type="submit" value="저장" />
-        </form>
-      </Modal>
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Related Project"
+    >
+      <form className="password-update" onSubmit={onSubmitHandler}>
+        <div className="title">비밀번호 변경</div>
+        <div className="password">
+          <input
+            type="password"
+            placeholder="기존 비밀번호"
+            name="passwordPrev"
+            {...inputHandler}
+            value={passwordPrev}
+            minLength={8}
+          />
+          <i className="fas fa-key" />
+        </div>
+        <div className="password">
+          <input
+            type="password"
+            placeholder="신규 비밀번호"
+            name="password"
+            {...inputHandler}
+            value={password}
+            minLength={8}
+          />
+          <i className="fas fa-lock" />
+        </div>
+        <div className="password-check">
+          <input
+            type="password"
+            placeholder="신규 비밀번호 확인"
+            name="passwordConfirm"
+            {...inputHandler}
+            value={passwordConfirm}
+            minLength={8}
+          />
+          <i className="fas fa-check-circle" />
+        </div>
+        <div className="warning-msg">{msg}</div>
+        <input className="password-update-btn" type="submit" value="저장" />
+      </form>
+    </Modal>
   );
 };
 

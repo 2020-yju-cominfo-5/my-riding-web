@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../../../../item/Title";
 
-const RouterShowHeader = ({ data }) => {
+const RouteShowHeader = ({ data }) => {
   const { name, like, usrCount, tryCount } = data;
   return (
     <div className="header-title">
@@ -18,4 +18,4 @@ const RouterShowHeader = ({ data }) => {
   );
 };
 
-export default RouterShowHeader;
+export default RouteShowHeader;

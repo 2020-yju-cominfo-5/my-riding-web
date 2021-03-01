@@ -1,9 +1,9 @@
 import React from "react";
-import RouterShowInfoOverview from "./RouterShowInfoOverview";
-import RouterShowInfoDetail from "./RouterShowInfoDetail";
-import RouterShowRank from "./RouterShowRank";
+import RouteShowInfoOverview from "./RouteShowInfoOverview";
+import RouteShowInfoDetail from "./RouteShowInfoDetail";
+import RouteShowRank from "./RouteShowRank";
 
-const RouterShowData = ({ data }) => {
+const RouteShowData = ({ data }) => {
   const overview = {
     distacne: data.distacne,
     time: data.time,
@@ -18,18 +18,19 @@ const RouterShowData = ({ data }) => {
     myAvgRecord: data.myAvgRecord,
     topRankerAccount: data.topRankerAccount,
     topRankerRecord: data.topRankerRecord,
+    path: data.path,
   };
   const { rank } = data;
 
   return (
     <div className="section">
       <div className="info">
-        <RouterShowInfoOverview data={overview} />
-        <RouterShowInfoDetail data={detail} />
+        <RouteShowInfoOverview data={overview} />
+        <RouteShowInfoDetail data={detail} />
       </div>
-      <RouterShowRank rank={rank} />
+      <RouteShowRank rank={rank} />
     </div>
   );
 };
 
-export default RouterShowData;
+export default RouteShowData;

@@ -4,10 +4,10 @@ import GraphMiniContents from "./GraphMini/GraphMiniContents";
 import "./GraphMini.css";
 
 // TODO temp data 변경 (this week, year 합)
-const GraphMini = ({ stats }) => {
+const GraphMini = ({ stat, year }) => {
   const [selectedMenu, setSelectedMenu] = useState("distance");
-  const weekData = stats.values.map((stat) => {
-    return { day: stat.day, value: stat[selectedMenu] };
+  const weekData = stat.values.map((ele) => {
+    return { day: ele.day, value: ele[selectedMenu] };
   });
   const yearData = {
     distance: 1000,
@@ -22,6 +22,7 @@ const GraphMini = ({ stats }) => {
         menu={selectedMenu}
         weekData={weekData}
         yearData={yearData}
+        // yearData={year}
       />
     </div>
   );

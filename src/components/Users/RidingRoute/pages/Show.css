@@ -60,13 +60,14 @@
 }
 
 .route-show .section .info > .bottom .left .map {
-  border: 1px solid blue;
-  height: 65%;
+  /* border: 1px solid blue; */
+  height: 60%;
+  margin-bottom: 2%;
 }
 
 .route-show .section .info > .bottom .left .graph {
-  border: 1px solid blue;
-  height: 35%;
+  /* border: 1px solid blue; */
+  height: 38%;
 }
 
 .route-show .section .info > .bottom .right {

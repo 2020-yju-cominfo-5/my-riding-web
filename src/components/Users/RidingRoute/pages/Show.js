@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getRidingRouteById } from "../../../../api/RidingRoute";
-import RouterShowData from "../items/Show/RouterShowData";
-import RouterShowHeader from "../items/Show/RouterShowHeader";
+import getPathData from "../../../../util/getPathData";
+import RouteShowData from "../items/Show/RouteShowData";
+import RouteShowHeader from "../items/Show/RouteShowHeader";
 
 import "./Show.css";
 
@@ -27,7 +28,7 @@ const Show = ({ match }) => {
   useEffect(() => {
     getRidingRouteById(id)
       .then((res) => {
-        const { route, record, rankvalue } = res.data;
+        const { route, routedata, record, rankvalue } = res.data;
         setData({
           name: route[0].route_title,
           like: route[0].route_like,
@@ -44,10 +45,12 @@ const Show = ({ match }) => {
           topRankerAccount: rankvalue.record_top_score_user_account,
           topRankerRecord: rankvalue.record_top_score_user_time,
           rank: record,
+          path: getPathData(routedata),
         });
       })
       .catch((err) => {
         alert("경로 정보 조회에 실패하였습니다.");
+        window.location.replace("/route/show");
       });
   }, []);
   const header = {
@@ -59,8 +62,8 @@ const Show = ({ match }) => {
 
   return (
     <div className="route-show">
-      <RouterShowHeader data={header} />
-      <RouterShowData data={data} />
+      <RouteShowHeader data={header} />
+      <RouteShowData data={data} />
     </div>
   );
 };
