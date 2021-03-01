@@ -49,7 +49,7 @@ const Main = () => {
 
       getRidingRoutePathById(selectedId)
         .then((res) => {
-          setPath(getPathData(res));
+          setPath(getPathData(res, "points"));
           setPathError(true);
         })
         .catch(() => {

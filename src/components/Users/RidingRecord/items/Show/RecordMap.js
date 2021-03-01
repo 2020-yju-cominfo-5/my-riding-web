@@ -19,6 +19,7 @@ const MapRecord = ({ path, position, setGraphData }) => {
     setPointIcon(icon);
   }, []);
 
+  console.log(position);
   return (
     <>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}>

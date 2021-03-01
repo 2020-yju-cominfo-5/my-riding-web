@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { requestCheckNoti } from "../../../api/Dashboard";
 import { getDateKorContext } from "../../../util/getDateContext";
 
 import "./NotiItem.css";
 
 const NotiItem = ({ noti }) => {
-  const { type, msg, url, created_at } = noti;
+  const { id, type, msg, url, created_at } = noti;
 
   const types = {
     1001: "route",
@@ -13,6 +14,14 @@ const NotiItem = ({ noti }) => {
     1003: "medal",
   };
   const category = types[type];
+
+  const onClickHandler = (event) => {
+    const { id, tagName } = event.target;
+    requestCheckNoti(id).then(() => {
+      tagName === "DIV" && window.location.reload();
+    });
+  };
+
   const { icon, content } = {
     icon: {
       medal: <i className="fas fa-medal" style={{ color: "#f8cd58" }}></i>,
@@ -28,16 +37,18 @@ const NotiItem = ({ noti }) => {
       ),
       record: (
         <>
-          {/* FIXME URL 정보로 수정해야함 */}
-          <Link to={`${url}`}>라이딩 일지</Link> 메뉴에서 세부 라이딩 정보를
-          확인하세요.
+          <Link to={`${url}`} onClick={onClickHandler} id={id}>
+            라이딩 일지
+          </Link>{" "}
+          메뉴에서 세부 라이딩 정보를 확인하세요.
         </>
       ),
       route: (
         <>
-          {/* FIXME URL 정보로 수정해야함 */}
-          <Link to={`${url}`}>라이딩 경로</Link> 메뉴에서 세부 경로 정보를
-          확인하세요.
+          <Link to={`${url}`} onClick={onClickHandler} id={id}>
+            라이딩 경로
+          </Link>{" "}
+          메뉴에서 세부 경로 정보를 확인하세요.
         </>
       ),
     },
@@ -54,7 +65,9 @@ const NotiItem = ({ noti }) => {
       </div>
       <div className="date">{getDateKorContext({ date: created_at })}</div>
       {/* TODO 라이딩 알림 확인 API 추가 필요 -> 버튼 이벤트 추가*/}
-      <div className="close-btn">&times;</div>
+      <div className="close-btn" id={id} onClick={onClickHandler}>
+        &times;
+      </div>
     </div>
   );
 };
