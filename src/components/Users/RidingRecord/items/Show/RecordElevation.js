@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Bar } from "react-chartjs-2";
 import useMouseLeave from "../../../../../hooks/useMouseLeave";
 
