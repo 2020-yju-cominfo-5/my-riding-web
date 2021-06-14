@@ -11,6 +11,8 @@ import setPlotElevation from "../../../../../util/setPlotElevation";
 
 import { requestCreateRidingRoute } from "../../../../../api/RidingRoute";
 import "./RouteCreateEditorController.css";
+import getDistance from "../../../../../util/getDistance";
+import getRoundValue from "../../../../../util/getRoundValue";
 
 const RouteCreateEditor = ({
   id,
@@ -62,15 +64,31 @@ const RouteCreateEditor = ({
 
   useEffect(() => {
     if (address.start.flag && address.end.flag) {
-      setNewData({
-        distacne: Math.random() * 100,
-        time: Math.random() * 200,
-        grade: Math.random() * 30,
-        minAlt: Math.random() * 4000,
-        maxAlt: Math.random() * 5000,
-      });
       const tmpNewPath = path.slice(minIdx, maxIdx + 1);
       setNewPath(tmpNewPath);
+
+      let distance = getDistance(tmpNewPath) / 1000;
+      let time = (distance / 15) * 60;
+
+      const elevator = new window.google.maps.ElevationService();
+      const plotElevation = getPlotElevation({
+        path: tmpNewPath,
+        setGraphData,
+      });
+      setPlotElevation({ elevator, path: tmpNewPath, plotElevation });
+      let data = graphData.datasets[0].data;
+      let maxAlt = Math.max(...data);
+      let minAlt = Math.min(...data);
+      console.log(((maxAlt - minAlt) / distance) * 1000 * 100);
+      // console.log(graphData);
+      // https://maps.googleapis.com/maps/api/elevation/json?key=AIzaSyClA27v6a4Gi1JAbsImTxXRwH-jDb5XDaw&path=36.578581,-118.291994|36.23998,-116.83171&samples=3&sensor=true_or_false
+      setNewData({
+        distance,
+        time,
+        grade: Math.random() * 30,
+        minAlt,
+        maxAlt,
+      });
 
       let pathData = "";
       path.forEach((element) => {
@@ -84,7 +102,7 @@ const RouteCreateEditor = ({
       return;
     }
     return;
-  }, [address]);
+  }, [address, graphData]);
 
   const onAddressFlagHandler = ({ target }) => {
     addressFlag === target.name

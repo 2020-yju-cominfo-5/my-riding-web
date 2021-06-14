@@ -2,6 +2,9 @@ import getElevationDataset from "./getElevationDataset";
 
 const getPlotElevation = ({ path, setGraphData }) => {
   const plotElevation = (elevations, status) => {
+    if (status === "OVER_QUERY_LIMIT") {
+      return;
+    }
     if (status !== "OK") {
       // Show the error code inside the chartDiv.
       alert("실패");
