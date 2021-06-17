@@ -79,13 +79,13 @@ const RouteCreateEditor = ({
       let data = graphData.datasets[0].data;
       let maxAlt = Math.max(...data);
       let minAlt = Math.min(...data);
-      console.log(((maxAlt - minAlt) / distance) * 1000 * 100);
+      let grade = ((maxAlt - minAlt) / distance / 1000) * 100;
       // console.log(graphData);
       // https://maps.googleapis.com/maps/api/elevation/json?key=AIzaSyClA27v6a4Gi1JAbsImTxXRwH-jDb5XDaw&path=36.578581,-118.291994|36.23998,-116.83171&samples=3&sensor=true_or_false
       setNewData({
         distance,
         time,
-        grade: Math.random() * 30,
+        grade,
         minAlt,
         maxAlt,
       });
@@ -125,7 +125,7 @@ const RouteCreateEditor = ({
         const formData = new FormData();
         formData.append("route_title", newTitle);
         formData.append("route_image", file);
-        formData.append("route_distance", newData.distacne);
+        formData.append("route_distance", newData.distance);
         formData.append("route_time", newData.time);
         formData.append("route_avg_degree", newData.grade);
         formData.append("route_max_altitude", newData.minAlt);
