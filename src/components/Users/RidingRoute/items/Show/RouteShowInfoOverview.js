@@ -3,13 +3,14 @@ import getRoundValue from "../../../../../util/getRoundValue";
 import "./RouteShowInfoOverview.css";
 
 const RouteShowInfoOverview = ({ data }) => {
-  const { distacne, time, grade, minAlt, maxAlt } = data;
+  const { distance, time, grade, minAlt, maxAlt } = data;
+  console.log(data);
 
   return (
     <div className="top">
       <div className="item">
         <div className="title">거리</div>
-        <div className="value">{getRoundValue(distacne)}km</div>
+        <div className="value">{getRoundValue(distance) || 0}km</div>
       </div>
       <div className="item">
         <div className="title">예상 시간</div>

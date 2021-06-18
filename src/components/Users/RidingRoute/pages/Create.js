@@ -11,7 +11,7 @@ const Create = ({ match }) => {
   } = match;
   const [data, setData] = useState();
   const [newData, setNewData] = useState({
-    distacne: 0,
+    distance: 0,
     time: 0,
     grade: 0,
     minAlt: 0,

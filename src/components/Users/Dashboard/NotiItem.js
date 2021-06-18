@@ -32,7 +32,7 @@ const NotiItem = ({ noti }) => {
       medal: (
         <>
           {/* <Link to={`/profile/badge/${contentId}`}>달성 기록</Link> 메뉴에서 */}
-          어플리케이션에서 배지 상세정보를 확인하세요.
+          모바일에서 배지 상세정보를 확인하세요.
         </>
       ),
       record: (
