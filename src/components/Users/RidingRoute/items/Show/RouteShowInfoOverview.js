@@ -4,6 +4,7 @@ import "./RouteShowInfoOverview.css";
 
 const RouteShowInfoOverview = ({ data }) => {
   const { distance, time, grade, minAlt, maxAlt } = data;
+  console.log(data);
 
   return (
     <div className="top">

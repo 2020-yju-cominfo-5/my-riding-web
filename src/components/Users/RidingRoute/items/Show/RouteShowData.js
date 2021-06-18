@@ -5,7 +5,7 @@ import RouteShowRank from "./RouteShowRank";
 
 const RouteShowData = ({ data }) => {
   const overview = {
-    distacne: data.distacne,
+    distance: data.distance,
     time: data.time,
     grade: data.grade,
     minAlt: data.minAlt,
